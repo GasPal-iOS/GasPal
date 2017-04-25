@@ -5,10 +5,7 @@ At the gas station, the user can take a picture of the receipt to save for the r
 App will track all receipts and fuel log and present a dashboard with charts and insights.
 
 ## User Stories
-- [ ] User can use a tar bar to navigate between the screens: dashboard, profile, vehicle, tracking, and service
-- [ ] User can see the Dashboard screen displaying the following information:
-   - [ ] Last MPG, best MPG, average price paid
-   - [ ] Charts for MPG, gas expenses, service expenses per time (Annual, monthly, weekly)
+- [ ] User can use a tab bar to navigate between the screens: profile, vehicle, tracking, service, and dashboard
 - [ ] User can view Profile screen and enter driver's information
    - [ ] Profile screen should contain full name, drivers license number, home address
    - [ ] User can enter driver's information by scanning drivers license
@@ -23,3 +20,6 @@ App will track all receipts and fuel log and present a dashboard with charts and
       - [ ] MPG is calculated as: MPG = (current odometer - last odometer) / gallons
 - [ ] User can see list of service logs: date, location, price, description
    - [ ] User can add a new service log
+- [ ] User can see the Dashboard screen displaying the following information:
+   - [ ] Last MPG, best MPG, average price paid
+   - [ ] Charts for MPG, gas expenses, service expenses per time (Annual, monthly, weekly)
