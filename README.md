@@ -28,3 +28,40 @@ App will track all receipts and fuel log and present a dashboard with charts and
    - [ ] Last MPG, best MPG, average price paid
    - [ ] Charts for MPG, gas expenses, service expenses per time (Annual, monthly, weekly)
    - [ ] Suggest potential savings by querying MyGasFeed REST API http://www.mygasfeed.com/keys/api
+
+## Schema
+User (PFUser)
+   - id (pk)
+   - dateOfBirth (date)
+   - driverLicenseNumber (string)
+   - firstName (string)
+   - lastName (string)
+   - licenseExpiry (date)
+
+FillUpLog
+   - id (pk)
+   - gallons (float)
+   - totalPrice (float)
+   - unitPrice (float)
+   - address (string)
+   - zipCode (string)
+   - odometerReading (long)
+   - mpg (float)
+   - userId (fk)
+   - vehicleId (fk)
+   
+Vehicle
+   - id (pk)
+   - userId (fk)
+   - year (int)
+   - make (string)
+   - model (string)
+   - vin (string)
+   
+ServiceRecord
+   - id (pk)
+   - userId (fk)
+   - vehicleId (fk)
+   - stationName (string)
+   - description (string)
+   - price (float)
