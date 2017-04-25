@@ -27,3 +27,4 @@ App will track all receipts and fuel log and present a dashboard with charts and
 - [ ] User can see the Dashboard screen displaying the following information:
    - [ ] Last MPG, best MPG, average price paid
    - [ ] Charts for MPG, gas expenses, service expenses per time (Annual, monthly, weekly)
+   - [ ] Suggest potential savings by querying MyGasFeed REST API http://www.mygasfeed.com/keys/api
