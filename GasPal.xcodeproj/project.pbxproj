@@ -19,7 +19,11 @@
 		A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */; };
 		A00437DF1EB3DBEC007446B6 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */; };
 		A00437E11EB3DBFA007446B6 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */; };
-		A00437E31EB3DC9E007446B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E21EB3DC9E007446B6 /* HomeViewController.swift */; };
+		A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E41EB3DFAA007446B6 /* LoginViewController.swift */; };
+		A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E61EB3DFF0007446B6 /* ProfileModel.swift */; };
+		A00437E91EB3E000007446B6 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E81EB3E000007446B6 /* VehicleModel.swift */; };
+		A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437EA1EB3E028007446B6 /* TrackingModel.swift */; };
+		A00437ED1EB3E036007446B6 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437EC1EB3E036007446B6 /* ServiceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +41,11 @@
 		A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		A00437E21EB3DC9E007446B6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A00437E41EB3DFAA007446B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A00437E61EB3DFF0007446B6 /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A00437E81EB3E000007446B6 /* VehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
+		A00437EA1EB3E028007446B6 /* TrackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingModel.swift; sourceTree = "<group>"; };
+		A00437EC1EB3E036007446B6 /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		AA2109D5CC63A041085DB54B /* Pods-GasPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GasPal/Pods-GasPal.debug.xcconfig"; sourceTree = "<group>"; };
 		C839488FA885F022ADFF54B1 /* Pods_GasPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GasPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,6 +109,10 @@
 		A00437D41EB3DA44007446B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A00437E61EB3DFF0007446B6 /* ProfileModel.swift */,
+				A00437E81EB3E000007446B6 /* VehicleModel.swift */,
+				A00437EA1EB3E028007446B6 /* TrackingModel.swift */,
+				A00437EC1EB3E036007446B6 /* ServiceModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -121,7 +133,7 @@
 				A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */,
 				A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */,
 				A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */,
-				A00437E21EB3DC9E007446B6 /* HomeViewController.swift */,
+				A00437E41EB3DFAA007446B6 /* LoginViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -266,11 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
+				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
+				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
 				A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */,
 				A00437E11EB3DBFA007446B6 /* DashboardViewController.swift in Sources */,
 				A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */,
-				A00437E31EB3DC9E007446B6 /* HomeViewController.swift in Sources */,
 				A00437DF1EB3DBEC007446B6 /* ServiceViewController.swift in Sources */,
+				A00437ED1EB3E036007446B6 /* ServiceModel.swift in Sources */,
+				A00437E91EB3E000007446B6 /* VehicleModel.swift in Sources */,
 				A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */,
 				4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */,
 				4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  LoginViewController.swift
 //  GasPal
 //
 //  Created by Kumawat, Diwakar on 4/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
