@@ -14,6 +14,12 @@
 		4AC7FB6D1EA66A60005E2D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB6C1EA66A60005E2D2E /* Assets.xcassets */; };
 		4AC7FB701EA66A60005E2D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB6E1EA66A60005E2D2E /* LaunchScreen.storyboard */; };
 		4AC7FB781EA66D65005E2D2E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB771EA66D65005E2D2E /* tessdata */; };
+		A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */; };
+		A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */; };
+		A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */; };
+		A00437DF1EB3DBEC007446B6 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */; };
+		A00437E11EB3DBFA007446B6 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */; };
+		A00437E31EB3DC9E007446B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437E21EB3DC9E007446B6 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		4AC7FB6F1EA66A60005E2D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AC7FB711EA66A60005E2D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC7FB771EA66D65005E2D2E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
+		A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
+		A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		A00437E21EB3DC9E007446B6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA2109D5CC63A041085DB54B /* Pods-GasPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GasPal/Pods-GasPal.debug.xcconfig"; sourceTree = "<group>"; };
 		C839488FA885F022ADFF54B1 /* Pods_GasPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GasPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,15 +84,53 @@
 		4AC7FB641EA66A60005E2D2E /* GasPal */ = {
 			isa = PBXGroup;
 			children = (
+				A00437D71EB3DA77007446B6 /* View */,
+				A00437D61EB3DA5B007446B6 /* ViewController */,
+				A00437D51EB3DA54007446B6 /* Client */,
+				A00437D41EB3DA44007446B6 /* Model */,
 				4AC7FB771EA66D65005E2D2E /* tessdata */,
 				4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */,
-				4AC7FB671EA66A60005E2D2E /* ViewController.swift */,
 				4AC7FB691EA66A60005E2D2E /* Main.storyboard */,
 				4AC7FB6C1EA66A60005E2D2E /* Assets.xcassets */,
 				4AC7FB6E1EA66A60005E2D2E /* LaunchScreen.storyboard */,
 				4AC7FB711EA66A60005E2D2E /* Info.plist */,
 			);
 			path = GasPal;
+			sourceTree = "<group>";
+		};
+		A00437D41EB3DA44007446B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A00437D51EB3DA54007446B6 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		A00437D61EB3DA5B007446B6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4AC7FB671EA66A60005E2D2E /* ViewController.swift */,
+				A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */,
+				A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */,
+				A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */,
+				A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */,
+				A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */,
+				A00437E21EB3DC9E007446B6 /* HomeViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A00437D71EB3DA77007446B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		CC5D7339B85EFB6EA1210D0F /* Frameworks */ = {
@@ -216,6 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */,
+				A00437E11EB3DBFA007446B6 /* DashboardViewController.swift in Sources */,
+				A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */,
+				A00437E31EB3DC9E007446B6 /* HomeViewController.swift in Sources */,
+				A00437DF1EB3DBEC007446B6 /* ServiceViewController.swift in Sources */,
+				A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */,
 				4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */,
 				4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */,
 			);
