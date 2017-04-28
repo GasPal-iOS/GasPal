@@ -12,8 +12,7 @@ class VehicleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print("VehicleViewController")
     }
 
     override func didReceiveMemoryWarning() {

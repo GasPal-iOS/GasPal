@@ -15,10 +15,10 @@ class ViewController: UIViewController, G8TesseractDelegate {
         
         let tesseract:G8Tesseract = G8Tesseract(language:"eng");
         tesseract.delegate = self;
-        tesseract.image = UIImage(named: "receipt.jpg");
-        tesseract.recognize();
+        //tesseract.image = UIImage(named: "receipt.jpg");
+        //tesseract.recognize();
         
-        NSLog("%@", tesseract.recognizedText);
+        //NSLog("%@", tesseract.recognizedText);
     }
     
     override func didReceiveMemoryWarning() {

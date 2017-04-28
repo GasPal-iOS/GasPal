@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HTr-l2-GuV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Dashboard-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" title="Dashboard" id="BYZ-38-t0r" customClass="DashboardViewController" customModule="GasPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +21,116 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="Bar Chart-48.png" id="Wqr-VU-xUD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1055.2" y="121.88905547226388"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="6yn-4U-Hv8">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile" id="LJd-0H-Ah8" customClass="ProfileViewController" customModule="GasPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mod-Nz-eBw"/>
+                        <viewControllerLayoutGuide type="bottom" id="xRq-MI-xZp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="22b-qs-yZa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="User-48.png" id="smY-4K-85L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="toM-uG-yQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="777"/>
+        </scene>
+        <!--Tracking-->
+        <scene sceneID="Pdq-sd-nQv">
+            <objects>
+                <viewController storyboardIdentifier="TrackingViewController" title="Tracking" id="xHO-JK-sSK" customClass="TrackingViewController" customModule="GasPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a6T-fb-MYV"/>
+                        <viewControllerLayoutGuide type="bottom" id="NVk-8D-N1e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xvc-TO-edd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Delivery-48.png" id="jtg-cu-cD4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSt-WM-UrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086" y="1460"/>
+        </scene>
+        <!--Service View Controller-->
+        <scene sceneID="EOC-V1-yqu">
+            <objects>
+                <viewController storyboardIdentifier="ServiceViewController" id="C6Q-Y7-Kss" customClass="ServiceViewController" customModule="GasPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wL6-sP-2g7"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZkE-BS-jgC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RuX-nI-EGV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Maintenance-48.png" id="xWk-X8-NWO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kvh-N6-bH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1823" y="862"/>
+        </scene>
+        <!--Vehicles-->
+        <scene sceneID="Hyb-KS-cDO">
+            <objects>
+                <viewController storyboardIdentifier="VehicleViewController" title="Vehicles" id="bNx-eI-WuZ" customClass="VehicleViewController" customModule="GasPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dqy-GY-i9h"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Ih-kR-Boz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zun-eQ-ZaK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Carpool-48.png" id="sNl-xC-fFA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vyh-jF-V77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1806" y="122"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="iYT-DG-cfX">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HTr-l2-GuV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ath-cV-2oz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="X5g-7g-q5u"/>
+                        <segue destination="LJd-0H-Ah8" kind="relationship" relationship="viewControllers" id="3RI-NL-KXG"/>
+                        <segue destination="bNx-eI-WuZ" kind="relationship" relationship="viewControllers" id="yze-mJ-dC8"/>
+                        <segue destination="C6Q-Y7-Kss" kind="relationship" relationship="viewControllers" id="orX-0b-yqp"/>
+                        <segue destination="xHO-JK-sSK" kind="relationship" relationship="viewControllers" id="Hvv-4C-Mgh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Tp-M1-pbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="121.88905547226388"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bar Chart-48.png" width="48" height="48"/>
+        <image name="Carpool-48.png" width="48" height="48"/>
+        <image name="Delivery-48.png" width="48" height="48"/>
+        <image name="Maintenance-48.png" width="48" height="48"/>
+        <image name="User-48.png" width="48" height="48"/>
+    </resources>
 </document>
