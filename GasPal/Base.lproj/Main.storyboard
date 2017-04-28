@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +20,19 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DashboardViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK4-nE-haM">
+                                <rect key="frame" x="103" y="311" width="197" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QK4-nE-haM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="87" id="AhL-7a-fc4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QK4-nE-haM" secondAttribute="bottom" constant="286" id="B5u-tB-K9B"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Bar Chart-48.png" id="Wqr-VU-xUD"/>
                 </viewController>
@@ -38,7 +51,19 @@
                     <view key="view" contentMode="scaleToFill" id="22b-qs-yZa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProfileViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGi-h5-TJD">
+                                <rect key="frame" x="166" y="310" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xRq-MI-xZp" firstAttribute="top" secondItem="mGi-h5-TJD" secondAttribute="bottom" constant="287" id="8sy-RP-0If"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mGi-h5-TJD" secondAttribute="trailing" constant="32" id="ETn-gb-G2x"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="User-48.png" id="smY-4K-85L"/>
                 </viewController>
@@ -57,7 +82,19 @@
                     <view key="view" contentMode="scaleToFill" id="xvc-TO-edd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrackingViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqm-nY-mVA">
+                                <rect key="frame" x="98" y="310" width="179" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fqm-nY-mVA" firstAttribute="centerX" secondItem="xvc-TO-edd" secondAttribute="centerX" id="51m-4F-Xc2"/>
+                            <constraint firstItem="NVk-8D-N1e" firstAttribute="top" secondItem="fqm-nY-mVA" secondAttribute="bottom" constant="287" id="8Ht-Ym-mcW"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Delivery-48.png" id="jtg-cu-cD4"/>
                 </viewController>
@@ -76,7 +113,19 @@
                     <view key="view" contentMode="scaleToFill" id="RuX-nI-EGV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ServiceViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-fa-eoH">
+                                <rect key="frame" x="107" y="323" width="169" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7RU-fa-eoH" firstAttribute="leading" secondItem="RuX-nI-EGV" secondAttribute="leadingMargin" constant="91" id="ZAz-QZ-CQ6"/>
+                            <constraint firstItem="7RU-fa-eoH" firstAttribute="centerY" secondItem="RuX-nI-EGV" secondAttribute="centerY" id="cCv-eP-haw"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Maintenance-48.png" id="xWk-X8-NWO"/>
                 </viewController>
@@ -95,7 +144,19 @@
                     <view key="view" contentMode="scaleToFill" id="zun-eQ-ZaK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VehicleViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-wv-9In">
+                                <rect key="frame" x="89" y="310" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Ih-kR-Boz" firstAttribute="top" secondItem="q5m-wv-9In" secondAttribute="bottom" constant="287" id="0EX-TW-1CY"/>
+                            <constraint firstItem="q5m-wv-9In" firstAttribute="leading" secondItem="zun-eQ-ZaK" secondAttribute="leadingMargin" constant="73" id="DLu-Ch-GBu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Carpool-48.png" id="sNl-xC-fFA"/>
                 </viewController>
