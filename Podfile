@@ -7,5 +7,8 @@ target 'GasPal' do
 
   # Pods for GasPal
   pod 'TesseractOCRiOS', '4.0.0'
+  pod 'AFNetworking', '~> 2.5'
+  pod 'BDBOAuth1Manager'
+  pod 'MBProgressHUD'
 
 end
