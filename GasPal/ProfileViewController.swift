@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
         print("ProfileViewController")
         
         headerView.title = "Profile"
+        headerView.doShowCameraIcon = true
+        headerView.doShowAddIcon = true
     }
 
     override func didReceiveMemoryWarning() {

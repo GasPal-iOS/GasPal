@@ -17,6 +17,8 @@ class VehicleViewController: UIViewController {
         print("VehicleViewController")
         
         headerView.title = "Vehicle"
+        headerView.doShowCameraIcon = true
+        headerView.doShowAddIcon = true
     }
 
     override func didReceiveMemoryWarning() {

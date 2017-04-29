@@ -17,6 +17,7 @@ class ServiceViewController: UIViewController {
         print("ServiceViewController")
         
         headerView.title = "Services"
+        headerView.doShowAddIcon = true
     }
 
     override func didReceiveMemoryWarning() {

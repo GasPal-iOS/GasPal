@@ -17,6 +17,8 @@ class TrackingViewController: UIViewController {
         print("TrackingViewController")
         
         headerView.title = "Tracking"
+        headerView.doShowCameraIcon = true
+        headerView.doShowAddIcon = true
     }
 
     override func didReceiveMemoryWarning() {
