@@ -9,10 +9,14 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var headerView: Header!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewController")
+        
+        headerView.title = "Profile"
     }
 
     override func didReceiveMemoryWarning() {

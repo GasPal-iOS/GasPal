@@ -9,10 +9,14 @@
 import UIKit
 
 class TrackingViewController: UIViewController {
+    
+    @IBOutlet weak var headerView: Header!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("TrackingViewController")
+        
+        headerView.title = "Tracking"
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,10 +9,14 @@
 import UIKit
 
 class ServiceViewController: UIViewController {
+    
+    @IBOutlet weak var headerView: Header!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ServiceViewController")
+        
+        headerView.title = "Services"
     }
 
     override func didReceiveMemoryWarning() {

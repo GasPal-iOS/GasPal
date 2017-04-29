@@ -9,10 +9,14 @@
 import UIKit
 
 class VehicleViewController: UIViewController {
-
+    
+    @IBOutlet weak var headerView: Header!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("VehicleViewController")
+        
+        headerView.title = "Vehicle"
     }
 
     override func didReceiveMemoryWarning() {

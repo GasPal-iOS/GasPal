@@ -10,9 +10,13 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
+    @IBOutlet weak var headerView: Header!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DashboardViewController")
+        
+        headerView.title = "Dashboard"
     }
 
     override func didReceiveMemoryWarning() {

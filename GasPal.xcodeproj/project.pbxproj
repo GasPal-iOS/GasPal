@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D06017668C39A8713C9A841 /* Pods_GasPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C839488FA885F022ADFF54B1 /* Pods_GasPal.framework */; };
+		4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A44A71EB4261200AFFB65 /* Header.xib */; };
+		4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44AA1EB4265200AFFB65 /* Header.swift */; };
 		4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */; };
 		4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB671EA66A60005E2D2E /* ViewController.swift */; };
 		4AC7FB6B1EA66A60005E2D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB691EA66A60005E2D2E /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		33873FA7235D252D02DB39F8 /* Pods-GasPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-GasPal/Pods-GasPal.release.xcconfig"; sourceTree = "<group>"; };
+		4A4A44A71EB4261200AFFB65 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
+		4A4A44AA1EB4265200AFFB65 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		4AC7FB621EA66A60005E2D2E /* GasPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC7FB671EA66A60005E2D2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,15 @@
 				33873FA7235D252D02DB39F8 /* Pods-GasPal.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A4A44A91EB4261D00AFFB65 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				4A4A44A71EB4261200AFFB65 /* Header.xib */,
+				4A4A44AA1EB4265200AFFB65 /* Header.swift */,
+			);
+			name = Header;
 			sourceTree = "<group>";
 		};
 		4AC7FB591EA66A5F005E2D2E = {
@@ -169,6 +182,7 @@
 		A00437D71EB3DA77007446B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4A4A44A91EB4261D00AFFB65 /* Header */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -259,6 +273,7 @@
 			files = (
 				A0EC53D61EB3F76F004258BD /* Maintenance-48.png in Resources */,
 				4AC7FB701EA66A60005E2D2E /* LaunchScreen.storyboard in Resources */,
+				4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */,
 				A0EC53DC1EB3F933004258BD /* Dashboard-48.png in Resources */,
 				A0EC53E11EB3FA3F004258BD /* Bar Chart-48.png in Resources */,
 				4AC7FB781EA66D65005E2D2E /* tessdata in Resources */,
@@ -327,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */,
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
