@@ -34,7 +34,13 @@ class ServiceModel: NSObject {
         set {
             _vehicle = newValue
             pfObject["vehicle"] = newValue?.pfObject
+            userId = _vehicle?.userId
         }
+    }
+    
+    var userId: String? {
+        get { return pfObject["userId"] as? String }
+        set { pfObject["userId"] = newValue }
     }
     
     var serviceDate: Date? {

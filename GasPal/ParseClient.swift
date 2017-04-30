@@ -101,6 +101,21 @@ class ParseClient: NSObject {
         }
     }
     
+    func getTrackings(success: @escaping ([TrackingModel]) -> (), failure: @escaping (Error) -> ()) {
+        let userId = PFUser.current()!.objectId!
+        let query = PFQuery(className: TrackingModel.className).whereKey("userId", equalTo: userId)
+        query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
+            if let error = error {
+                print("getTrackings; status=failed; userId=\(userId); error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                let trackings = TrackingModel.toArray(objects: results)
+                print("getTrackings; status=success; userId=\(userId); total=\(trackings.count)")
+                success(trackings)
+            }
+        }
+    }
+    
     func getTrackings(vehicle: VehicleModel, success: @escaping ([TrackingModel]) -> (), failure: @escaping (Error) -> ()) {
         let query = PFQuery(className: TrackingModel.className).whereKey("vehicle", equalTo: vehicle.pfObject)
         query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
@@ -111,6 +126,21 @@ class ParseClient: NSObject {
                 let trackings = TrackingModel.toArray(objects: results)
                 print("getTrackings; status=success; total=\(trackings.count)")
                 success(trackings)
+            }
+        }
+    }
+    
+    func getServices(success: @escaping ([ServiceModel]) -> (), failure: @escaping (Error) -> ()) {
+        let userId = PFUser.current()!.objectId!
+        let query = PFQuery(className: ServiceModel.className).whereKey("userId", equalTo: userId)
+        query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
+            if let error = error {
+                print("getServices; status=failed; userId=\(userId); error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                let services = ServiceModel.toArray(objects: results)
+                print("getServices; status=success; userId=\(userId); total=\(services.count)")
+                success(services)
             }
         }
     }
