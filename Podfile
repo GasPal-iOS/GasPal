@@ -6,7 +6,7 @@ target 'GasPal' do
   use_frameworks!
 
   # Pods for GasPal
-  pod 'TesseractOCRiOS', '4.0.0'
+  pod 'TesseractOCRiOS', :git => 'https://github.com/gali8/Tesseract-OCR-iOS.git'
   pod 'AFNetworking', '~> 2.5'
   pod 'MBProgressHUD'
   pod 'Parse'
