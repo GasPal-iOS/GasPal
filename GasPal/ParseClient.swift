@@ -98,7 +98,7 @@ class ParseClient: NSObject {
                 print("getTrackings; status=failed; error=\(error.localizedDescription)")
                 failure(error)
             } else {
-                let trackings = TrackingModel.toServiceArray(objects: results)
+                let trackings = TrackingModel.toArray(objects: results)
                 print("getTrackings; status=success; total=\(trackings.count)")
                 success(trackings)
             }
@@ -112,9 +112,24 @@ class ParseClient: NSObject {
                 print("getServices; status=failed; error=\(error.localizedDescription)")
                 failure(error)
             } else {
-                let services = ServiceModel.toServiceArray(objects: results)
+                let services = ServiceModel.toArray(objects: results)
                 print("getServices; status=success; total=\(services.count)")
                 success(services)
+            }
+        }
+    }
+    
+    func getVehicles(success: @escaping ([VehicleModel]) -> (), failure: @escaping (Error) -> ()) {
+        let userId = PFUser.current()!.objectId!
+        let query = PFQuery(className: VehicleModel.className).whereKey("userId", equalTo: userId);
+        query.findObjectsInBackground { (results, error) in
+            if let error = error {
+                print("getVehicles; status=failed; userId=\(userId); error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                let vehicles = VehicleModel.toArray(objects: results)
+                print("getVehicles; status=success; userId=\(userId); total=\(vehicles.count)")
+                success(vehicles)
             }
         }
     }

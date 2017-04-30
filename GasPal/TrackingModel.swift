@@ -77,7 +77,7 @@ class TrackingModel: NSObject {
         set { pfObject["mpg"] = newValue }
     }
     
-    static func toServiceArray (objects: [PFObject]?) -> ([TrackingModel]) {
+    static func toArray (objects: [PFObject]?) -> ([TrackingModel]) {
         var items = [TrackingModel]()
         if let objects = objects {
             for pfObject in objects {

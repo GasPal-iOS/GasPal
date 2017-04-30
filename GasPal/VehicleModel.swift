@@ -21,11 +21,17 @@ class VehicleModel: NSObject {
     
     override init() {
         super.init()
+        userId = PFUser.current()?.objectId
     }
     
     var id: String? {
         get { return pfObject.objectId }
         set { pfObject.objectId = id }
+    }
+    
+    var userId: String? {
+        get { return pfObject["userId"] as? String }
+        set { pfObject["userId"] = newValue }
     }
     
     var year: Int? {
@@ -48,7 +54,7 @@ class VehicleModel: NSObject {
         set { pfObject["vin"] = newValue }
     }
     
-    static func toServiceArray (objects: [PFObject]?) -> ([VehicleModel]) {
+    static func toArray (objects: [PFObject]?) -> ([VehicleModel]) {
         var items = [VehicleModel]()
         if let objects = objects {
             for pfObject in objects {

@@ -57,7 +57,7 @@ class ServiceModel: NSObject {
         set { pfObject["price"] = newValue }
     }
     
-    static func toServiceArray (objects: [PFObject]?) -> ([ServiceModel]) {
+    static func toArray (objects: [PFObject]?) -> ([ServiceModel]) {
         var items = [ServiceModel]()
         if let objects = objects {
             for pfObject in objects {
