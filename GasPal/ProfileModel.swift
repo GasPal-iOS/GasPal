@@ -7,7 +7,32 @@
 //
 
 import UIKit
+import Parse
 
-class ProfileModel: NSObject {
+class ProfileModel: PFUser {
 
+    var dateOfBirth: Date? {
+        get { return self["dateOfBirth"] as? Date }
+        set { self["dateOfBirth"] = newValue }
+    }
+    
+    var driverLicenseNumber: String? {
+        get { return self["driverLicenseNumber"] as? String }
+        set { self["driverLicenseNumber"] = newValue }
+    }
+    
+    var firstName: String? {
+        get { return self["firstName"] as? String }
+        set { self["firstName"] = newValue }
+    }
+    
+    var lastName: String? {
+        get { return self["lastName"] as? String }
+        set { self["lastName"] = newValue }
+    }
+    
+    var licenseExpiry: Date? {
+        get { return self["licenseExpiry"] as? Date }
+        set { self["licenseExpiry"] = newValue }
+    }
 }

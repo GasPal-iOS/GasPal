@@ -27,7 +27,7 @@ class ParseClient: NSObject {
         )
     }
     
-    func signUp(email: String!, password: String!, success: @escaping (PFUser) -> (), failure: @escaping (Error) -> ()) {
+    func signUp(email: String!, password: String!, success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
         let user = PFUser()
         user.email = email
         user.username = email
@@ -38,20 +38,30 @@ class ParseClient: NSObject {
                 failure(error)
             } else {
                 print("signUp; status=success; user=\(user.username!)")
-                success(user)
+                success(user as! ProfileModel)
             }
         }
     }
 
-    func login(email: String!, password: String!, success: @escaping (PFUser) -> (), failure: @escaping (Error) -> ()) {
+    func login(email: String!, password: String!, success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
         PFUser.logInWithUsername(inBackground: email, password: password) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print("login; status=failed; error=\(error.localizedDescription)")
                 failure(error)
             } else {
                 print("login; status=success; user=\(user!.username!)")
-                success(user!)
+                success(user as! ProfileModel)
             }
+        }
+    }
+    
+    func save(profile: ProfileModel, success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
+        do {
+            try profile.save()
+            success(profile)
+        } catch {
+            let error = NSError(domain:"Error saving profile", code: 500, userInfo:nil)
+            failure(error)
         }
     }
     
