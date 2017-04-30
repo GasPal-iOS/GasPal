@@ -54,4 +54,40 @@ class ParseClient: NSObject {
             }
         }
     }
+    
+    func save(vehicle: VehicleModel, success: @escaping (VehicleModel) -> (), failure: @escaping (Error) -> ()) {
+        vehicle.pfObject.saveInBackground { (succeeded, error) in
+            if let error = error {
+                print("save; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                print("save; status=success; vehicleId=\(vehicle.id ?? "nil")")
+                success(vehicle)
+            }
+        }
+    }
+    
+    func save(tracking: TrackingModel, success: @escaping (TrackingModel) -> (), failure: @escaping (Error) -> ()) {
+        tracking.pfObject.saveInBackground { (succeeded, error) in
+            if let error = error {
+                print("save; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                print("save; status=success; trackingId=\(tracking.id ?? "nil")")
+                success(tracking)
+            }
+        }
+    }
+    
+    func save(service: ServiceModel, success: @escaping (ServiceModel) -> (), failure: @escaping (Error) -> ()) {
+        service.pfObject.saveInBackground { (succeeded, error) in
+            if let error = error {
+                print("save; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                print("save; status=success; serviceId=\(service.id ?? "nil")")
+                success(service)
+            }
+        }
+    }
 }
