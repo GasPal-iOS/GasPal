@@ -63,13 +63,13 @@ class TrackingModel: NSObject {
         set { pfObject["totalPrice"] = newValue }
     }
     
-    var odometerStart: CLong? {
-        get { return pfObject["odometerStart"] as? CLong }
+    var odometerStart: Int? {
+        get { return pfObject["odometerStart"] as? Int }
         set { pfObject["odometerStart"] = newValue }
     }
     
-    var odometerEnd: CLong? {
-        get { return pfObject["odometerEnd"] as? CLong }
+    var odometerEnd: Int? {
+        get { return pfObject["odometerEnd"] as? Int }
         set { pfObject["odometerEnd"] = newValue }
     }
     
@@ -86,5 +86,17 @@ class TrackingModel: NSObject {
             }
         }
         return items
+    }
+    
+    func calculate() {
+        let gallons = self.gallons ?? 0
+        let unitPrice = self.unitPrice ?? 0
+        self.totalPrice = Double(round(100 * gallons * unitPrice)/100)
+        
+        if let odometerStart = odometerStart,
+            let odometerEnd = odometerEnd {
+            let mpg = Double(odometerEnd - odometerStart) / gallons
+            self.mpg = Double(round(mpg * 10)/10)
+        }
     }
 }
