@@ -173,4 +173,77 @@ class ParseClient: NSObject {
             }
         }
     }
+    
+    func createTestAccount(success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
+        // Create test user
+        let now = lround(Date().timeIntervalSince1970)
+        signUp(email: "gaspaltest+\(now)@gmail.com", password: "test12", success: { (profile) in
+            
+            profile.dateOfBirth = Calendar.current.date(byAdding: .year, value: -27, to: Date())
+            profile.driverLicenseNumber = "D\(now)"
+            profile.firstName = "Joe"
+            profile.lastName = "Doe"
+            self.save(profile: profile, success: { (profile) in
+            }, failure: { (error) in
+            })
+            
+            let vehicle = VehicleModel()
+            vehicle.make = "Audi"
+            vehicle.model = "A3"
+            vehicle.year = 2011
+            vehicle.vin = "1FMDK06W89GA52368"
+            
+            // Create vehicle
+            self.save(vehicle: vehicle, success: { (vehicle) in
+                print(vehicle.id ?? "nil")
+                
+                var start = 20000 as Int
+                for i in 0 ... 24 {
+                    let tracking = TrackingModel()
+                    tracking.date = Calendar.current.date(byAdding: .month, value: i - 24, to: Date())
+                    tracking.gallons = 12.800 + Double(i) / 100
+                    tracking.odometerStart = start
+                    tracking.odometerEnd = tracking.odometerStart! + (500 + i)
+                    start = tracking.odometerEnd!
+                    tracking.unitPrice = 2.899 - Double(i)/100
+                    tracking.calculate()
+                    tracking.vehicle = vehicle
+                    
+                    // Create fuel tracking
+                    self.save(tracking: tracking, success: { (tracking) in
+                        
+                    }) { (error) in
+                        print("createTestAccount=failure; \(error.localizedDescription)")
+                    }
+                }
+                
+                let descriptions = ["Oil Change", "Scheduled Maintenance", "Tires Rotation", "Brakes Checkup", "Engine Tunning", "Battery Repacement"]
+                let stations = ["Audi Palo Alto", "AJ Mechanical", "Audi Stevens Creek", "Jon's Auto Repair", "Audi San Jose", "GasPal Auto Center"]
+                for i in 0 ... 24 {
+                    let service = ServiceModel()
+                    service.serviceDate = Calendar.current.date(byAdding: .month, value: -4*i, to: Date())
+                    service.serviceDescription = descriptions[i % descriptions.count]
+                    service.price = 100.0 + Double(10 * i)
+                    service.stationName = stations[i % descriptions.count]
+                    service.vehicle = vehicle
+                    
+                    self.save(service: service, success: { (tracking) in
+                        print(vehicle.id ?? "nil")
+                    }) { (error) in
+                        print("createTestAccount=failure; \(error.localizedDescription)")
+                    }
+                }
+                print("createTestAccount=success; user=\(profile.username!)")
+                success(profile)
+                
+            }, failure: { (error) in
+                print("createTestAccount=failure; \(error.localizedDescription)")
+                failure(error)
+            })
+            
+        }) { (error) in
+            print("createTestAccount=failure; \(error.localizedDescription)")
+            failure(error)
+        }
+    }
 }
