@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
     
     @IBOutlet weak var headerView: Header!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewController")
+        
+        headerView.imageCaptureDelegate = self
+        headerView.formCompleteDelegate = self
         
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
@@ -26,6 +29,19 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func onImageCaptured(capturedImage: UIImage) {
+        OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
+            
+            print("The data", extractedData)
+            
+        }, error: {
+            
+        })
+    }
+    
+    func onFormCompleted() {
+        
+    }
 
     /*
     // MARK: - Navigation

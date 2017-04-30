@@ -10,6 +10,9 @@
 		3D06017668C39A8713C9A841 /* Pods_GasPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C839488FA885F022ADFF54B1 /* Pods_GasPal.framework */; };
 		4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A44A71EB4261200AFFB65 /* Header.xib */; };
 		4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44AA1EB4265200AFFB65 /* Header.swift */; };
+		4A4A44B31EB57C7800AFFB65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */; };
+		4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */; };
+		4A4A44B71EB57FB700AFFB65 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */; };
 		4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */; };
 		4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB671EA66A60005E2D2E /* ViewController.swift */; };
 		4AC7FB6B1EA66A60005E2D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB691EA66A60005E2D2E /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		33873FA7235D252D02DB39F8 /* Pods-GasPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-GasPal/Pods-GasPal.release.xcconfig"; sourceTree = "<group>"; };
 		4A4A44A71EB4261200AFFB65 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		4A4A44AA1EB4265200AFFB65 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPalNotification.swift; sourceTree = "<group>"; };
+		4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		4AC7FB621EA66A60005E2D2E /* GasPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC7FB671EA66A60005E2D2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				A00437E81EB3E000007446B6 /* VehicleModel.swift */,
 				A00437EA1EB3E028007446B6 /* TrackingModel.swift */,
 				A00437EC1EB3E036007446B6 /* ServiceModel.swift */,
+				4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,6 +199,8 @@
 				A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */,
 				A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */,
 				A00437E41EB3DFAA007446B6 /* LoginViewController.swift */,
+				4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */,
+				4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -368,11 +377,13 @@
 				60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */,
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
 				60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */,
+				4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
 				A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */,
 				A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */,
 				A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */,
+				4A4A44B31EB57C7800AFFB65 /* MainViewController.swift in Sources */,
 				A00437E11EB3DBFA007446B6 /* DashboardViewController.swift in Sources */,
 				A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */,
 				A00437DF1EB3DBEC007446B6 /* ServiceViewController.swift in Sources */,
@@ -380,6 +391,7 @@
 				A00437E91EB3E000007446B6 /* VehicleModel.swift in Sources */,
 				A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */,
 				4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */,
+				4A4A44B71EB57FB700AFFB65 /* CameraViewController.swift in Sources */,
 				4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */,
 				A00437EF1EB3E5F9007446B6 /* ParseClient.swift in Sources */,
 			);

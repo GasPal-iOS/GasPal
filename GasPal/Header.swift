@@ -8,9 +8,12 @@
 
 import UIKit
 
-protocol HeaderDelegate: class {
-    func onCameraTap()
-    func onAddTap()
+protocol ImageCaptureDelegate: class {
+    func onImageCaptured(capturedImage: UIImage)
+}
+
+protocol FormCompleteDelegate: class {
+    func onFormCompleted()
 }
 
 class Header: UIView {
@@ -35,7 +38,8 @@ class Header: UIView {
         }
     }
     
-    weak var delegate: HeaderDelegate?
+    weak var imageCaptureDelegate: ImageCaptureDelegate?
+    weak var formCompleteDelegate: FormCompleteDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -53,6 +57,17 @@ class Header: UIView {
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
+        
+        // Observe for when an image is captured
+        NotificationCenter.default.addObserver(forName: GasPalNotification.imageCaptured, object: nil, queue: OperationQueue.main) { (Notification) in
+            
+            let notificationData = Notification.userInfo
+            let capturedImage = notificationData?["capturedImage"] as! UIImage
+            
+            // Hand off capturedImage to the delegate
+            self.imageCaptureDelegate?.onImageCaptured(capturedImage: capturedImage)
+            
+        }
         
         headerTitleLabel.text = title
     }
@@ -82,7 +97,7 @@ class Header: UIView {
     }
     
     func onCameraTap() {
-
+        NotificationCenter.default.post(name: GasPalNotification.openCamera, object: nil)
     }
     
     func onAddTap() {
