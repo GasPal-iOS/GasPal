@@ -11,7 +11,9 @@ import Parse
 
 class TrackingModel: NSObject {
     
-    var pfObject = PFObject(className: "TrackingModel")
+    static let className = String(describing: TrackingModel.self)
+    
+    var pfObject = PFObject(className: TrackingModel.className)
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
@@ -29,6 +31,15 @@ class TrackingModel: NSObject {
     var vehicleId: String? {
         get { return pfObject["vehicleId"] as? String }
         set { pfObject["vehicleId"] = newValue }
+    }
+    
+    private var _vehicle: VehicleModel?
+    var vehicle: VehicleModel? {
+        get { return _vehicle }
+        set {
+           _vehicle = newValue
+            pfObject["vehicle"] = newValue?.pfObject
+        }
     }
     
     var date: Date? {
@@ -64,5 +75,15 @@ class TrackingModel: NSObject {
     var mpg: Double? {
         get { return pfObject["mpg"] as? Double }
         set { pfObject["mpg"] = newValue }
+    }
+    
+    static func toServiceArray (objects: [PFObject]?) -> ([TrackingModel]) {
+        var items = [TrackingModel]()
+        if let objects = objects {
+            for pfObject in objects {
+                items.append(TrackingModel(pfObject: pfObject))
+            }
+        }
+        return items
     }
 }

@@ -11,7 +11,9 @@ import Parse
 
 class VehicleModel: NSObject {
 
-    var pfObject = PFObject(className: "VehicleModel")
+    static let className = String(describing: VehicleModel.self)
+    
+    var pfObject = PFObject(className: VehicleModel.className)
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
@@ -44,5 +46,15 @@ class VehicleModel: NSObject {
     var vin: String? {
         get { return pfObject["vin"] as? String }
         set { pfObject["vin"] = newValue }
+    }
+    
+    static func toServiceArray (objects: [PFObject]?) -> ([VehicleModel]) {
+        var items = [VehicleModel]()
+        if let objects = objects {
+            for pfObject in objects {
+                items.append(VehicleModel(pfObject: pfObject))
+            }
+        }
+        return items
     }
 }

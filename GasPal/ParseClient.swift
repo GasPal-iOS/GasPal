@@ -90,4 +90,32 @@ class ParseClient: NSObject {
             }
         }
     }
+    
+    func getTrackings(vehicle: VehicleModel, success: @escaping ([TrackingModel]) -> (), failure: @escaping (Error) -> ()) {
+        let query = PFQuery(className: TrackingModel.className).whereKey("vehicle", equalTo: vehicle.pfObject)
+        query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
+            if let error = error {
+                print("getTrackings; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                let trackings = TrackingModel.toServiceArray(objects: results)
+                print("getTrackings; status=success; total=\(trackings.count)")
+                success(trackings)
+            }
+        }
+    }
+    
+    func getServices(vehicle: VehicleModel, success: @escaping ([ServiceModel]) -> (), failure: @escaping (Error) -> ()) {
+        let query = PFQuery(className: ServiceModel.className).whereKey("vehicle", equalTo: vehicle.pfObject)
+        query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
+            if let error = error {
+                print("getServices; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                let services = ServiceModel.toServiceArray(objects: results)
+                print("getServices; status=success; total=\(services.count)")
+                success(services)
+            }
+        }
+    }
 }

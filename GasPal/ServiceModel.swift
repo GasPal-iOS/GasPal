@@ -11,7 +11,9 @@ import Parse
 
 class ServiceModel: NSObject {
 
-    var pfObject = PFObject(className: "ServiceModel")
+    static let className = String(describing: ServiceModel.self)
+    
+    var pfObject = PFObject(className: ServiceModel.className)
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
@@ -26,9 +28,13 @@ class ServiceModel: NSObject {
         set { pfObject.objectId = id }
     }
     
-    var vehicleId: String? {
-        get { return pfObject["vehicleId"] as? String }
-        set { pfObject["vehicleId"] = newValue }
+    private var _vehicle: VehicleModel?
+    var vehicle: VehicleModel? {
+        get { return _vehicle }
+        set {
+            _vehicle = newValue
+            pfObject["vehicle"] = newValue?.pfObject
+        }
     }
     
     var serviceDate: Date? {
@@ -49,5 +55,15 @@ class ServiceModel: NSObject {
     var price: Double? {
         get { return pfObject["price"] as? Double }
         set { pfObject["price"] = newValue }
+    }
+    
+    static func toServiceArray (objects: [PFObject]?) -> ([ServiceModel]) {
+        var items = [ServiceModel]()
+        if let objects = objects {
+            for pfObject in objects {
+                items.append(ServiceModel(pfObject: pfObject))
+            }
+        }
+        return items
     }
 }
