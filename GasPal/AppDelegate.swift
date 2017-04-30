@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().backgroundColor = UIColor.white
         UITabBar.appearance().tintColor = UIColor.blue
         
+        // Initialize Tesseract
+        OCRClient.initializeTesseract()
         
         return true
     }

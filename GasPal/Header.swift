@@ -9,7 +9,8 @@
 import UIKit
 
 protocol HeaderDelegate: class {
-    
+    func onCameraTap()
+    func onAddTap()
 }
 
 class Header: UIView {
@@ -33,6 +34,8 @@ class Header: UIView {
             initAddIcon()
         }
     }
+    
+    weak var delegate: HeaderDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -79,11 +82,11 @@ class Header: UIView {
     }
     
     func onCameraTap() {
-        
+
     }
     
     func onAddTap() {
-        
+
     }
 
     /*
