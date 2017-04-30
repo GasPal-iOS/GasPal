@@ -18,6 +18,8 @@
 		4AC7FB781EA66D65005E2D2E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB771EA66D65005E2D2E /* tessdata */; };
 		60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101941EB5B2BD00A710D1 /* TrackingCell.swift */; };
 		60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101951EB5B2BD00A710D1 /* TrackingCell.xib */; };
+		60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101981EB5E1DE00A710D1 /* ServiceCell.swift */; };
+		60A1019B1EB5E1DE00A710D1 /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101991EB5E1DE00A710D1 /* ServiceCell.xib */; };
 		A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */; };
 		A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */; };
 		A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */; };
@@ -55,6 +57,8 @@
 		4AC7FB771EA66D65005E2D2E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		60A101941EB5B2BD00A710D1 /* TrackingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
 		60A101951EB5B2BD00A710D1 /* TrackingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingCell.xib; sourceTree = "<group>"; };
+		60A101981EB5E1DE00A710D1 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
+		60A101991EB5E1DE00A710D1 /* ServiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
 		A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			children = (
 				60A101941EB5B2BD00A710D1 /* TrackingCell.swift */,
 				60A101951EB5B2BD00A710D1 /* TrackingCell.xib */,
+				60A101981EB5E1DE00A710D1 /* ServiceCell.swift */,
+				60A101991EB5E1DE00A710D1 /* ServiceCell.xib */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				A0EC53D71EB3F76F004258BD /* Speedometer-48.png in Resources */,
 				4AC7FB6D1EA66A60005E2D2E /* Assets.xcassets in Resources */,
 				A0EC53D41EB3F76F004258BD /* Carpool-48.png in Resources */,
+				60A1019B1EB5E1DE00A710D1 /* ServiceCell.xib in Resources */,
 				4AC7FB6B1EA66A60005E2D2E /* Main.storyboard in Resources */,
 				A0EC53D91EB3F8B3004258BD /* Contact Card-48.png in Resources */,
 				A0EC53D51EB3F76F004258BD /* Delivery-48.png in Resources */,
@@ -360,6 +367,7 @@
 				4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */,
 				60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */,
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
+				60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
 				A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */,

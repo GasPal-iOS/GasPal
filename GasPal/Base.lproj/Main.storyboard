@@ -144,27 +144,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ServiceViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-fa-eoH">
-                                <rect key="frame" x="107" y="323" width="169" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5GO-En-Xf1" customClass="Header" customModule="GasPal" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GO-En-Xf1" customClass="Header" customModule="GasPal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="lzA-3Z-jmC"/>
+                                </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wyd-Fw-jp8">
+                                <rect key="frame" x="0.0" y="70" width="375" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7RU-fa-eoH" firstAttribute="leading" secondItem="RuX-nI-EGV" secondAttribute="leadingMargin" constant="91" id="ZAz-QZ-CQ6"/>
-                            <constraint firstItem="7RU-fa-eoH" firstAttribute="centerY" secondItem="RuX-nI-EGV" secondAttribute="centerY" id="cCv-eP-haw"/>
+                            <constraint firstItem="5GO-En-Xf1" firstAttribute="leading" secondItem="RuX-nI-EGV" secondAttribute="leading" id="9Fk-aa-TwU"/>
+                            <constraint firstAttribute="trailing" secondItem="wyd-Fw-jp8" secondAttribute="trailing" id="CzV-FU-8KB"/>
+                            <constraint firstItem="wyd-Fw-jp8" firstAttribute="leading" secondItem="RuX-nI-EGV" secondAttribute="leading" id="EKY-ko-yyt"/>
+                            <constraint firstAttribute="trailing" secondItem="5GO-En-Xf1" secondAttribute="trailing" id="LWA-LH-bwZ"/>
+                            <constraint firstItem="5GO-En-Xf1" firstAttribute="top" secondItem="RuX-nI-EGV" secondAttribute="top" id="XhZ-WU-JYK"/>
+                            <constraint firstItem="wyd-Fw-jp8" firstAttribute="top" secondItem="5GO-En-Xf1" secondAttribute="bottom" id="seI-f9-BS6"/>
+                            <constraint firstItem="ZkE-BS-jgC" firstAttribute="top" secondItem="wyd-Fw-jp8" secondAttribute="bottom" id="vLs-xl-GfH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Maintenance-48.png" id="xWk-X8-NWO"/>
                     <connections>
                         <outlet property="headerView" destination="5GO-En-Xf1" id="40u-8b-J0O"/>
+                        <outlet property="tableView" destination="wyd-Fw-jp8" id="wWk-cB-6hI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvh-N6-bH6" userLabel="First Responder" sceneMemberID="firstResponder"/>

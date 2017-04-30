@@ -132,7 +132,7 @@ class ParseClient: NSObject {
     
     func getServices(success: @escaping ([ServiceModel]) -> (), failure: @escaping (Error) -> ()) {
         let userId = PFUser.current()!.objectId!
-        let query = PFQuery(className: ServiceModel.className).whereKey("userId", equalTo: userId)
+        let query = PFQuery(className: ServiceModel.className).whereKey("userId", equalTo: userId).order(byDescending: "serviceDate")
         query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
             if let error = error {
                 print("getServices; status=failed; userId=\(userId); error=\(error.localizedDescription)")
@@ -146,7 +146,7 @@ class ParseClient: NSObject {
     }
     
     func getServices(vehicle: VehicleModel, success: @escaping ([ServiceModel]) -> (), failure: @escaping (Error) -> ()) {
-        let query = PFQuery(className: ServiceModel.className).whereKey("vehicle", equalTo: vehicle.pfObject)
+        let query = PFQuery(className: ServiceModel.className).whereKey("vehicle", equalTo: vehicle.pfObject).order(byDescending: "serviceDate")
         query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
             if let error = error {
                 print("getServices; status=failed; error=\(error.localizedDescription)")
