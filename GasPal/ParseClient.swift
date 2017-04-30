@@ -103,7 +103,7 @@ class ParseClient: NSObject {
     
     func getTrackings(success: @escaping ([TrackingModel]) -> (), failure: @escaping (Error) -> ()) {
         let userId = PFUser.current()!.objectId!
-        let query = PFQuery(className: TrackingModel.className).whereKey("userId", equalTo: userId)
+        let query = PFQuery(className: TrackingModel.className).whereKey("userId", equalTo: userId).order(byDescending: "date")
         query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
             if let error = error {
                 print("getTrackings; status=failed; userId=\(userId); error=\(error.localizedDescription)")
@@ -117,7 +117,7 @@ class ParseClient: NSObject {
     }
     
     func getTrackings(vehicle: VehicleModel, success: @escaping ([TrackingModel]) -> (), failure: @escaping (Error) -> ()) {
-        let query = PFQuery(className: TrackingModel.className).whereKey("vehicle", equalTo: vehicle.pfObject)
+        let query = PFQuery(className: TrackingModel.className).whereKey("vehicle", equalTo: vehicle.pfObject).order(byDescending: "date")
         query.findObjectsInBackground { (results: [PFObject]?, error: Error?) in
             if let error = error {
                 print("getTrackings; status=failed; error=\(error.localizedDescription)")
