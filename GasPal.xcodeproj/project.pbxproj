@@ -135,8 +135,6 @@
 				4AC7FB771EA66D65005E2D2E /* tessdata */,
 				4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */,
 				4AC7FB691EA66A60005E2D2E /* Main.storyboard */,
-				A0EC53DA1EB3F933004258BD /* Dashboard-48.png */,
-				A0EC53DB1EB3F933004258BD /* User-48.png */,
 				4AC7FB6C1EA66A60005E2D2E /* Assets.xcassets */,
 				4AC7FB6E1EA66A60005E2D2E /* LaunchScreen.storyboard */,
 				4AC7FB711EA66A60005E2D2E /* Info.plist */,
@@ -193,9 +191,11 @@
 				A0EC53E01EB3FA3F004258BD /* Bar Chart-48.png */,
 				A0EC53D81EB3F8B3004258BD /* Contact Card-48.png */,
 				A0EC53D01EB3F76F004258BD /* Carpool-48.png */,
+				A0EC53DA1EB3F933004258BD /* Dashboard-48.png */,
 				A0EC53D11EB3F76F004258BD /* Delivery-48.png */,
 				A0EC53D21EB3F76F004258BD /* Maintenance-48.png */,
 				A0EC53D31EB3F76F004258BD /* Speedometer-48.png */,
+				A0EC53DB1EB3F933004258BD /* User-48.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
