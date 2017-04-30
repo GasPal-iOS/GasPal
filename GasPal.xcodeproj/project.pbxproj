@@ -16,6 +16,8 @@
 		4AC7FB6D1EA66A60005E2D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB6C1EA66A60005E2D2E /* Assets.xcassets */; };
 		4AC7FB701EA66A60005E2D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB6E1EA66A60005E2D2E /* LaunchScreen.storyboard */; };
 		4AC7FB781EA66D65005E2D2E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB771EA66D65005E2D2E /* tessdata */; };
+		60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101941EB5B2BD00A710D1 /* TrackingCell.swift */; };
+		60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101951EB5B2BD00A710D1 /* TrackingCell.xib */; };
 		A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */; };
 		A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */; };
 		A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */; };
@@ -51,6 +53,8 @@
 		4AC7FB6F1EA66A60005E2D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AC7FB711EA66A60005E2D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC7FB771EA66D65005E2D2E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		60A101941EB5B2BD00A710D1 /* TrackingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
+		60A101951EB5B2BD00A710D1 /* TrackingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingCell.xib; sourceTree = "<group>"; };
 		A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,15 @@
 			path = GasPal;
 			sourceTree = "<group>";
 		};
+		60A101911EB5B1C700A710D1 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				60A101941EB5B2BD00A710D1 /* TrackingCell.swift */,
+				60A101951EB5B2BD00A710D1 /* TrackingCell.xib */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
 		A00437D41EB3DA44007446B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 		A00437D71EB3DA77007446B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				60A101911EB5B1C700A710D1 /* TableView */,
 				4A4A44A91EB4261D00AFFB65 /* Header */,
 			);
 			name = View;
@@ -271,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */,
 				A0EC53D61EB3F76F004258BD /* Maintenance-48.png in Resources */,
 				4AC7FB701EA66A60005E2D2E /* LaunchScreen.storyboard in Resources */,
 				4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */,
@@ -343,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */,
+				60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */,
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,

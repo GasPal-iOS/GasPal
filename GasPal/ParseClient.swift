@@ -28,7 +28,7 @@ class ParseClient: NSObject {
     }
     
     func signUp(email: String!, password: String!, success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
-        let user = PFUser()
+        let user = ProfileModel()
         user.email = email
         user.username = email
         user.password = password
@@ -38,7 +38,7 @@ class ParseClient: NSObject {
                 failure(error)
             } else {
                 print("signUp; status=success; user=\(user.username!)")
-                success(user as! ProfileModel)
+                success(user)
             }
         }
     }

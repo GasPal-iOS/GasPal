@@ -23,7 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Initialize Tesseract
         OCRClient.initializeTesseract()
-        
+       
+        // Temporary until we implement the login screen.
+        // The test user below has already data that can be used for testing.
+        ParseClient.sharedInstance.login(email: "gaspaltest@gmail.com", password: "test12", success: { (profile) in
+            print("login=success; userId=\(profile.objectId!)")
+        }) { (error) in
+            print("login=failure; \(error.localizedDescription)")
+        }
+
         return true
     }
 
