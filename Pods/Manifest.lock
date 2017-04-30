@@ -30,15 +30,24 @@ DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - MBProgressHUD
   - Parse
-  - TesseractOCRiOS (= 4.0.0)
+  - TesseractOCRiOS (from `https://github.com/gali8/Tesseract-OCR-iOS.git`)
+
+EXTERNAL SOURCES:
+  TesseractOCRiOS:
+    :git: https://github.com/gali8/Tesseract-OCR-iOS.git
+
+CHECKOUT OPTIONS:
+  TesseractOCRiOS:
+    :commit: c7ad56d6544839b2f84c7ffde8fa42efe2312405
+    :git: https://github.com/gali8/Tesseract-OCR-iOS.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
-  TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
+  TesseractOCRiOS: 729989db3984bb60ba3addb053569b172d48c409
 
-PODFILE CHECKSUM: 7934aa39a36829314053f7d2374c730ea0f26802
+PODFILE CHECKSUM: 58713fa3db089b8bed794a083a26c97b5126fa5b
 
 COCOAPODS: 1.2.0
