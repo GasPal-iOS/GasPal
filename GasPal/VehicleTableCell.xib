@@ -24,9 +24,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElF-r8-hoy">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElF-r8-hoy">
                         <rect key="frame" x="8" y="66" width="28" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -54,10 +53,13 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Uaw-Rk-s3K" secondAttribute="trailing" id="2kV-1T-Lvt"/>
                     <constraint firstItem="Uaw-Rk-s3K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="3i8-bs-fwd"/>
                     <constraint firstItem="m3c-NL-ULN" firstAttribute="top" secondItem="Uaw-Rk-s3K" secondAttribute="bottom" constant="8" id="5cO-vP-BKz"/>
+                    <constraint firstItem="ElF-r8-hoy" firstAttribute="top" secondItem="m3c-NL-ULN" secondAttribute="bottom" constant="8" id="8g7-Dg-kR4"/>
                     <constraint firstItem="O1M-7E-WDA" firstAttribute="top" secondItem="Crd-CL-DhJ" secondAttribute="bottom" constant="8" id="Jtc-hP-bsd"/>
                     <constraint firstAttribute="trailing" secondItem="O1M-7E-WDA" secondAttribute="trailing" constant="8" id="QBu-6m-F3Z"/>
                     <constraint firstAttribute="trailing" secondItem="Crd-CL-DhJ" secondAttribute="trailing" constant="8" id="YKh-BY-3zA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ElF-r8-hoy" secondAttribute="bottom" constant="10" id="Zgp-6l-TkP"/>
                     <constraint firstItem="m3c-NL-ULN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aTK-UH-yH8"/>
+                    <constraint firstItem="ElF-r8-hoy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lxD-zZ-nLn"/>
                     <constraint firstItem="Uaw-Rk-s3K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mYi-b0-wrk"/>
                     <constraint firstItem="Crd-CL-DhJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="vIv-VO-pKN"/>
                 </constraints>
