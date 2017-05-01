@@ -9,8 +9,6 @@
 import UIKit
 
 class ProfileView: UIView {
-
-    
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImage: UIImageView!

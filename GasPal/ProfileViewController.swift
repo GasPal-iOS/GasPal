@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
         profileView.addressLabel.text = "2650 Casey Av, Mountain View"
         profileView.licenceNumberLabel.text = "D5555912"
         profileView.licenseExpiryLabel.text = "06/15/2018"
+        profileView.dobLabel.text = "03/10/1978"
         view.addSubview(profileView)
         
     }
