@@ -78,6 +78,7 @@ class TrackingModel: NSObject {
         set { pfObject["mpg"] = newValue }
     }
     
+    private static var _trackingLogs: [TrackingModel] = []
     static func toArray (objects: [PFObject]?) -> ([TrackingModel]) {
         var items = [TrackingModel]()
         if let objects = objects {
@@ -85,7 +86,20 @@ class TrackingModel: NSObject {
                 items.append(TrackingModel(pfObject: pfObject))
             }
         }
+        _trackingLogs = items
         return items
+    }
+    
+    static func getAllByVehicle(vehicle: VehicleModel) -> [TrackingModel] {
+        var results = [TrackingModel]()
+        
+        for log in _trackingLogs {
+            if log.vehicle?.id == vehicle.id {
+                results.append(log)
+            }
+        }
+        
+        return results
     }
     
     func calculate() {

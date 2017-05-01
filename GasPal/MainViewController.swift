@@ -39,6 +39,13 @@ UINavigationControllerDelegate {
         mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         contentViewController = tabBarController
+        
+        // Fetch the data we need
+        ParseClient.sharedInstance.getTrackings(success: { (trackings: [TrackingModel]) in
+            
+        }) { (error) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

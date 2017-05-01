@@ -13,6 +13,8 @@
 		4A4A44B31EB57C7800AFFB65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */; };
 		4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */; };
 		4A4A44B71EB57FB700AFFB65 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */; };
+		4A4A44BB1EB6995400AFFB65 /* VehicleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B91EB6995400AFFB65 /* VehicleTableCell.swift */; };
+		4A4A44BC1EB6995400AFFB65 /* VehicleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A44BA1EB6995400AFFB65 /* VehicleTableCell.xib */; };
 		4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */; };
 		4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB671EA66A60005E2D2E /* ViewController.swift */; };
 		4AC7FB6B1EA66A60005E2D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB691EA66A60005E2D2E /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPalNotification.swift; sourceTree = "<group>"; };
 		4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		4A4A44B91EB6995400AFFB65 /* VehicleTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTableCell.swift; sourceTree = "<group>"; };
+		4A4A44BA1EB6995400AFFB65 /* VehicleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleTableCell.xib; sourceTree = "<group>"; };
 		4AC7FB621EA66A60005E2D2E /* GasPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC7FB671EA66A60005E2D2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 				4A4A44AA1EB4265200AFFB65 /* Header.swift */,
 			);
 			name = Header;
+			sourceTree = "<group>";
+		};
+		4A4A44B81EB6992000AFFB65 /* VehicleTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A4A44B91EB6995400AFFB65 /* VehicleTableCell.swift */,
+				4A4A44BA1EB6995400AFFB65 /* VehicleTableCell.xib */,
+			);
+			name = VehicleTableCell;
 			sourceTree = "<group>";
 		};
 		4AC7FB591EA66A5F005E2D2E = {
@@ -208,6 +221,7 @@
 		A00437D71EB3DA77007446B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4A4A44B81EB6992000AFFB65 /* VehicleTableCell */,
 				60A101911EB5B1C700A710D1 /* TableView */,
 				4A4A44A91EB4261D00AFFB65 /* Header */,
 			);
@@ -313,6 +327,7 @@
 				A0EC53D41EB3F76F004258BD /* Carpool-48.png in Resources */,
 				60A1019B1EB5E1DE00A710D1 /* ServiceCell.xib in Resources */,
 				4AC7FB6B1EA66A60005E2D2E /* Main.storyboard in Resources */,
+				4A4A44BC1EB6995400AFFB65 /* VehicleTableCell.xib in Resources */,
 				A0EC53D91EB3F8B3004258BD /* Contact Card-48.png in Resources */,
 				A0EC53D51EB3F76F004258BD /* Delivery-48.png in Resources */,
 			);
@@ -380,6 +395,7 @@
 				4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
+				4A4A44BB1EB6995400AFFB65 /* VehicleTableCell.swift in Sources */,
 				A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */,
 				A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */,
 				A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */,

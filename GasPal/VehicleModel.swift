@@ -54,6 +54,19 @@ class VehicleModel: NSObject {
         set { pfObject["vin"] = newValue }
     }
     
+    func calculateTotalMileage() -> Int {
+        let trackingLogs = TrackingModel.getAllByVehicle(vehicle: self)
+        
+        var totalMileage = 0
+        for log in trackingLogs {
+            if let odometerStart = log.odometerStart, let odometerEnd = log.odometerEnd {
+                totalMileage += (odometerEnd - odometerStart)
+            }
+        }
+        
+        return totalMileage
+    }
+    
     static func toArray (objects: [PFObject]?) -> ([VehicleModel]) {
         var items = [VehicleModel]()
         if let objects = objects {
