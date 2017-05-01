@@ -35,4 +35,5 @@ class ProfileModel: PFUser {
         get { return self["licenseExpiry"] as? Date }
         set { self["licenseExpiry"] = newValue }
     }
+    
 }

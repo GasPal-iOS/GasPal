@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
     
     @IBOutlet weak var headerView: Header!
+    @IBOutlet weak var profileView: ProfileView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,15 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
+        
+        // profile model
+        profileView.image = UIImage(named: "ryan.png")
+        profileView.fullNameLabel.text = "Ryan Gosling"
+        profileView.addressLabel.text = "2650 Casey Av, Mountain View"
+        profileView.licenceNumberLabel.text = "D5555912"
+        profileView.licenseExpiryLabel.text = "06/15/2018"
+        view.addSubview(profileView)
+        
     }
 
     override func didReceiveMemoryWarning() {
