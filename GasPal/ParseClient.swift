@@ -226,7 +226,8 @@ class ParseClient: NSObject {
                     service.serviceDescription = descriptions[i % descriptions.count]
                     service.price = 100.0 + Double(10 * i)
                     service.stationName = stations[i % descriptions.count]
-                    service.vehicle = vehicle
+                    service.vehicleId = vehicle.id
+                    service.userId = vehicle.userId
                     
                     self.save(service: service, success: { (tracking) in
                         print(vehicle.id ?? "nil")

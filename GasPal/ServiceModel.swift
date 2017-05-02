@@ -28,14 +28,9 @@ class ServiceModel: NSObject {
         set { pfObject.objectId = id }
     }
     
-    private var _vehicle: VehicleModel?
-    var vehicle: VehicleModel? {
-        get { return _vehicle }
-        set {
-            _vehicle = newValue
-            pfObject["vehicle"] = newValue?.pfObject
-            userId = _vehicle?.userId
-        }
+    var vehicleId: String? {
+        get { return pfObject["vehicleId"] as? String }
+        set { pfObject["vehicleId"] = newValue }
     }
     
     var userId: String? {

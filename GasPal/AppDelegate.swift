@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Temporary until we implement the login screen.
         // The test user below has already data that can be used for testing.
         
-        ParseClient.sharedInstance.login(email: "gaspaltest+1493699195@gmail.com", password: "test12", success: { (profile) in
+        ParseClient.sharedInstance.login(email: "gaspaltest+1493707634@gmail.com", password: "test12", success: { (profile) in
             print("login=success; userId=\(profile.objectId!)")
         }) { (error) in
             print("login=failure; \(error.localizedDescription)")
