@@ -13,12 +13,6 @@ class ViewController: UIViewController, G8TesseractDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tesseract:G8Tesseract = G8Tesseract(language:"eng");
-        tesseract.delegate = self;
-        //tesseract.image = UIImage(named: "receipt.jpg");
-        //tesseract.recognize();
-        
-        //NSLog("%@", tesseract.recognizedText);
     }
     
     override func didReceiveMemoryWarning() {

@@ -38,6 +38,8 @@ class Header: UIView {
         }
     }
     
+    
+    
     weak var imageCaptureDelegate: ImageCaptureDelegate?
     weak var formCompleteDelegate: FormCompleteDelegate?
     
