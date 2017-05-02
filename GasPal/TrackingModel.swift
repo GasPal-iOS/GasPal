@@ -28,14 +28,9 @@ class TrackingModel: NSObject {
         set { pfObject.objectId = id }
     }
     
-    private var _vehicle: VehicleModel?
-    var vehicle: VehicleModel? {
-        get { return _vehicle }
-        set {
-           _vehicle = newValue
-            pfObject["vehicle"] = newValue?.pfObject
-            userId = _vehicle?.userId
-        }
+    var vehicleId: String? {
+        get { return pfObject["vehicleId"] as? String }
+        set { pfObject["vehicleId"] = newValue }
     }
     
     var userId: String? {
@@ -94,7 +89,7 @@ class TrackingModel: NSObject {
         var results = [TrackingModel]()
         
         for log in _trackingLogs {
-            if log.vehicle?.id == vehicle.id {
+            if log.vehicleId == vehicle.id {
                 results.append(log)
             }
         }

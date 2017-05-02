@@ -207,7 +207,8 @@ class ParseClient: NSObject {
                     start = tracking.odometerEnd!
                     tracking.unitPrice = 2.899 - Double(i)/100
                     tracking.calculate()
-                    tracking.vehicle = vehicle
+                    tracking.vehicleId = vehicle.id
+                    tracking.userId = vehicle.userId
                     
                     // Create fuel tracking
                     self.save(tracking: tracking, success: { (tracking) in
