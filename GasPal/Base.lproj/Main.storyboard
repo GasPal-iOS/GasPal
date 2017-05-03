@@ -114,7 +114,7 @@
                                     <action selector="onSignup:" destination="b6R-Bg-vLl" eventType="touchUpInside" id="wdH-XV-lzP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fuel-gauge.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-7Y-UMT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gas-pal.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-7Y-UMT">
                                 <rect key="frame" x="137" y="450" width="85" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -418,6 +418,6 @@
         <image name="Delivery-48.png" width="36" height="36"/>
         <image name="Maintenance-48.png" width="36" height="36"/>
         <image name="User-48.png" width="36" height="36"/>
-        <image name="fuel-gauge.png" width="168" height="171"/>
+        <image name="gas-pal.png" width="212" height="211"/>
     </resources>
 </document>
