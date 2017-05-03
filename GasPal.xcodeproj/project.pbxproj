@@ -38,6 +38,7 @@
 		A00437EF1EB3E5F9007446B6 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437EE1EB3E5F9007446B6 /* ParseClient.swift */; };
 		A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F01EB3E60C007446B6 /* OCRClient.swift */; };
 		A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */; };
+		A04DFA071EB9A90C007F600D /* fuel-gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = A04DFA061EB9A90C007F600D /* fuel-gauge.png */; };
 		A08F339E1EB6B93700B785FA /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08F339D1EB6B93700B785FA /* ProfileView.xib */; };
 		A08F33A01EB6BA8800B785FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F339F1EB6BA8800B785FA /* ProfileView.swift */; };
 		A08F33A21EB6BDB700B785FA /* ryan.png in Resources */ = {isa = PBXBuildFile; fileRef = A08F33A11EB6BDB700B785FA /* ryan.png */; };
@@ -85,6 +86,7 @@
 		A00437EE1EB3E5F9007446B6 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		A00437F01EB3E60C007446B6 /* OCRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRClient.swift; sourceTree = "<group>"; };
 		A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasFeedApiClient.swift; sourceTree = "<group>"; };
+		A04DFA061EB9A90C007F600D /* fuel-gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fuel-gauge.png"; path = "Assets.xcassets/fuel-gauge.png"; sourceTree = "<group>"; };
 		A08F339D1EB6B93700B785FA /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		A08F339F1EB6BA8800B785FA /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A08F33A11EB6BDB700B785FA /* ryan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ryan.png; path = Assets.xcassets/ryan.png; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		A0EC53E21EB3FA56004258BD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A04DFA061EB9A90C007F600D /* fuel-gauge.png */,
 				A08F33A11EB6BDB700B785FA /* ryan.png */,
 				A0EC53E01EB3FA3F004258BD /* Bar Chart-48.png */,
 				A0EC53D81EB3F8B3004258BD /* Contact Card-48.png */,
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */,
+				A04DFA071EB9A90C007F600D /* fuel-gauge.png in Resources */,
 				A0EC53D61EB3F76F004258BD /* Maintenance-48.png in Resources */,
 				4AC7FB701EA66A60005E2D2E /* LaunchScreen.storyboard in Resources */,
 				4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */,
