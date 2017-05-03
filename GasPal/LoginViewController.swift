@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextbox: UITextField!
     
     @IBOutlet weak var passwordTextbox: UITextField!
+    
+    @IBOutlet weak var statusLabel: UILabel!
 
     @IBAction func onSignup(_ sender: Any) {
         let user = PFUser()
@@ -26,14 +28,21 @@ class LoginViewController: UIViewController {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success == true {
                 print("success signing up")
+                self.statusLabel.text = ""
                 self.performSegue(withIdentifier: "segueToMain", sender: nil)
             }
             
             if error != nil {
                 print("error signing up")
                 print(error!)
+                
                 self.emailTextbox.text = ""
                 self.passwordTextbox.text = ""
+                self.statusLabel.text = "Error signing up"
+                let nsError = error as! NSError
+                if 202 == nsError.code {
+                    self.statusLabel.text = "User already exists"
+                }
             }
         }
     }
@@ -42,11 +51,14 @@ class LoginViewController: UIViewController {
         
         ParseClient.sharedInstance.login(email: emailTextbox.text!, password: passwordTextbox.text!, success: { (profile) in
             print("login=success; userId=\(profile.objectId!)")
+            self.statusLabel.text = ""
+            
             self.performSegue(withIdentifier: "segueToMain", sender: nil)
         }) { (error) in
             print("login=failure; \(error.localizedDescription)")
             self.emailTextbox.text = ""
             self.passwordTextbox.text = ""
+            self.statusLabel.text = "Error Logging In"
         }
     }
     
@@ -60,6 +72,7 @@ class LoginViewController: UIViewController {
         // pre populate with test user
         emailTextbox.text = "gaspaltest+1493707634@gmail.com"
         passwordTextbox.text = "test12"
+        self.statusLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {

@@ -84,8 +84,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Successful Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHA-ov-kNg">
+                                <rect key="frame" x="75" y="350" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99950557947158813" green="0.0017046551220118999" blue="0.20729318261146545" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -93,6 +100,7 @@
                         <outlet property="emailTextbox" destination="FLG-Yc-dWd" id="0Wc-9Q-oKk"/>
                         <outlet property="onLogin" destination="3LS-XX-ENh" id="R9E-8h-oga"/>
                         <outlet property="passwordTextbox" destination="Tph-bA-mR8" id="AXx-qf-WGO"/>
+                        <outlet property="statusLabel" destination="aHA-ov-kNg" id="YHQ-Yw-XIQ"/>
                         <segue destination="tTC-uY-yy8" kind="modal" identifier="segueToMain" modalTransitionStyle="flipHorizontal" id="kmE-dN-bF8"/>
                     </connections>
                 </viewController>
