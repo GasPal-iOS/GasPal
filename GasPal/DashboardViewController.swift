@@ -13,6 +13,7 @@ class DashboardViewController: UIViewController {
 
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var mpgChartView: LineChartView!
+    @IBOutlet weak var mpgFilterSegmentedControl: UISegmentedControl!
     
     var trackingModels: [TrackingModel]!
     
@@ -22,6 +23,10 @@ class DashboardViewController: UIViewController {
         
         headerView.title = "Dashboard"
         
+        mpgFilterSegmentedControl.apportionsSegmentWidthsByContent = true
+        mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.lastYear.rawValue, at: 2, animated: false)
+        mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.allTime.rawValue, at: 3, animated: false)
+        
         // Load tracking trips for initial timeline
         // Making sure we have trackings loaded -- Should we just fetch all required data on app load?
         if TrackingModel.hasLoadedTracking! {
@@ -29,7 +34,7 @@ class DashboardViewController: UIViewController {
             createChart()
         } else {
             ParseClient.sharedInstance.getTrackings(success: { (trackingModels: [TrackingModel]) in
-                self.trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastYear)
+                self.trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastWeek)
                 self.createChart()
             }) { (error: Error) in
                 print("ERROR")
@@ -53,7 +58,7 @@ class DashboardViewController: UIViewController {
             
             let dataEntry = ChartDataEntry(x: Double(index), y: mpg)
             dataEntries.append(dataEntry)
-            
+                        
             index += 1
         }
         
@@ -68,6 +73,23 @@ class DashboardViewController: UIViewController {
         mpgChartView.data = data
         mpgChartView.xAxis.valueFormatter = xAxis.valueFormatter
     }
+    
+    @IBAction func onMPGFilterChange(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastWeek)
+        case 1:
+            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastMonth)
+        case 2:
+            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastYear)
+        case 3:
+            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.allTime)
+        default:
+            break
+        }
+        createChart()
+    }
+    
 
     /*
     // MARK: - Navigation

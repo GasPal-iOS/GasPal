@@ -168,30 +168,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2F-9Y-xHH" customClass="Header" customModule="GasPal" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2F-9Y-xHH" customClass="Header" customModule="GasPal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="ZmX-vV-kma"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MPG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-91-nDd">
-                                <rect key="frame" x="16" y="119" width="38" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MPG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-91-nDd">
+                                <rect key="frame" x="16" y="90" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B0s-wq-Dsx">
+                                <rect key="frame" x="16" y="120" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Last week"/>
+                                    <segment title="Last month"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onMPGFilterChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="M5K-gp-1q9"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qv3-LP-7VX" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="148" width="343" height="187"/>
+                                <rect key="frame" x="16" y="156" width="343" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NXm-91-nDd" secondAttribute="trailing" id="1fQ-B9-Xa7"/>
+                            <constraint firstItem="X2F-9Y-xHH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="58V-K3-qBE"/>
+                            <constraint firstItem="X2F-9Y-xHH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZiK-GK-jgm"/>
+                            <constraint firstItem="NXm-91-nDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aBF-Av-n4j"/>
+                            <constraint firstAttribute="trailing" secondItem="X2F-9Y-xHH" secondAttribute="trailing" id="dvm-wb-7MR"/>
+                            <constraint firstItem="NXm-91-nDd" firstAttribute="top" secondItem="X2F-9Y-xHH" secondAttribute="bottom" constant="20" id="ffm-5n-789"/>
+                            <constraint firstItem="B0s-wq-Dsx" firstAttribute="top" secondItem="X2F-9Y-xHH" secondAttribute="bottom" constant="50" id="lX2-e5-8hM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B0s-wq-Dsx" secondAttribute="trailing" id="woH-U6-Vet"/>
+                            <constraint firstItem="B0s-wq-Dsx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xAh-OD-frz"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Bar Chart-48.png" id="Wqr-VU-xUD"/>
                     <connections>
                         <outlet property="headerView" destination="X2F-9Y-xHH" id="wVu-tY-Opu"/>
                         <outlet property="mpgChartView" destination="qv3-LP-7VX" id="AZU-Bc-lvC"/>
+                        <outlet property="mpgFilterSegmentedControl" destination="B0s-wq-Dsx" id="ddf-wi-zJq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

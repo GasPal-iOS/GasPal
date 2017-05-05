@@ -9,11 +9,11 @@
 import UIKit
 import Parse
 
-enum TrackingTimelineFilter {
-    case lastWeek
-    case lastMonth
-    case lastYear
-    case allTime
+enum TrackingTimelineFilter: String {
+    case lastWeek = "Last week"
+    case lastMonth = "Last month"
+    case lastYear = "Last year"
+    case allTime = "All time"
 }
 
 class TrackingModel: NSObject {
