@@ -10,5 +10,6 @@ target 'GasPal' do
   pod 'AFNetworking', '~> 2.5'
   pod 'MBProgressHUD'
   pod 'Parse'
+  pod 'Charts'
 
 end

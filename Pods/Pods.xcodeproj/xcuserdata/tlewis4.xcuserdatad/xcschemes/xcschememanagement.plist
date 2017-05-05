@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,11 +42,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01A84E5A3D41765AF2233B9E4A746614</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1ED8BE8BD6A53853974A60E1AC8B1019</key>
 		<dict>
 			<key>primary</key>
@@ -52,12 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50158C2595AB1AD5B839E81B2F502EAA</key>
+		<key>51CB0AF616C6306147B99C320EB6D3ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51CB0AF616C6306147B99C320EB6D3ED</key>
+		<key>9D82FEBD32BC396204802678461007EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC33CB4899F3F86A5903180FE510E971</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F307B842FF76B2DE6C55DB67C0885325</key>
 		<dict>
 			<key>primary</key>
 			<true/>

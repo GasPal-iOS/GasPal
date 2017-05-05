@@ -9,6 +9,13 @@
 import UIKit
 import Parse
 
+enum TrackingTimelineFilter {
+    case lastWeek
+    case lastMonth
+    case lastYear
+    case allTime
+}
+
 class TrackingModel: NSObject {
     
     static let className = String(describing: TrackingModel.self)
@@ -73,6 +80,8 @@ class TrackingModel: NSObject {
         set { pfObject["mpg"] = newValue }
     }
     
+    static var hasLoadedTracking: Bool! = false
+    
     private static var _trackingLogs: [TrackingModel] = []
     static func toArray (objects: [PFObject]?) -> ([TrackingModel]) {
         var items = [TrackingModel]()
@@ -82,6 +91,7 @@ class TrackingModel: NSObject {
             }
         }
         _trackingLogs = items
+        hasLoadedTracking = true
         return items
     }
     
@@ -107,5 +117,34 @@ class TrackingModel: NSObject {
             let mpg = Double(odometerEnd - odometerStart) / gallons
             self.mpg = Double(round(mpg * 10)/10)
         }
+    }
+    
+    static func getAllByTimeline(timelineFilter: TrackingTimelineFilter) -> [TrackingModel] {
+        
+        var results = [TrackingModel]()
+        
+        let calendar = Calendar.current
+        var beginDate: Date!
+        let endDate: Date! = Date()
+        
+        switch timelineFilter {
+        case .lastWeek:
+            beginDate = calendar.date(byAdding: .day, value: -7, to: endDate)
+        case .lastMonth:
+            beginDate = calendar.date(byAdding: .month, value: -1, to: endDate)
+        case .lastYear:
+            beginDate = calendar.date(byAdding: .year, value: -1, to: endDate)
+        case .allTime:
+            return _trackingLogs
+        }
+        
+        for log in _trackingLogs {
+            if log.date! > beginDate {
+                results.append(log)
+            }
+        }
+        
+        return results
+        
     }
 }
