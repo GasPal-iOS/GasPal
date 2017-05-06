@@ -69,7 +69,15 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         cell.selectionStyle = .none
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let trackingDetailViewController = storyboard.instantiateViewController(withIdentifier: "TrackingDetailViewController") as! TrackingDetailViewController
+        // Set the model for the details view controller
+        trackingDetailViewController.tracking = trackings[indexPath.item]
+        self.navigationController?.pushViewController(trackingDetailViewController, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -79,5 +87,4 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         // Pass the selected object to the new view controller.
     }
     */
-
 }
