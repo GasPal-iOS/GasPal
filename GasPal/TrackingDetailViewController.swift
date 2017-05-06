@@ -12,6 +12,12 @@ class TrackingDetailViewController: UIViewController {
 
     var tracking: TrackingModel?
     
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var odometerEndTextField: UITextField!
+    @IBOutlet weak var odometerStartTextField: UITextField!
+    @IBOutlet weak var gallonsTextField: UITextField!
+    @IBOutlet weak var unitPriceTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +29,12 @@ class TrackingDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCancel(_ sender: UIButton) {
+    }
 
+    @IBAction func onSave(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
