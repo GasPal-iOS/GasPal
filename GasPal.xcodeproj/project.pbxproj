@@ -26,6 +26,7 @@
 		60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101951EB5B2BD00A710D1 /* TrackingCell.xib */; };
 		60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101981EB5E1DE00A710D1 /* ServiceCell.swift */; };
 		60A1019B1EB5E1DE00A710D1 /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101991EB5E1DE00A710D1 /* ServiceCell.xib */; };
+		60A551581EBE554E008FC472 /* TrackingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A551571EBE554E008FC472 /* TrackingDetailViewController.swift */; };
 		A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */; };
 		A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */; };
 		A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */; };
@@ -76,6 +77,7 @@
 		60A101951EB5B2BD00A710D1 /* TrackingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingCell.xib; sourceTree = "<group>"; };
 		60A101981EB5E1DE00A710D1 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
 		60A101991EB5E1DE00A710D1 /* ServiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
+		60A551571EBE554E008FC472 /* TrackingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingDetailViewController.swift; sourceTree = "<group>"; };
 		A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */,
 				A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */,
 				A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */,
+				60A551571EBE554E008FC472 /* TrackingDetailViewController.swift */,
 				A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */,
 				A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */,
 				A00437E41EB3DFAA007446B6 /* LoginViewController.swift */,
@@ -429,6 +432,7 @@
 				A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */,
 				A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */,
 				A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */,
+				60A551581EBE554E008FC472 /* TrackingDetailViewController.swift in Sources */,
 				4A4A44B31EB57C7800AFFB65 /* MainViewController.swift in Sources */,
 				A00437E11EB3DBFA007446B6 /* DashboardViewController.swift in Sources */,
 				A00437D91EB3DAF1007446B6 /* ProfileViewController.swift in Sources */,
