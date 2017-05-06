@@ -68,6 +68,12 @@ UINavigationControllerDelegate {
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            let vc = UIImagePickerController()
+            vc.delegate = self
+            vc.allowsEditing = true
+            vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            self.present(vc, animated: true, completion: nil)
         }
     }
     

@@ -99,6 +99,7 @@ class Header: UIView {
     }
     
     func onCameraTap() {
+        print("onCameraTap")
         NotificationCenter.default.post(name: GasPalNotification.openCamera, object: nil)
     }
     

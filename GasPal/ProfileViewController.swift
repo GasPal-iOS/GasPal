@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
+//class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
+class ProfileViewController: UIViewController {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var profileView: ProfileView!
@@ -17,9 +18,9 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
         super.viewDidLoad()
         print("ProfileViewController")
         
-        headerView.imageCaptureDelegate = self
-        headerView.formCompleteDelegate = self
-        
+        //headerView.imageCaptureDelegate = self
+        //headerView.formCompleteDelegate = self
+     
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
@@ -41,6 +42,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
     }
     
     func onImageCaptured(capturedImage: UIImage) {
+        /*
         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
             
             print("The data", extractedData)
@@ -48,6 +50,10 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
         }, error: {
             
         })
+        */
+        print("Profile.onImageCaptured")
+        profileView.image = capturedImage
+        self.reloadInputViews()
     }
     
     func onFormCompleted() {
