@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
                 self.emailTextbox.text = ""
                 self.passwordTextbox.text = ""
                 self.statusLabel.text = "Error signing up"
-                let nsError = error as! NSError
+                let nsError = error! as NSError
                 if 202 == nsError.code {
                     self.statusLabel.text = "User already exists"
                 }
