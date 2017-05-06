@@ -104,7 +104,7 @@ class Header: UIView {
     }
     
     func onAddTap() {
-
+        formCompleteDelegate?.onFormCompleted()
     }
 
     /*

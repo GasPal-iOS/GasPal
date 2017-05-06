@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FormCompleteDelegate {
     
     var trackings = [TrackingModel]()
     
@@ -23,6 +23,7 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         headerView.title = "Tracking"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
+        headerView.formCompleteDelegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -71,10 +72,19 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetailView(model: trackings[indexPath.row])
+    }
+    
+    func onFormCompleted() {
+        openDetailView(model: TrackingModel())
+    }
+    
+    func openDetailView(model: TrackingModel) {
+        print("openDetailView")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let trackingDetailViewController = storyboard.instantiateViewController(withIdentifier: "TrackingDetailViewController") as! TrackingDetailViewController
         // Set the model for the details view controller
-        trackingDetailViewController.tracking = trackings[indexPath.item]
+        trackingDetailViewController.tracking = model
         self.navigationController?.pushViewController(trackingDetailViewController, animated: true)
     }
     

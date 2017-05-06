@@ -30,9 +30,11 @@ class TrackingDetailViewController: UIViewController {
     }
     
     @IBAction func onCancel(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func onSave(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     /*
