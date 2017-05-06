@@ -8,8 +8,7 @@
 
 import UIKit
 
-//class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var profileView: ProfileView!
@@ -18,8 +17,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         print("ProfileViewController")
         
-        //headerView.imageCaptureDelegate = self
-        //headerView.formCompleteDelegate = self
+        headerView.imageCaptureDelegate = self
+        headerView.formCompleteDelegate = self
      
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true

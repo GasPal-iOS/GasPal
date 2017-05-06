@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b6R-Bg-vLl">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b6R-Bg-vLl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -233,23 +233,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-Fa-2LA" customClass="Header" customModule="GasPal" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-Fa-2LA" customClass="Header" customModule="GasPal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="uej-sW-PFZ"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmm-ar-0s3" customClass="ProfileView" customModule="GasPal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="169" width="375" height="449"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="bottom" secondItem="xRq-MI-xZp" secondAttribute="top" id="2eo-fc-Wfo"/>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="top" secondItem="22b-qs-yZa" secondAttribute="top" constant="169" id="JBH-CT-4ql"/>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="leading" secondItem="jjw-Fa-2LA" secondAttribute="leading" id="LYI-FH-Lqr"/>
-                            <constraint firstAttribute="trailing" secondItem="Gmm-ar-0s3" secondAttribute="trailing" id="NTe-Wx-NKM"/>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leading" id="UT6-lP-4F6"/>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="trailing" secondItem="jjw-Fa-2LA" secondAttribute="trailing" id="agy-vV-ArV"/>
+                            <constraint firstItem="jjw-Fa-2LA" firstAttribute="top" secondItem="22b-qs-yZa" secondAttribute="top" id="H75-TN-ari"/>
+                            <constraint firstItem="jjw-Fa-2LA" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leading" id="Jdc-nF-opL"/>
+                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leading" id="QI0-1I-wrj"/>
+                            <constraint firstAttribute="trailing" secondItem="Gmm-ar-0s3" secondAttribute="trailing" id="g7B-K1-IbA"/>
+                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="top" secondItem="jjw-Fa-2LA" secondAttribute="bottom" id="hMo-qv-h4r"/>
+                            <constraint firstAttribute="trailing" secondItem="jjw-Fa-2LA" secondAttribute="trailing" id="i4D-jD-OnY"/>
+                            <constraint firstItem="xRq-MI-xZp" firstAttribute="top" secondItem="Gmm-ar-0s3" secondAttribute="bottom" id="qfE-7Y-1UP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="User-48.png" id="smY-4K-85L"/>
@@ -260,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toM-uG-yQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="824"/>
+            <point key="canvasLocation" x="652" y="823.53823088455783"/>
         </scene>
         <!--Tracking-->
         <scene sceneID="Pdq-sd-nQv">
