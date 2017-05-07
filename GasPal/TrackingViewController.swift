@@ -63,18 +63,17 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         print("Tracking.onImageCaptured")
 
         
+        // Tracking Data
+        var totalAmountString = "25.99"
+        var pricePerGallonString = "2.99"
+        var dateStr = "05/12/17"
+        
          OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
          
             // print("The dat/a", extractedData)
             // split each line
             var lines = extractedData.split(separator: ",")
             let line = lines.popLast()
-            
-            
-            // Tracking Data
-            var totalAmountString = "25.99"
-            var pricePerGallonString = "2.99"
-            var dateStr = "05/12/17"
             
             for index in 1..<line!.count-1 {
                 let lineItem = line?[index]
@@ -126,13 +125,16 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 // debug
                 // print(lineItem!)
-                let tracking = TrackingModel(date: dateStr, totalAmount: totalAmountString, pricePerGallon: pricePerGallonString)
-                print(tracking)
             }
-         
+            let tracking = TrackingModel(date: dateStr, totalAmount: totalAmountString, pricePerGallon: pricePerGallonString)
+            print("open Tracking detail view...")
+            self.openDetailView(model: tracking)
+            
          }, error: {
          
          })
+        
+        
         
     }
     
