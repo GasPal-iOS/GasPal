@@ -75,26 +75,38 @@ class Header: UIView {
     }
     
     func initCameraIcon() {
-        let cameraIcon = UIButton(frame: CGRect(x: 225, y: 24, width: 60, height: 25))
+        let cameraIcon = UIButton(frame: CGRect(x: 225, y: 24, width: 40, height: 25))
         cameraIcon.addTarget(self, action: #selector(onCameraTap), for: .touchUpInside)
-        cameraIcon.backgroundColor = UIColor.white
+        //cameraIcon.backgroundColor = UIColor.white
+        if let image = UIImage(named: "icon-camera.png") {
+            cameraIcon.setImage(image, for: UIControlState.normal)
+        }
+
+        /*
         let cameraIconTitle = NSAttributedString(string: "Camera", attributes: [
                 NSFontAttributeName: UIFont.systemFont(ofSize: 11),
                 NSForegroundColorAttributeName: UIColor.black
             ])
         cameraIcon.setAttributedTitle(cameraIconTitle, for: .normal)
+        */
         contentView.addSubview(cameraIcon)
     }
     
     func initAddIcon() {
-        let addIcon = UIButton(frame: CGRect(x: 300, y: 24, width: 60, height: 25))
+        let addIcon = UIButton(frame: CGRect(x: 270, y: 26, width: 35, height: 20))
         addIcon.addTarget(self, action: #selector(onAddTap), for: .touchUpInside)
-        addIcon.backgroundColor = UIColor.white
+        if let image = UIImage(named: "edit.png") {
+            addIcon.setImage(image, for: UIControlState.normal)
+        }
+        
+        //addIcon.backgroundColor = UIColor.white
+        /*
         let addIconTitle = NSAttributedString(string: "Add", attributes: [
             NSFontAttributeName: UIFont.systemFont(ofSize: 11),
             NSForegroundColorAttributeName: UIColor.black
             ])
         addIcon.setAttributedTitle(addIconTitle, for: .normal)
+        */
         contentView.addSubview(addIcon)
     }
     

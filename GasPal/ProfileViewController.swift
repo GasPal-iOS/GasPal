@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDelegate {
+class ProfileViewController: UIViewController, ImageCaptureDelegate {
+//, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var profileView: ProfileView!
@@ -18,11 +19,11 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDele
         print("ProfileViewController")
         
         headerView.imageCaptureDelegate = self
-        headerView.addIconDelegate = self
+        //headerView.addIconDelegate = self
      
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
-        headerView.doShowAddIcon = true
+        //headerView.doShowAddIcon = true
         
         // profile model
         profileView.image = UIImage(named: "ryan.png")
@@ -43,6 +44,12 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDele
     func onImageCaptured(capturedImage: UIImage) {
         
         var licenseExpiry = "03/01/2020"
+        var dlStr = "D5555123"
+        var lastName = "Smith"
+        var firstName = "Allen"
+        var dobStr = "01/06/1975"
+        var addrLine1 = "2650 Casey Ave"
+        var addrLine2 = "Mountain View, CA 94065"
         
         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
             
@@ -51,16 +58,76 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDele
             var lines = extractedData.split(separator: ",")
             let line = lines.popLast()
             
+            print("here is the dl data...")
+            
             for index in 1..<line!.count-1 {
                 let lineItem = line?[index]
-                print (lineItem!)
+                //print (lineItem!)
                 // 1. extract expiry
-                if lineItem!.range(of: "EXPIRES") != nil {
+                if lineItem!.range(of: "EXP") != nil {
                     let totalWords = lineItem?.components(separatedBy: " ")
-                    licenseExpiry = String(totalWords![1])
+                    licenseExpiry = String(totalWords![6])
+                }
+                
+                // 2. DL
+                if lineItem!.range(of: "DL") != nil {
+                    print(lineItem!)
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    dlStr = String(totalWords![5])
+                }
+                
+                // 4. Last Name
+                if lineItem!.range(of: "LN") != nil {
+                    print(lineItem!)
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    lastName = String(totalWords![4])
+                    lastName = lastName.replacingOccurrences(of: "LN", with: "")
+                }
+                
+                // 4. First Name
+                if lineItem!.range(of: "FN") != nil {
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    firstName = String(totalWords![4])
                 }
 
+                // 4. DOB
+                if lineItem!.range(of: "DOB") != nil {
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    dobStr = String(totalWords![5])
+                }
+                
+                // Line 8 is address line 1
+                if index == 8 {
+                    //addrLine1 = lineItem!
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    addrLine1 = String(totalWords![3]) + " " + String(totalWords![4]) + " " + String(totalWords![5])
+                }
+                
+                // Line 9 is address line 2
+                if index == 9 {
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    addrLine2 = String(totalWords![3]) + " " + String(totalWords![4]) + " " + String(totalWords![5])
+                }
             }
+            
+            // all scanned
+            print("scanned data..")
+            print(firstName)
+            print(lastName)
+            print(licenseExpiry)
+            print(dobStr)
+            print(dlStr)
+            print(addrLine1)
+            print(addrLine2)
+            
+            // update UI
+            self.profileView.fullNameLabel.text = "Name: " + firstName + " " + lastName
+            self.profileView.addressLabel.text = "Address: " + addrLine1 + addrLine2
+            self.profileView.licenceNumberLabel.text = "DL: " + dlStr
+            self.profileView.licenseExpiryLabel.text = "Expires: " + licenseExpiry
+            self.profileView.dobLabel.text = "DOB: " + dobStr
+            
+            self.updateViewConstraints()
             
         }, error: {
             
@@ -72,9 +139,11 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDele
         //self.reloadInputViews()
     }
     
+    /*
     func onAddIconTapped() {
         
     }
+    */
 
     /*
     // MARK: - Navigation
