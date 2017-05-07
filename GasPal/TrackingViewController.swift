@@ -9,7 +9,9 @@
 import UIKit
 import MBProgressHUD
 
-class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FormCompleteDelegate {
+
+class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ImageCaptureDelegate, FormCompleteDelegate {
+
     
     var trackings = [TrackingModel]()
     
@@ -20,6 +22,8 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         print("TrackingViewController")
         
+        headerView.imageCaptureDelegate = self
+
         headerView.title = "Tracking"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
@@ -53,6 +57,83 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
             MBProgressHUD.hide(for: self.view, animated: true)
             refreshControl.endRefreshing()
         }
+    }
+    
+    func onImageCaptured(capturedImage: UIImage) {
+        print("Tracking.onImageCaptured")
+
+        
+         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
+         
+            // print("The dat/a", extractedData)
+            // split each line
+            var lines = extractedData.split(separator: ",")
+            let line = lines.popLast()
+            
+            
+            // Tracking Data
+            var totalAmountString = "25.99"
+            var pricePerGallonString = "2.99"
+            var dateStr = "05/12/17"
+            
+            for index in 1..<line!.count-1 {
+                let lineItem = line?[index]
+                // print (lineItem!)
+                // 1. extract price/gal
+                if lineItem!.range(of: "PRICE/GAL") != nil {
+                    //print("PRICE/GAL")
+                    //print(lineItem!)
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    pricePerGallonString = String(totalWords![1].characters.dropFirst())
+                    print(pricePerGallonString)
+
+                } else if (lineItem!.range(of: "Pace/Gal") != nil) {
+                    //print("PRICE/GAL")
+                    //print(lineItem!)
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    pricePerGallonString = String(totalWords![1].characters.dropFirst())
+                    pricePerGallonString.insert(".", at: pricePerGallonString.index(after: pricePerGallonString.startIndex))
+                    print(pricePerGallonString)
+                }
+                
+                // 2. Total Fuel
+                if lineItem!.range(of: "TOTAL") != nil {
+                    //print(lineItem!)
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    totalAmountString = String(totalWords![2].characters.dropFirst())
+                    print(totalAmountString)
+
+                } else if (lineItem!.range(of: "Fuel Sale") != nil) {
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    totalAmountString = String(totalWords![2].characters.dropFirst())
+                    print(totalAmountString)
+                }
+                
+                // 3. Date
+                if lineItem!.range(of: "DATE") != nil {
+                    print("Date")
+                    print(lineItem!)
+                } else if (lineItem!.range(of: "PM") != nil) {
+                    //print("Date")
+                    //print(lineItem!)
+                    // replace all 9 with 0 and 8 with 0
+                    dateStr = lineItem!
+                    dateStr = dateStr.replacingOccurrences(of: "9", with: "0")
+                    dateStr = dateStr.replacingOccurrences(of: "8", with: "0")
+                    print(dateStr)
+
+                }
+                
+                // debug
+                // print(lineItem!)
+                let tracking = TrackingModel(date: dateStr, totalAmount: totalAmountString, pricePerGallon: pricePerGallonString)
+                print(tracking)
+            }
+         
+         }, error: {
+         
+         })
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -30,6 +30,10 @@ class TrackingModel: NSObject {
         super.init()
     }
     
+    init(date: String, totalAmount: String, pricePerGallon: String) {
+        // parse into typed attributes
+    }
+    
     var id: String? {
         get { return pfObject.objectId }
         set { pfObject.objectId = id }

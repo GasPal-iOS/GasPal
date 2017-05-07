@@ -27,6 +27,26 @@ class LoginViewController: UIViewController {
         // other fields can be set just like with PFObject
         user["phone"] = "415-392-0202"
         PFUser.registerSubclass()
+        ParseClient.sharedInstance.createTestAccount(success: { (profileModel) in
+            print(profileModel.email!)
+            print(profileModel.password!)
+            print("success signing up")
+            self.statusLabel.text = ""
+            self.performSegue(withIdentifier: "segueToMain", sender: nil)
+        }) { (error: Error?) in
+            print("error signing up")
+            print(error!)
+            
+            self.emailTextbox.text = ""
+            self.passwordTextbox.text = ""
+            self.statusLabel.text = "Error signing up"
+            let nsError = error! as NSError
+            if 202 == nsError.code {
+                self.statusLabel.text = "User already exists"
+            }
+        }
+        
+        /*
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success == true {
                 print("success signing up")
@@ -47,6 +67,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+        */
     }
     
     @IBAction func onLogin(_ sender: Any) {
