@@ -9,12 +9,14 @@
 import UIKit
 import MBProgressHUD
 
-class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VehicleDetailViewControllerDelegate {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var vehicleTableView: UITableView!
     
     var refreshControl: UIRefreshControl!
+    
+    var selectedVehicleIndex: Int!
     
     var vehicles: [VehicleModel] = []
     
@@ -54,11 +56,24 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = vehicleTableView.dequeueReusableCell(withIdentifier: "VehicleTableCell") as! VehicleTableCell
         let vehicle = vehicles[indexPath.row]
         cell.vehicle = vehicle
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vehicle = vehicles[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vehicleDetailVC = storyboard.instantiateViewController(withIdentifier: "VehicleDetailViewController") as! VehicleDetailViewController
+        vehicleDetailVC.vehicle = vehicle
+        vehicleDetailVC.delegate = self
+        selectedVehicleIndex = indexPath.row
+        DispatchQueue.main.async(execute: { () -> Void in
+            self.present(vehicleDetailVC, animated: true, completion: nil)
+        })
     }
     
     func getVehicles() {
@@ -84,6 +99,11 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         getVehicles()
+    }
+    
+    func vehicleSaved(controller: VehicleDetailViewController, savedVehicle: VehicleModel) {
+        vehicles[selectedVehicleIndex] = savedVehicle
+        vehicleTableView.reloadData()
     }
 
     /*
