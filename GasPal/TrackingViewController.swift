@@ -119,6 +119,7 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
                     dateStr = lineItem!
                     dateStr = dateStr.replacingOccurrences(of: "9", with: "0")
                     dateStr = dateStr.replacingOccurrences(of: "8", with: "0")
+                    dateStr = dateStr.replacingOccurrences(of: "PM", with: "")
                     print(dateStr)
 
                 }

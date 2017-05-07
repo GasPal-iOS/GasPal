@@ -31,7 +31,27 @@ class TrackingModel: NSObject {
     }
     
     init(date: String, totalAmount: String, pricePerGallon: String) {
+        super.init()
+        self.date = Date()
+        self.totalPrice = 0
+        self.unitPrice = 0
+        self.gallons = 0
+        
         // parse into typed attributes
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy HH:mm"
+        if let dateParsed = dateFormatter.date(from: date) {
+            self.date = dateParsed
+        }
+        if let totalPrice = Double(totalAmount) {
+            self.totalPrice = totalPrice
+        }
+        if let unitPrice = Double(pricePerGallon) {
+            self.unitPrice = unitPrice
+        }
+        if self.unitPrice! > 0 {
+            self.gallons = self.totalPrice! / self.unitPrice!
+        }
     }
     
     var id: String? {
