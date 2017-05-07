@@ -8,15 +8,17 @@
 
 import UIKit
 
-class TrackingDetailViewController: UIViewController {
+class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var tracking: TrackingModel?
+    var vehicles = [VehicleModel]()
     
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var odometerEndTextField: UITextField!
     @IBOutlet weak var odometerStartTextField: UITextField!
     @IBOutlet weak var gallonsTextField: UITextField!
     @IBOutlet weak var unitPriceTextField: UITextField!
+    @IBOutlet weak var vehiclePicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +50,27 @@ class TrackingDetailViewController: UIViewController {
             }
         }
         
+        self.vehiclePicker.delegate = self
+        self.vehiclePicker.dataSource = self
+        
         odometerEndTextField.becomeFirstResponder()
+        
+        ParseClient.sharedInstance.getVehicles(success: { (vehicles: [VehicleModel]) in
+            self.vehicles = vehicles
+            var row = 0
+            for i in 0...vehicles.count {
+                if vehicles[i].id == self.tracking?.vehicleId {
+                    row = i
+                    break
+                }
+            }
+            self.vehiclePicker.reloadAllComponents()
+            self.vehiclePicker.selectRow(row, inComponent: 0, animated: true)
+        }) { (error: Error) in
+            print(error.localizedDescription)
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,6 +81,12 @@ class TrackingDetailViewController: UIViewController {
     }
 
     @IBAction func onSave(_ sender: UIButton) {
+        
+        if vehicles.count > 0 {
+            let vehicleRow = self.vehiclePicker.selectedRow(inComponent: 0)
+            let vehicle = vehicles[vehicleRow]
+            tracking?.vehicleId = vehicle.id
+        }
         
         tracking?.gallons = Double(gallonsTextField.text!)
         tracking?.odometerStart = Int(odometerStartTextField.text!)
@@ -75,6 +101,19 @@ class TrackingDetailViewController: UIViewController {
         }
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return vehicles.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let vehicle = vehicles[row]
+        return  "\(vehicle.make ?? "") \(vehicle.model ?? "") "
     }
     
     /*
