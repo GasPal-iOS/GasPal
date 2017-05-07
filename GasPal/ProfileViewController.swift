@@ -41,18 +41,35 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDele
     }
     
     func onImageCaptured(capturedImage: UIImage) {
-        /*
+        
+        var licenseExpiry = "03/01/2020"
+        
         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
             
-            print("The data", extractedData)
+            // print("The dat/a", extractedData)
+            // split each line
+            var lines = extractedData.split(separator: ",")
+            let line = lines.popLast()
+            
+            for index in 1..<line!.count-1 {
+                let lineItem = line?[index]
+                print (lineItem!)
+                // 1. extract expiry
+                if lineItem!.range(of: "EXPIRES") != nil {
+                    let totalWords = lineItem?.components(separatedBy: " ")
+                    licenseExpiry = String(totalWords![1])
+                }
+
+            }
             
         }, error: {
             
         })
-        */
+
+        
         print("Profile.onImageCaptured")
-        profileView.image = capturedImage
-        self.reloadInputViews()
+        //profileView.image = capturedImage
+        //self.reloadInputViews()
     }
     
     func onAddIconTapped() {
