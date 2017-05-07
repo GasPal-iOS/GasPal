@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 
-class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ImageCaptureDelegate, FormCompleteDelegate {
+class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ImageCaptureDelegate, AddIconDelegate {
 
     
     var trackings = [TrackingModel]()
@@ -27,7 +27,7 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         headerView.title = "Tracking"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
-        headerView.formCompleteDelegate = self
+        headerView.addIconDelegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -159,7 +159,7 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         openDetailView(model: trackings[indexPath.row])
     }
     
-    func onFormCompleted() {
+    func onAddIconTapped() {
         openDetailView(model: TrackingModel())
     }
     

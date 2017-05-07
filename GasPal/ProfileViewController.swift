@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ImageCaptureDelegate, FormCompleteDelegate {
+class ProfileViewController: UIViewController, ImageCaptureDelegate, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var profileView: ProfileView!
@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
         print("ProfileViewController")
         
         headerView.imageCaptureDelegate = self
-        headerView.formCompleteDelegate = self
+        headerView.addIconDelegate = self
      
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, FormComplet
         self.reloadInputViews()
     }
     
-    func onFormCompleted() {
+    func onAddIconTapped() {
         
     }
 

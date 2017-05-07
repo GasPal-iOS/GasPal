@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VehicleDetailViewControllerDelegate {
+class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VehicleDetailViewControllerDelegate, ImageCaptureDelegate, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var vehicleTableView: UITableView!
@@ -27,6 +27,8 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
         headerView.title = "Vehicle"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
+        headerView.imageCaptureDelegate = self
+        headerView.addIconDelegate = self
         
         vehicleTableView.delegate = self
         vehicleTableView.dataSource = self
@@ -66,11 +68,15 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vehicle = vehicles[indexPath.row]
+        selectedVehicleIndex = indexPath.row
+        openVehicleDetailView(vehicle: vehicle)
+    }
+    
+    func openVehicleDetailView(vehicle: VehicleModel?) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vehicleDetailVC = storyboard.instantiateViewController(withIdentifier: "VehicleDetailViewController") as! VehicleDetailViewController
         vehicleDetailVC.vehicle = vehicle
         vehicleDetailVC.delegate = self
-        selectedVehicleIndex = indexPath.row
         DispatchQueue.main.async(execute: { () -> Void in
             self.present(vehicleDetailVC, animated: true, completion: nil)
         })
@@ -102,8 +108,20 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func vehicleSaved(controller: VehicleDetailViewController, savedVehicle: VehicleModel) {
-        vehicles[selectedVehicleIndex] = savedVehicle
+        if selectedVehicleIndex != nil { // Updated
+            vehicles[selectedVehicleIndex] = savedVehicle
+        } else { // New
+            vehicles.insert(savedVehicle, at: 0)
+        }
         vehicleTableView.reloadData()
+    }
+    
+    func onImageCaptured(capturedImage: UIImage) {
+        
+    }
+    
+    func onAddIconTapped() {
+        openVehicleDetailView(vehicle: nil)
     }
 
     /*

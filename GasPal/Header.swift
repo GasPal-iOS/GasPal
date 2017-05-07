@@ -12,8 +12,8 @@ protocol ImageCaptureDelegate: class {
     func onImageCaptured(capturedImage: UIImage)
 }
 
-protocol FormCompleteDelegate: class {
-    func onFormCompleted()
+protocol AddIconDelegate: class {
+    func onAddIconTapped()
 }
 
 class Header: UIView {
@@ -41,7 +41,7 @@ class Header: UIView {
     
     
     weak var imageCaptureDelegate: ImageCaptureDelegate?
-    weak var formCompleteDelegate: FormCompleteDelegate?
+    weak var addIconDelegate: AddIconDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -104,7 +104,7 @@ class Header: UIView {
     }
     
     func onAddTap() {
-        formCompleteDelegate?.onFormCompleted()
+        addIconDelegate?.onAddIconTapped()
     }
 
     /*
