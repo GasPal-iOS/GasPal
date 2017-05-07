@@ -17,7 +17,7 @@ UINavigationControllerDelegate {
     
     var imageCaptureOrigin: String!
     
-    var contentViewController: UIViewController! {
+    var contentViewController: UITabBarController! {
         didSet(oldContentViewController) {
             view.layoutIfNeeded()
             
@@ -85,10 +85,10 @@ UINavigationControllerDelegate {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         self.dismiss(animated: true) {
-            NotificationCenter.default.post(name: GasPalNotification.imageCaptured, object: nil, userInfo: [
-                    "capturedImage": image,
-                    "origin": self.imageCaptureOrigin
-                ])
+            
+            let currentVC = self.contentViewController.selectedViewController as? ImageCaptureDelegate
+            currentVC?.onImageCaptured(capturedImage: image)
+            
         }
     }
 

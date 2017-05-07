@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ImageCaptureDelegate: class {
-    func onImageCaptured(capturedImage: UIImage)
-}
-
 protocol AddIconDelegate: class {
     func onAddIconTapped()
 }
@@ -38,9 +34,7 @@ class Header: UIView {
         }
     }
     
-    
-    
-    weak var imageCaptureDelegate: ImageCaptureDelegate?
+//    weak var imageCaptureDelegate: ImageCaptureDelegate?
     weak var addIconDelegate: AddIconDelegate?
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,21 +53,6 @@ class Header: UIView {
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
-        
-        // Observe for when an image is captured
-        NotificationCenter.default.addObserver(forName: GasPalNotification.imageCaptured, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            
-            // If image capture origin does not match VC where observer is registered, ignore
-            let origin = notification.userInfo?["origin"] as? String
-            if origin != nil && origin == self.headerTitleLabel.text! {
-                let notificationData = notification.userInfo
-                let capturedImage = notificationData?["capturedImage"] as! UIImage
-                
-                // Hand off capturedImage to the delegate
-                self.imageCaptureDelegate?.onImageCaptured(capturedImage: capturedImage)
-            }
-            
-        }
         
         headerTitleLabel.text = title
     }

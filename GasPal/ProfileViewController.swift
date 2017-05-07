@@ -54,7 +54,6 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         super.viewDidLoad()
         print("ProfileViewController")
         
-        headerView.imageCaptureDelegate = self
         //headerView.addIconDelegate = self
      
         headerView.title = "Profile"

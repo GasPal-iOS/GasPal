@@ -12,6 +12,4 @@ class GasPalNotification: NSObject {
     
     static let openCamera = NSNotification.Name("OpenCamera")
     
-    static let imageCaptured = NSNotification.Name("ImageCapture")
-    
 }

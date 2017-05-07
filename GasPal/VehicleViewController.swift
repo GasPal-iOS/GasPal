@@ -27,7 +27,6 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
         headerView.title = "Vehicle"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
-        headerView.imageCaptureDelegate = self
         headerView.addIconDelegate = self
         
         vehicleTableView.delegate = self
@@ -117,7 +116,7 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func onImageCaptured(capturedImage: UIImage) {
-        
+        print("in vehicle image capture")
     }
     
     func onAddIconTapped() {

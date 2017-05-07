@@ -22,8 +22,6 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         print("TrackingViewController")
         
-        headerView.imageCaptureDelegate = self
-
         headerView.title = "Tracking"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true

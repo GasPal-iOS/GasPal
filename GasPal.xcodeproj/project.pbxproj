@@ -22,6 +22,7 @@
 		4AC7FB781EA66D65005E2D2E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7FB771EA66D65005E2D2E /* tessdata */; };
 		4ACD53E71EBD24A000FB469E /* LineChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD53E61EBD24A000FB469E /* LineChartFormatter.swift */; };
 		4ACD53EA1EBEAE8D00FB469E /* VehicleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD53E91EBEAE8D00FB469E /* VehicleDetailViewController.swift */; };
+		4ACD53EF1EBFA6DD00FB469E /* ImageCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD53EE1EBFA6DD00FB469E /* ImageCaptureDelegate.swift */; };
 		60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101941EB5B2BD00A710D1 /* TrackingCell.swift */; };
 		60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101951EB5B2BD00A710D1 /* TrackingCell.xib */; };
 		60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101981EB5E1DE00A710D1 /* ServiceCell.swift */; };
@@ -73,6 +74,7 @@
 		4AC7FB771EA66D65005E2D2E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		4ACD53E61EBD24A000FB469E /* LineChartFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartFormatter.swift; sourceTree = "<group>"; };
 		4ACD53E91EBEAE8D00FB469E /* VehicleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewController.swift; sourceTree = "<group>"; };
+		4ACD53EE1EBFA6DD00FB469E /* ImageCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCaptureDelegate.swift; sourceTree = "<group>"; };
 		60A101941EB5B2BD00A710D1 /* TrackingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
 		60A101951EB5B2BD00A710D1 /* TrackingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingCell.xib; sourceTree = "<group>"; };
 		60A101981EB5E1DE00A710D1 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		4AC7FB641EA66A60005E2D2E /* GasPal */ = {
 			isa = PBXGroup;
 			children = (
+				4ACD53F01EBFAA1400FB469E /* Protocols */,
 				4ACD53E51EBD248700FB469E /* Utils */,
 				A0EC53E21EB3FA56004258BD /* Resource */,
 				A00437D71EB3DA77007446B6 /* View */,
@@ -199,6 +202,14 @@
 				A08F339F1EB6BA8800B785FA /* ProfileView.swift */,
 			);
 			name = ProfileView;
+			sourceTree = "<group>";
+		};
+		4ACD53F01EBFAA1400FB469E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4ACD53EE1EBFA6DD00FB469E /* ImageCaptureDelegate.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		60A101911EB5B1C700A710D1 /* TableView */ = {
@@ -433,6 +444,7 @@
 				60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */,
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
 				60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */,
+				4ACD53EF1EBFA6DD00FB469E /* ImageCaptureDelegate.swift in Sources */,
 				4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
