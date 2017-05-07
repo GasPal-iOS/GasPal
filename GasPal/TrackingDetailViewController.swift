@@ -47,6 +47,8 @@ class TrackingDetailViewController: UIViewController {
                 unitPriceTextField.text = String.init(format: "%.2f", unitPrice)
             }
         }
+        
+        odometerEndTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
