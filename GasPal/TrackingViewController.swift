@@ -167,6 +167,12 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         if model.id == nil {
             if trackings.count > 0 {
                 model.odometerStart = trackings[0].odometerEnd
+                if model.userId == nil {
+                    model.userId = trackings[0].userId
+                }
+                if model.vehicleId == nil {
+                    model.vehicleId = trackings[0].vehicleId
+                }
             }
             if model.date == nil {
                 model.date = Date()
