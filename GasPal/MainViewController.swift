@@ -80,10 +80,10 @@ UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-
-        NotificationCenter.default.post(name: GasPalNotification.imageCaptured, object: nil, userInfo: ["capturedImage": image])
         
-        self.dismiss(animated: true, completion: nil);
+        self.dismiss(animated: true) { 
+            NotificationCenter.default.post(name: GasPalNotification.imageCaptured, object: nil, userInfo: ["capturedImage": image])
+        }
     }
 
     /*
