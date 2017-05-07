@@ -12,7 +12,6 @@
 		4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44AA1EB4265200AFFB65 /* Header.swift */; };
 		4A4A44B31EB57C7800AFFB65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */; };
 		4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */; };
-		4A4A44B71EB57FB700AFFB65 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */; };
 		4A4A44BB1EB6995400AFFB65 /* VehicleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B91EB6995400AFFB65 /* VehicleTableCell.swift */; };
 		4A4A44BC1EB6995400AFFB65 /* VehicleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A44BA1EB6995400AFFB65 /* VehicleTableCell.xib */; };
 		4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */; };
@@ -61,7 +60,6 @@
 		4A4A44AA1EB4265200AFFB65 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPalNotification.swift; sourceTree = "<group>"; };
-		4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		4A4A44B91EB6995400AFFB65 /* VehicleTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTableCell.swift; sourceTree = "<group>"; };
 		4A4A44BA1EB6995400AFFB65 /* VehicleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleTableCell.xib; sourceTree = "<group>"; };
 		4AC7FB621EA66A60005E2D2E /* GasPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +190,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		4ACD53E81EBEAC5700FB469E /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				A08F339D1EB6B93700B785FA /* ProfileView.xib */,
+				A08F339F1EB6BA8800B785FA /* ProfileView.swift */,
+			);
+			name = ProfileView;
+			sourceTree = "<group>";
+		};
 		60A101911EB5B1C700A710D1 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +244,6 @@
 				A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */,
 				A00437E41EB3DFAA007446B6 /* LoginViewController.swift */,
 				4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */,
-				4A4A44B61EB57FB700AFFB65 /* CameraViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -245,11 +251,10 @@
 		A00437D71EB3DA77007446B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4ACD53E81EBEAC5700FB469E /* ProfileView */,
 				4A4A44B81EB6992000AFFB65 /* VehicleTableCell */,
 				60A101911EB5B1C700A710D1 /* TableView */,
 				4A4A44A91EB4261D00AFFB65 /* Header */,
-				A08F339D1EB6B93700B785FA /* ProfileView.xib */,
-				A08F339F1EB6BA8800B785FA /* ProfileView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -442,7 +447,6 @@
 				4ACD53E71EBD24A000FB469E /* LineChartFormatter.swift in Sources */,
 				A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */,
 				4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */,
-				4A4A44B71EB57FB700AFFB65 /* CameraViewController.swift in Sources */,
 				4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */,
 				A08F33A01EB6BA8800B785FA /* ProfileView.swift in Sources */,
 				A00437EF1EB3E5F9007446B6 /* ParseClient.swift in Sources */,

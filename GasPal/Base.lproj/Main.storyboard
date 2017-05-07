@@ -515,24 +515,6 @@
             </objects>
             <point key="canvasLocation" x="1805.5999999999999" y="121.88905547226388"/>
         </scene>
-        <!--Camera View Controller-->
-        <scene sceneID="pc2-pm-4Dh">
-            <objects>
-                <viewController storyboardIdentifier="CameraViewController" id="Z0L-ae-Z0I" customClass="CameraViewController" customModule="GasPal" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y0P-8Q-tXZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="751-jA-a1c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dLU-vc-Cwk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pqa-OF-iq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-908" y="113"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iYT-DG-cfX">
             <objects>

@@ -52,14 +52,19 @@ class DashboardViewController: UIViewController {
         
         var index = 0
         for tracking in trackingModels {
-            let miles = tracking.odometerEnd! - tracking.odometerStart!
-            let gallons = tracking.gallons!
-            let mpg = Double(miles) / gallons
+            if let odometerEnd = tracking.odometerEnd,
+                let odometerStart = tracking.odometerStart,
+                let gallons = tracking.gallons {
+                let miles = odometerEnd - odometerStart
+                let gallons = gallons
+                let mpg = Double(miles) / gallons
+                
+                let dataEntry = ChartDataEntry(x: Double(index), y: mpg)
+                dataEntries.append(dataEntry)
+                
+                index += 1
+            }
             
-            let dataEntry = ChartDataEntry(x: Double(index), y: mpg)
-            dataEntries.append(dataEntry)
-                        
-            index += 1
         }
         
         let data = LineChartData()
