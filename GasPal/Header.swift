@@ -61,13 +61,17 @@ class Header: UIView {
         addSubview(contentView)
         
         // Observe for when an image is captured
-        NotificationCenter.default.addObserver(forName: GasPalNotification.imageCaptured, object: nil, queue: OperationQueue.main) { (Notification) in
+        NotificationCenter.default.addObserver(forName: GasPalNotification.imageCaptured, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             
-            let notificationData = Notification.userInfo
-            let capturedImage = notificationData?["capturedImage"] as! UIImage
-            
-            // Hand off capturedImage to the delegate
-            self.imageCaptureDelegate?.onImageCaptured(capturedImage: capturedImage)
+            // If image capture origin does not match VC where observer is registered, ignore
+            let origin = notification.userInfo?["origin"] as? String
+            if origin != nil && origin == self.headerTitleLabel.text! {
+                let notificationData = notification.userInfo
+                let capturedImage = notificationData?["capturedImage"] as! UIImage
+                
+                // Hand off capturedImage to the delegate
+                self.imageCaptureDelegate?.onImageCaptured(capturedImage: capturedImage)
+            }
             
         }
         
@@ -112,7 +116,7 @@ class Header: UIView {
     
     func onCameraTap() {
         print("onCameraTap")
-        NotificationCenter.default.post(name: GasPalNotification.openCamera, object: nil)
+        NotificationCenter.default.post(name: GasPalNotification.openCamera, object: nil, userInfo: ["origin": headerTitleLabel.text!])
     }
     
     func onAddTap() {

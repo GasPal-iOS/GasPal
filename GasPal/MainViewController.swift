@@ -15,6 +15,8 @@ UINavigationControllerDelegate {
     
     var mainStoryboard: UIStoryboard!
     
+    var imageCaptureOrigin: String!
+    
     var contentViewController: UIViewController! {
         didSet(oldContentViewController) {
             view.layoutIfNeeded()
@@ -54,8 +56,9 @@ UINavigationControllerDelegate {
     }
     
     func initNavigationObservers() {
-        NotificationCenter.default.addObserver(forName: GasPalNotification.openCamera, object: nil, queue: OperationQueue.main) { (Notification) in
+        NotificationCenter.default.addObserver(forName: GasPalNotification.openCamera, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             
+            self.imageCaptureOrigin = notification.userInfo?["origin"] as! String
             self.displayCamera()
             
         }
@@ -81,8 +84,11 @@ UINavigationControllerDelegate {
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        self.dismiss(animated: true) { 
-            NotificationCenter.default.post(name: GasPalNotification.imageCaptured, object: nil, userInfo: ["capturedImage": image])
+        self.dismiss(animated: true) {
+            NotificationCenter.default.post(name: GasPalNotification.imageCaptured, object: nil, userInfo: [
+                    "capturedImage": image,
+                    "origin": self.imageCaptureOrigin
+                ])
         }
     }
 
