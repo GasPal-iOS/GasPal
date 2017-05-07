@@ -59,6 +59,19 @@ class TrackingDetailViewController: UIViewController {
     }
 
     @IBAction func onSave(_ sender: UIButton) {
+        
+        tracking?.gallons = Double(gallonsTextField.text!)
+        tracking?.odometerStart = Int(odometerStartTextField.text!)
+        tracking?.odometerEnd = Int(odometerEndTextField.text!)
+        tracking?.unitPrice = Double(unitPriceTextField.text!)
+        tracking?.calculate()
+        
+        ParseClient.sharedInstance.save(tracking: tracking!, success: { (tracking) in
+            //
+        }) { (error) in
+            //
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
