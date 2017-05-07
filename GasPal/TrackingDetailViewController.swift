@@ -20,8 +20,33 @@ class TrackingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let tracking = tracking {
 
-        // Do any additional setup after loading the view.
+            if let date = tracking.date {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMM dd, YYYY"
+                dateTextField.text = formatter.string(from: date)
+            }
+            if let odometer = tracking.odometerEnd {
+                let formatter = NumberFormatter()
+                formatter.usesGroupingSeparator = true
+                formatter.groupingSeparator = ","
+                odometerEndTextField.text = formatter.string(for: odometer)
+            }
+            if let odometer = tracking.odometerStart {
+                let formatter = NumberFormatter()
+                formatter.usesGroupingSeparator = true
+                formatter.groupingSeparator = ","
+                odometerStartTextField.text = formatter.string(for: odometer)
+            }
+            if let gallons = tracking.gallons {
+                gallonsTextField.text = String.init(format: "%.3f", gallons)
+            }
+            if let unitPrice = tracking.unitPrice {
+                unitPriceTextField.text = String.init(format: "%.2f", unitPrice)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

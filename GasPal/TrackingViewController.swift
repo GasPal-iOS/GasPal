@@ -81,11 +81,22 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
     
     func openDetailView(model: TrackingModel) {
         print("openDetailView")
+        
+        // if this is a new object, then set defaults
+        if model.id == nil {
+            if trackings.count > 0 {
+                model.odometerStart = trackings[0].odometerEnd
+            }
+            if model.date == nil {
+                model.date = Date()
+            }
+        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let trackingDetailViewController = storyboard.instantiateViewController(withIdentifier: "TrackingDetailViewController") as! TrackingDetailViewController
         // Set the model for the details view controller
         trackingDetailViewController.tracking = model
-        self.navigationController?.pushViewController(trackingDetailViewController, animated: true)
+        present(trackingDetailViewController, animated: true, completion: nil)
     }
     
     /*
