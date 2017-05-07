@@ -8,12 +8,48 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ImageCaptureDelegate {
+class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 //, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var profileView: ProfileView!
+    
+    
+    @IBOutlet weak var driverProfileImage: UIImageView!
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        print("onTap")
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            let vc = UIImagePickerController()
+            vc.delegate = self
+            vc.allowsEditing = true
+            vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            driverProfileImage.image = image
+        } else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            driverProfileImage.image = image
+        } else {
+            driverProfileImage.image = nil
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewController")
@@ -26,13 +62,20 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate {
         //headerView.doShowAddIcon = true
         
         // profile model
-        profileView.image = UIImage(named: "ryan.png")
+        driverProfileImage.image = UIImage(named: "ryan.png")
         profileView.fullNameLabel.text = "Ryan Gosling"
         profileView.addressLabel.text = "2650 Casey Av, Mountain View"
         profileView.licenceNumberLabel.text = "D5555912"
         profileView.licenseExpiryLabel.text = "06/15/2018"
         profileView.dobLabel.text = "03/10/1978"
-        view.addSubview(profileView)
+        
+        // tap gesture
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        
+        driverProfileImage.isUserInteractionEnabled = true
+        driverProfileImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        //view.addSubview(profileView)
         
     }
 
@@ -135,8 +178,6 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate {
 
         
         print("Profile.onImageCaptured")
-        //profileView.image = capturedImage
-        //self.reloadInputViews()
     }
     
     /*

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b6R-Bg-vLl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b6R-Bg-vLl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -240,24 +240,35 @@
                                     <constraint firstAttribute="height" constant="70" id="uej-sW-PFZ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmm-ar-0s3" customClass="ProfileView" customModule="GasPal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="375" height="548"/>
+                            <view contentMode="scaleAspectFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Gmm-ar-0s3" customClass="ProfileView" customModule="GasPal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="238" width="375" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pu4-eh-A3L">
+                                <rect key="frame" x="0.0" y="78" width="375" height="160"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="0UV-4d-EIS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="leading" secondItem="Gmm-ar-0s3" secondAttribute="leading" id="12q-U4-mrV"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="top" secondItem="jjw-Fa-2LA" secondAttribute="bottom" constant="8" symbolic="YES" id="8je-EM-3Vf"/>
                             <constraint firstItem="jjw-Fa-2LA" firstAttribute="top" secondItem="22b-qs-yZa" secondAttribute="top" id="H75-TN-ari"/>
                             <constraint firstItem="jjw-Fa-2LA" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leading" id="Jdc-nF-opL"/>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leading" id="QI0-1I-wrj"/>
-                            <constraint firstAttribute="trailing" secondItem="Gmm-ar-0s3" secondAttribute="trailing" id="g7B-K1-IbA"/>
-                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="top" secondItem="jjw-Fa-2LA" secondAttribute="bottom" id="hMo-qv-h4r"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="leading" secondItem="jjw-Fa-2LA" secondAttribute="leading" id="Jvm-H6-E55"/>
+                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="top" secondItem="pu4-eh-A3L" secondAttribute="bottom" id="Wbw-nI-yzZ"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="trailing" secondItem="Gmm-ar-0s3" secondAttribute="trailing" id="gnH-dN-v3C"/>
                             <constraint firstAttribute="trailing" secondItem="jjw-Fa-2LA" secondAttribute="trailing" id="i4D-jD-OnY"/>
-                            <constraint firstItem="xRq-MI-xZp" firstAttribute="top" secondItem="Gmm-ar-0s3" secondAttribute="bottom" id="qfE-7Y-1UP"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="trailing" secondItem="jjw-Fa-2LA" secondAttribute="trailing" id="kWJ-Qo-MrT"/>
+                            <constraint firstItem="Gmm-ar-0s3" firstAttribute="bottom" secondItem="xRq-MI-xZp" secondAttribute="top" id="s6R-0g-jBp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="User-48.png" id="smY-4K-85L"/>
                     <connections>
+                        <outlet property="driverProfileImage" destination="pu4-eh-A3L" id="e1f-wZ-m7h"/>
                         <outlet property="headerView" destination="jjw-Fa-2LA" id="x3i-Yd-1bc"/>
                         <outlet property="profileView" destination="Gmm-ar-0s3" id="SiO-v2-O5U"/>
                     </connections>
