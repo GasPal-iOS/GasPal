@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TrackingDetailViewControllerDelegate: class {
+    func trackingSaved(controller: TrackingDetailViewController, savedTracking: TrackingModel)
+}
+
 class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var tracking: TrackingModel?
@@ -19,6 +23,8 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var gallonsTextField: UITextField!
     @IBOutlet weak var unitPriceTextField: UITextField!
     @IBOutlet weak var vehiclePicker: UIPickerView!
+    
+    weak var delegate: TrackingDetailViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +87,6 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     @IBAction func onSave(_ sender: UIButton) {
-        
         if vehicles.count > 0 {
             let vehicleRow = self.vehiclePicker.selectedRow(inComponent: 0)
             let vehicle = vehicles[vehicleRow]
@@ -95,12 +100,11 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
         tracking?.calculate()
         
         ParseClient.sharedInstance.save(tracking: tracking!, success: { (tracking) in
-            //
+            self.delegate?.trackingSaved(controller: self, savedTracking: tracking)
+            self.dismiss(animated: true, completion: nil)
         }) { (error) in
-            //
+            print("failed saving service; error=\(error.localizedDescription)")
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -10,10 +10,11 @@ import UIKit
 import MBProgressHUD
 
 
-class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ImageCaptureDelegate, AddIconDelegate {
+class TrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ImageCaptureDelegate, TrackingDetailViewControllerDelegate, AddIconDelegate {
 
     
     var trackings = [TrackingModel]()
+    var selectedTrackingIndex: Int?
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var tableView: UITableView!
@@ -154,6 +155,7 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedTrackingIndex = indexPath.row
         openDetailView(model: trackings[indexPath.row])
     }
     
@@ -184,7 +186,18 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
         let trackingDetailViewController = storyboard.instantiateViewController(withIdentifier: "TrackingDetailViewController") as! TrackingDetailViewController
         // Set the model for the details view controller
         trackingDetailViewController.tracking = model
+        trackingDetailViewController.delegate = self
         present(trackingDetailViewController, animated: true, completion: nil)
+    }
+    
+    func trackingSaved(controller: TrackingDetailViewController, savedTracking: TrackingModel) {
+        if let index = selectedTrackingIndex { // Updated
+            trackings[index] = savedTracking
+            selectedTrackingIndex = nil
+        } else { // New
+            trackings.insert(savedTracking, at: 0)
+        }
+        tableView.reloadData()
     }
     
     /*
