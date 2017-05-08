@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ServiceDetailViewControllerDelegate: class {
+    func serviceSaved(controller: ServiceDetailViewController, savedService: ServiceModel)
+}
+
 class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var service: ServiceModel?
@@ -18,7 +22,9 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var serviceDescriptionTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var vehiclePicker: UIPickerView!
-
+    
+    weak var delegate: ServiceDetailViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,11 +81,11 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         service?.price = Double(priceTextField.text!)
         
         ParseClient.sharedInstance.save(service: service!, success: { (service) in
-            //
+            self.delegate?.serviceSaved(controller: self, savedService: service)
+            self.dismiss(animated: true, completion: nil)
         }) { (error) in
-            //
+            print("failed saving service; error=\(error.localizedDescription)")
         }
-        dismiss(animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

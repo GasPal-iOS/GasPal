@@ -9,9 +9,10 @@
 import UIKit
 import MBProgressHUD
 
-class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddIconDelegate {
+class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ServiceDetailViewControllerDelegate, AddIconDelegate {
     
     var services = [ServiceModel]()
+    var selectedServiceIndex: Int?
     
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +23,7 @@ class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         headerView.title = "Services"
         headerView.doShowAddIcon = true
+        headerView.addIconDelegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -70,6 +72,7 @@ class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedServiceIndex = indexPath.row
         openDetailView(model: services[indexPath.row])
     }
     
@@ -99,9 +102,19 @@ class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewD
         let serviceDetailViewController = storyboard.instantiateViewController(withIdentifier: "ServiceDetailViewController") as! ServiceDetailViewController
         // Set the model for the details view controller
         serviceDetailViewController.service = model
+        serviceDetailViewController.delegate = self
         present(serviceDetailViewController, animated: true, completion: nil)
     }
     
+    func serviceSaved(controller: ServiceDetailViewController, savedService: ServiceModel) {
+        if let index = selectedServiceIndex { // Updated
+            services[index] = savedService
+            selectedServiceIndex = nil
+        } else { // New
+            services.insert(savedService, at: 0)
+        }
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 
