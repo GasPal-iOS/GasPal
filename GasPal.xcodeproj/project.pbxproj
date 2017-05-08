@@ -23,6 +23,7 @@
 		4ACD53E71EBD24A000FB469E /* LineChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD53E61EBD24A000FB469E /* LineChartFormatter.swift */; };
 		4ACD53EA1EBEAE8D00FB469E /* VehicleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD53E91EBEAE8D00FB469E /* VehicleDetailViewController.swift */; };
 		4ACD53EF1EBFA6DD00FB469E /* ImageCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD53EE1EBFA6DD00FB469E /* ImageCaptureDelegate.swift */; };
+		6031917A1EC0074500B1AAE5 /* ServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603191791EC0074500B1AAE5 /* ServiceDetailViewController.swift */; };
 		60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101941EB5B2BD00A710D1 /* TrackingCell.swift */; };
 		60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A101951EB5B2BD00A710D1 /* TrackingCell.xib */; };
 		60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A101981EB5E1DE00A710D1 /* ServiceCell.swift */; };
@@ -75,6 +76,7 @@
 		4ACD53E61EBD24A000FB469E /* LineChartFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartFormatter.swift; sourceTree = "<group>"; };
 		4ACD53E91EBEAE8D00FB469E /* VehicleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewController.swift; sourceTree = "<group>"; };
 		4ACD53EE1EBFA6DD00FB469E /* ImageCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCaptureDelegate.swift; sourceTree = "<group>"; };
+		603191791EC0074500B1AAE5 /* ServiceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceDetailViewController.swift; sourceTree = "<group>"; };
 		60A101941EB5B2BD00A710D1 /* TrackingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
 		60A101951EB5B2BD00A710D1 /* TrackingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingCell.xib; sourceTree = "<group>"; };
 		60A101981EB5E1DE00A710D1 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
@@ -251,13 +253,14 @@
 				4AC7FB671EA66A60005E2D2E /* ViewController.swift */,
 				A00437D81EB3DAF1007446B6 /* ProfileViewController.swift */,
 				A00437DA1EB3DB6F007446B6 /* VehicleViewController.swift */,
+				4ACD53E91EBEAE8D00FB469E /* VehicleDetailViewController.swift */,
 				A00437DC1EB3DBA1007446B6 /* TrackingViewController.swift */,
 				60A551571EBE554E008FC472 /* TrackingDetailViewController.swift */,
 				A00437DE1EB3DBEC007446B6 /* ServiceViewController.swift */,
+				603191791EC0074500B1AAE5 /* ServiceDetailViewController.swift */,
 				A00437E01EB3DBFA007446B6 /* DashboardViewController.swift */,
 				A00437E41EB3DFAA007446B6 /* LoginViewController.swift */,
 				4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */,
-				4ACD53E91EBEAE8D00FB469E /* VehicleDetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
 				60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */,
 				4ACD53EF1EBFA6DD00FB469E /* ImageCaptureDelegate.swift in Sources */,
+				6031917A1EC0074500B1AAE5 /* ServiceDetailViewController.swift in Sources */,
 				4A4A44B51EB57F7D00AFFB65 /* GasPalNotification.swift in Sources */,
 				A00437E51EB3DFAA007446B6 /* LoginViewController.swift in Sources */,
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,

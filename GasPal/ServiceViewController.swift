@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddIconDelegate {
     
     var services = [ServiceModel]()
     
@@ -69,6 +69,39 @@ class ServiceViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetailView(model: services[indexPath.row])
+    }
+    
+    func onAddIconTapped() {
+        openDetailView(model: ServiceModel())
+    }
+    
+    func openDetailView(model: ServiceModel) {
+        print("openDetailView")
+        
+        // if this is a new object, then set defaults
+        if model.id == nil {
+            if services.count > 0 {
+                if model.userId == nil {
+                    model.userId = services[0].userId
+                }
+                if model.vehicleId == nil {
+                    model.vehicleId = services[0].vehicleId
+                }
+            }
+            if model.serviceDate == nil {
+                model.serviceDate = Date()
+            }
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let serviceDetailViewController = storyboard.instantiateViewController(withIdentifier: "ServiceDetailViewController") as! ServiceDetailViewController
+        // Set the model for the details view controller
+        serviceDetailViewController.service = model
+        present(serviceDetailViewController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
