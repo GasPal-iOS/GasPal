@@ -87,6 +87,10 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     @IBAction func onSave(_ sender: UIButton) {
+        if !validateInputs() {
+            return
+        }
+        
         if vehicles.count > 0 {
             let vehicleRow = self.vehiclePicker.selectedRow(inComponent: 0)
             let vehicle = vehicles[vehicleRow]
@@ -105,6 +109,27 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
         }) { (error) in
             print("failed saving service; error=\(error.localizedDescription)")
         }
+    }
+    
+    func validateInputs() -> Bool {
+        var valid = true
+        let fields = [dateTextField, odometerStartTextField, odometerEndTextField, gallonsTextField, unitPriceTextField]
+        
+        for field in fields {
+            if let field = field {
+                if field.text == nil || field.text?.characters.count == 0 {
+                    if valid {
+                        valid = false
+                        field.becomeFirstResponder()
+                    }
+                    field.layer.borderColor = UIColor.red.cgColor
+                } else {
+                    field.layer.borderColor = UIColor.gray.cgColor
+                }
+            }
+        }
+        
+        return valid
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
