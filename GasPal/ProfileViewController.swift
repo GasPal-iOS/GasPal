@@ -48,8 +48,6 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewController")
@@ -60,13 +58,52 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         headerView.doShowCameraIcon = true
         //headerView.doShowAddIcon = true
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        // Get the logged in User
+        let loggedInUser = ParseClient.sharedInstance.currentProfile!
+        
         // profile model
         driverProfileImage.image = UIImage(named: "ryan.png")
+        if let _firstName = loggedInUser.firstName {
+            profileView.fullNameLabel.text = _firstName
+            if let _lastName = loggedInUser.lastName {
+                profileView.fullNameLabel.text = loggedInUser.firstName! + " " + loggedInUser.lastName!
+            }
+        }
+        if let _address = loggedInUser.address {
+            profileView.addressLabel.text = _address
+        }
+        if let _license = loggedInUser.driverLicenseNumber {
+            profileView.licenceNumberLabel.text = _license
+        }
+        if let _licExpiry = loggedInUser.licenseExpiry {
+            profileView.licenseExpiryLabel.text = dateFormatter.string(from: _licExpiry)
+        }
+        if let _dob = loggedInUser.dateOfBirth {
+            profileView.dobLabel.text = dateFormatter.string(from: _dob)
+        }
+        
+        // set the profile image
+        /*
+        if let userPicture = loggedInUser.driverImage! as! PFFile {
+            userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    driverProfileImage.image = image
+                }
+            })
+        }
+        */
+        
+        /*
         profileView.fullNameLabel.text = "Ryan Gosling"
         profileView.addressLabel.text = "2650 Casey Av, Mountain View"
         profileView.licenceNumberLabel.text = "D5555912"
         profileView.licenseExpiryLabel.text = "06/15/2018"
         profileView.dobLabel.text = "03/10/1978"
+        */
         
         // tap gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -92,8 +129,8 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         var dobStr = "01/06/1975"
         var addrLine1 = "2650 Casey Ave"
         var addrLine2 = "Mountain View, CA 94065"
-        var dobDate = nil
-        var licenseExpiryDate = nil
+        var dobDate: Date?
+        var licenseExpiryDate: Date?
         
         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
             
@@ -168,6 +205,22 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
             print(dlStr)
             print(addrLine1)
             print(addrLine2)
+            
+            // Save the model
+            // Get the logged in User
+            let loggedInUser = ParseClient.sharedInstance.currentProfile!
+            loggedInUser.firstName = firstName
+            loggedInUser.lastName = lastName
+            loggedInUser.address = addrLine1 + " " + addrLine2
+            loggedInUser.driverLicenseNumber = dlStr
+            loggedInUser.dateOfBirth = dateFormatter.date(from: dobStr)
+            loggedInUser.licenseExpiry = dateFormatter.date(from: licenseExpiry)
+            ParseClient.sharedInstance.save(profile: loggedInUser, success: { (profileModel) in
+                print("saved a profile model")
+            }, failure: { (error) in
+                print("error saving profile model")
+            })
+            
             
             // update UI
             self.profileView.fullNameLabel.text = "Name: " + firstName + " " + lastName

@@ -11,11 +11,12 @@ import Parse
 
 class ProfileModel: PFUser {
 
-    var profileImage: PFFile? {
-        get { return self["profileImage"] as? PFFile }
-        set { self["profileImage"] = newValue }
+    /*
+    var driverImage: PFFile? {
+        get { return self["driverImage"] as? PFFile }
+        set { self["driverImage"] = newValue }
     }
-    
+    */
     
     var dateOfBirth: Date? {
         get { return self["dateOfBirth"] as? Date }
@@ -41,5 +42,11 @@ class ProfileModel: PFUser {
         get { return self["licenseExpiry"] as? Date }
         set { self["licenseExpiry"] = newValue }
     }
+    
+    var address: String? {
+        get { return self["address"] as? String }
+        set { self["address"] = newValue }
+    }
+    
     
 }
