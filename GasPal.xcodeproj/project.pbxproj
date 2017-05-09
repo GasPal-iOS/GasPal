@@ -135,6 +135,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4A4812411EC1956300C653F4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4A48123F1EC1893700C653F4 /* LocationService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		4A4A44A91EB4261D00AFFB65 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +182,7 @@
 		4AC7FB641EA66A60005E2D2E /* GasPal */ = {
 			isa = PBXGroup;
 			children = (
+				4A4812411EC1956300C653F4 /* Services */,
 				4ACD53F01EBFAA1400FB469E /* Protocols */,
 				4ACD53E51EBD248700FB469E /* Utils */,
 				A0EC53E21EB3FA56004258BD /* Resource */,
@@ -187,7 +196,6 @@
 				4AC7FB6C1EA66A60005E2D2E /* Assets.xcassets */,
 				4AC7FB6E1EA66A60005E2D2E /* LaunchScreen.storyboard */,
 				4AC7FB711EA66A60005E2D2E /* Info.plist */,
-				4A48123F1EC1893700C653F4 /* LocationService.swift */,
 			);
 			path = GasPal;
 			sourceTree = "<group>";
