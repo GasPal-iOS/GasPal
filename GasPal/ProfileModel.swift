@@ -11,6 +11,12 @@ import Parse
 
 class ProfileModel: PFUser {
 
+    var profileImage: PFFile? {
+        get { return self["profileImage"] as? PFFile }
+        set { self["profileImage"] = newValue }
+    }
+    
+    
     var dateOfBirth: Date? {
         get { return self["dateOfBirth"] as? Date }
         set { self["dateOfBirth"] = newValue }

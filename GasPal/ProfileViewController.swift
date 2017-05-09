@@ -92,6 +92,8 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         var dobStr = "01/06/1975"
         var addrLine1 = "2650 Casey Ave"
         var addrLine2 = "Mountain View, CA 94065"
+        var dobDate = nil
+        var licenseExpiryDate = nil
         
         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
             
@@ -99,6 +101,9 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
             // split each line
             var lines = extractedData.split(separator: ",")
             let line = lines.popLast()
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
             
             print("here is the dl data...")
             
@@ -109,6 +114,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
                 if lineItem!.range(of: "EXP") != nil {
                     let totalWords = lineItem?.components(separatedBy: " ")
                     licenseExpiry = String(totalWords![6])
+                    licenseExpiryDate = dateFormatter.date(from: licenseExpiry)
                 }
                 
                 // 2. DL
@@ -136,6 +142,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
                 if lineItem!.range(of: "DOB") != nil {
                     let totalWords = lineItem?.components(separatedBy: " ")
                     dobStr = String(totalWords![5])
+                    dobDate = dateFormatter.date(from: dobStr)
                 }
                 
                 // Line 8 is address line 1
