@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 //, AddIconDelegate {
@@ -46,6 +47,18 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         } else {
             driverProfileImage.image = nil
         }
+        
+        // save it
+        let loggedInUser = ParseClient.sharedInstance.currentProfile!
+        let imageData = UIImagePNGRepresentation(driverProfileImage.image!)
+        loggedInUser.driverImage = PFFile(name:"image.png", data:imageData!)!
+        
+        ParseClient.sharedInstance.save(profile: loggedInUser, success: { (profileModel) in
+            print("saved a profile model")
+        }, failure: { (error) in
+            print("error saving profile model")
+        })
+        
     }
     
     override func viewDidLoad() {
@@ -86,16 +99,14 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         }
         
         // set the profile image
-        /*
-        if let userPicture = loggedInUser.driverImage! as! PFFile {
+        if let userPicture = loggedInUser.driverImage {
             userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
                 let image = UIImage(data: imageData!)
                 if image != nil {
-                    driverProfileImage.image = image
+                    self.driverProfileImage.image = image
                 }
             })
         }
-        */
         
         /*
         profileView.fullNameLabel.text = "Ryan Gosling"
