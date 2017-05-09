@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
             print(profileModel.password!)
             print("success signing up")
             self.statusLabel.text = ""
+            self.saveEmail(email: profileModel.email)
             self.performSegue(withIdentifier: "segueToMain", sender: nil)
         }) { (error: Error?) in
             print("error signing up")
@@ -75,7 +76,7 @@ class LoginViewController: UIViewController {
         ParseClient.sharedInstance.login(email: emailTextbox.text!, password: passwordTextbox.text!, success: { (profile) in
             print("login=success; userId=\(profile.objectId!)")
             self.statusLabel.text = ""
-            
+            self.saveEmail(email: profile.email)
             self.performSegue(withIdentifier: "segueToMain", sender: nil)
         }) { (error) in
             print("login=failure; \(error.localizedDescription)")
@@ -93,7 +94,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         print("LoginViewController")
         // pre populate with test user
-        emailTextbox.text = "gaspaltest+1493707634@gmail.com"
+        
+        let defaults = UserDefaults.standard
+        emailTextbox.text = defaults.string(forKey: "username") ?? "gaspaltest+1493707634@gmail.com"
         passwordTextbox.text = "test12"
         self.statusLabel.text = ""
     }
@@ -101,6 +104,14 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func saveEmail(email: String?) -> () {
+        if let email = email {
+            let defaults = UserDefaults.standard
+            defaults.set(email, forKey: "username")
+            defaults.synchronize()
+        }
     }
     
 
