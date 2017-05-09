@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate, LocationServiceDelegate {
     
     @IBOutlet var contentView: UIView!
     
@@ -48,6 +49,10 @@ UINavigationControllerDelegate {
         }) { (error) in
             
         }
+        
+        // Initialize user's location
+        LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.initialize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +99,14 @@ UINavigationControllerDelegate {
             currentVC?.onImageCaptured(capturedImage: image)
             
         }
+    }
+    
+    func onLocationChange(location: CLLocation) {
+        print("location: ", location)
+    }
+    
+    func onLocationChangeError(error: Error) {
+        print("location error: ", error.localizedDescription)
     }
 
     /*

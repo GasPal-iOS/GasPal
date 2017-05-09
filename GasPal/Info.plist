@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Let us have your location all the time!!! Please...</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow GasPal to access your camera?</string>
+	<string>Need camera access for uploading Images</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -26,16 +28,12 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-    
-    <key>NSCameraUsageDescription</key>
-    <string>Need camera access for uploading Images</string>
-    <key>NSLocationUsageDescription</key>
-    <string>Need location access for updating nearby friends</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This app will use your location to show you cool stuff near you.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>NeedLibrary access for uploading Images</string>
-    
+	<key>NSLocationUsageDescription</key>
+	<string>Need location access for updating nearby friends</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app will use your location to show you cool stuff near you.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NeedLibrary access for uploading Images</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

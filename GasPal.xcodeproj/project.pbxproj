@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D06017668C39A8713C9A841 /* Pods_GasPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C839488FA885F022ADFF54B1 /* Pods_GasPal.framework */; };
+		4A4812401EC1893700C653F4 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48123F1EC1893700C653F4 /* LocationService.swift */; };
 		4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A44A71EB4261200AFFB65 /* Header.xib */; };
 		4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44AA1EB4265200AFFB65 /* Header.swift */; };
 		4A4A44B31EB57C7800AFFB65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		33873FA7235D252D02DB39F8 /* Pods-GasPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-GasPal/Pods-GasPal.release.xcconfig"; sourceTree = "<group>"; };
+		4A48123F1EC1893700C653F4 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4A4A44A71EB4261200AFFB65 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		4A4A44AA1EB4265200AFFB65 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		4A4A44B21EB57C7800AFFB65 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				4AC7FB6C1EA66A60005E2D2E /* Assets.xcassets */,
 				4AC7FB6E1EA66A60005E2D2E /* LaunchScreen.storyboard */,
 				4AC7FB711EA66A60005E2D2E /* Info.plist */,
+				4A48123F1EC1893700C653F4 /* LocationService.swift */,
 			);
 			path = GasPal;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				4ACD53E71EBD24A000FB469E /* LineChartFormatter.swift in Sources */,
 				A00437DB1EB3DB6F007446B6 /* VehicleViewController.swift in Sources */,
 				4AC7FB681EA66A60005E2D2E /* ViewController.swift in Sources */,
+				4A4812401EC1893700C653F4 /* LocationService.swift in Sources */,
 				4AC7FB661EA66A60005E2D2E /* AppDelegate.swift in Sources */,
 				A08F33A01EB6BA8800B785FA /* ProfileView.swift in Sources */,
 				A00437EF1EB3E5F9007446B6 /* ParseClient.swift in Sources */,
