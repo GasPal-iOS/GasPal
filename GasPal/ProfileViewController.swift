@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LogoutDelegate {
 //, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
@@ -66,10 +66,12 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         print("ProfileViewController")
         
         //headerView.addIconDelegate = self
+        headerView.logoutDelegate = self
      
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
         //headerView.doShowAddIcon = true
+        headerView.doShowLogoutButton = true
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -248,6 +250,10 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
 
         
         print("Profile.onImageCaptured")
+    }
+    
+    func onLogoutButtonTapped() {
+        NotificationCenter.default.post(name: GasPalNotification.logout, object: nil)
     }
     
     /*

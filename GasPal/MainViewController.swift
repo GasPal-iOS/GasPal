@@ -62,6 +62,10 @@ UINavigationControllerDelegate {
             self.displayCamera()
             
         }
+        
+        NotificationCenter.default.addObserver(forName: GasPalNotification.logout, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func displayCamera() {

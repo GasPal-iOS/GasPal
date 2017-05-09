@@ -12,6 +12,10 @@ protocol AddIconDelegate: class {
     func onAddIconTapped()
 }
 
+protocol LogoutDelegate: class {
+    func onLogoutButtonTapped()
+}
+
 class Header: UIView {
     
     @IBOutlet weak var contentView: UIView!
@@ -34,8 +38,14 @@ class Header: UIView {
         }
     }
     
-//    weak var imageCaptureDelegate: ImageCaptureDelegate?
+    var doShowLogoutButton: Bool? {
+        didSet {
+            initLogoutButton()
+        }
+    }
+    
     weak var addIconDelegate: AddIconDelegate?
+    weak var logoutDelegate: LogoutDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -93,6 +103,18 @@ class Header: UIView {
         contentView.addSubview(addIcon)
     }
     
+    func initLogoutButton() {
+        let logoutButton = UIButton(frame: CGRect(x: 60, y: 26, width: 35, height: 20))
+        logoutButton.addTarget(self, action: #selector(onLogoutTap), for: .touchUpInside)
+        logoutButton.backgroundColor = UIColor.white
+        let logoutButtonTitle = NSAttributedString(string: "Logout", attributes: [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 11),
+            NSForegroundColorAttributeName: UIColor.black
+        ])
+        logoutButton.setAttributedTitle(logoutButtonTitle, for: .normal)
+        contentView.addSubview(logoutButton)
+    }
+    
     func onCameraTap() {
         print("onCameraTap")
         NotificationCenter.default.post(name: GasPalNotification.openCamera, object: nil, userInfo: ["origin": headerTitleLabel.text!])
@@ -100,6 +122,12 @@ class Header: UIView {
     
     func onAddTap() {
         addIconDelegate?.onAddIconTapped()
+    }
+    
+    func onLogoutTap() {
+        ParseClient.sharedInstance.logout { 
+            self.logoutDelegate?.onLogoutButtonTapped()
+        }
     }
 
     /*

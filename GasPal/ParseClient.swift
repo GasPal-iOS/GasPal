@@ -58,6 +58,19 @@ class ParseClient: NSObject {
         }
     }
     
+    func logout(success: @escaping () -> ()) {
+        if currentProfile != nil {
+            currentProfile = nil
+            PFUser.logOutInBackground(block: { (error: Error?) in
+                if let error = error {
+                    print("logout; status=failed; error=\(error.localizedDescription)")
+                } else {
+                    success()
+                }
+            })
+        }
+    }
+    
     func save(profile: ProfileModel, success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
         do {
             try profile.save()

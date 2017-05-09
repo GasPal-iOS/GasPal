@@ -11,5 +11,6 @@ import UIKit
 class GasPalNotification: NSObject {
     
     static let openCamera = NSNotification.Name("OpenCamera")
+    static let logout = NSNotification.Name("Logout")
     
 }
