@@ -11,12 +11,10 @@ import Parse
 
 class ProfileModel: PFUser {
 
-    /*
     var driverImage: PFFile? {
         get { return self["driverImage"] as? PFFile }
         set { self["driverImage"] = newValue }
     }
-    */
     
     var dateOfBirth: Date? {
         get { return self["dateOfBirth"] as? Date }
