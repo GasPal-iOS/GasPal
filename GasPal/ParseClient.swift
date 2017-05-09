@@ -12,6 +12,7 @@ import Parse
 class ParseClient: NSObject {
     
     static let sharedInstance = ParseClient()
+    var currentProfile: ProfileModel?
     
     override init() {
         super.init()
@@ -38,6 +39,7 @@ class ParseClient: NSObject {
                 failure(error)
             } else {
                 print("signUp; status=success; user=\(user.username!)")
+                self.currentProfile = user
                 success(user)
             }
         }
@@ -50,7 +52,8 @@ class ParseClient: NSObject {
                 failure(error)
             } else {
                 print("login; status=success; user=\(user!.username!)")
-                success(user as! ProfileModel)
+                self.currentProfile = user as? ProfileModel
+                success(self.currentProfile!)
             }
         }
     }
@@ -236,6 +239,7 @@ class ParseClient: NSObject {
                     }
                 }
                 print("createTestAccount=success; user=\(profile.username!)")
+                self.currentProfile = profile
                 success(profile)
                 
             }, failure: { (error) in
