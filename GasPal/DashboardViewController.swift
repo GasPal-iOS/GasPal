@@ -15,7 +15,11 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var mpgChartView: LineChartView!
     @IBOutlet weak var mpgFilterSegmentedControl: UISegmentedControl!
     
-    var trackingModels: [TrackingModel]!
+    var lineChartColors: [UIColor] = [UIColor.blue, UIColor.red, UIColor.yellow]
+    
+    var vehicles: [VehicleModel]!
+    var selectedVehicles: [VehicleModel]! // The vehicles user is including in chart
+    var selectedTimelineFilter: TrackingTimelineFilter = TrackingTimelineFilter.allTime
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +31,12 @@ class DashboardViewController: UIViewController {
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.lastYear.rawValue, at: 2, animated: false)
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.allTime.rawValue, at: 3, animated: false)
         
-        // Load tracking trips for initial timeline
-        // Making sure we have trackings loaded -- Should we just fetch all required data on app load?
-        if TrackingModel.hasLoadedTracking! {
-            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastWeek)
-            createChart()
-        } else {
-            ParseClient.sharedInstance.getTrackings(success: { (trackingModels: [TrackingModel]) in
-                self.trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastWeek)
-                self.createChart()
-            }) { (error: Error) in
-                print("ERROR")
-            }
+        // Load vehicles to build mpg charts
+        ParseClient.sharedInstance.getVehicles(success: { (vehicles: [VehicleModel]) in
+            self.vehicles = vehicles
+            self.createChart()
+        }) { (Error) in
+            print("ERROR GETTING VEHICLES")
         }
     }
 
@@ -47,18 +45,14 @@ class DashboardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func createChart() {
+    func getChartDataSet(vehicle: VehicleModel) -> LineChartDataSet {
         var dataEntries: [ChartDataEntry] = [ChartDataEntry]()
+        
+        let trackingModels = TrackingModel.getAllByTimelineAndVehicle(timelineFilter: selectedTimelineFilter, vehicle: vehicle)
         
         var index = 0
         for tracking in trackingModels {
-            if let odometerEnd = tracking.odometerEnd,
-                let odometerStart = tracking.odometerStart,
-                let gallons = tracking.gallons {
-                let miles = odometerEnd - odometerStart
-                let gallons = gallons
-                let mpg = Double(miles) / gallons
-                
+            if let mpg = tracking.mpg {
                 let dataEntry = ChartDataEntry(x: Double(index), y: mpg)
                 dataEntries.append(dataEntry)
                 
@@ -67,14 +61,32 @@ class DashboardViewController: UIViewController {
             
         }
         
-        let data = LineChartData()
-        let ds = LineChartDataSet(values: dataEntries, label: "MPG")
+        let dataSet = LineChartDataSet(values: dataEntries, label: "\(vehicle.make!) \(vehicle.model!)")
+        
+        return dataSet
+    }
+    
+    func createChart() {
+        var dataSets = [LineChartDataSet]()
+
+        var index = 0
+        for vehicle in vehicles {
+            let dataSet = getChartDataSet(vehicle: vehicle)
+            let color = lineChartColors[index % 3]
+            dataSet.setColor(color)
+            dataSet.setCircleColor(color)
+            dataSet.circleRadius = 5.0
+            dataSets.append(dataSet)
+            
+            index += 1
+        }
         
         let xAxis: XAxis = XAxis()
         let lineChartFormatter: LineChartFormatter = LineChartFormatter()
         xAxis.valueFormatter = lineChartFormatter
         
-        data.addDataSet(ds)
+        let data = LineChartData(dataSets: dataSets)
+        data.setDrawValues(false)
         mpgChartView.data = data
         mpgChartView.xAxis.valueFormatter = xAxis.valueFormatter
     }
@@ -82,13 +94,13 @@ class DashboardViewController: UIViewController {
     @IBAction func onMPGFilterChange(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastWeek)
+            selectedTimelineFilter = TrackingTimelineFilter.lastWeek
         case 1:
-            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastMonth)
+            selectedTimelineFilter = TrackingTimelineFilter.lastMonth
         case 2:
-            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.lastYear)
+            selectedTimelineFilter = TrackingTimelineFilter.lastYear
         case 3:
-            trackingModels = TrackingModel.getAllByTimeline(timelineFilter: TrackingTimelineFilter.allTime)
+            selectedTimelineFilter = TrackingTimelineFilter.allTime
         default:
             break
         }

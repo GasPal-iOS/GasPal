@@ -143,7 +143,7 @@ class TrackingModel: NSObject {
         }
     }
     
-    static func getAllByTimeline(timelineFilter: TrackingTimelineFilter) -> [TrackingModel] {
+    static func getAllByTimelineAndVehicle(timelineFilter: TrackingTimelineFilter, vehicle: VehicleModel) -> [TrackingModel] {
         
         var results = [TrackingModel]()
         
@@ -159,11 +159,16 @@ class TrackingModel: NSObject {
         case .lastYear:
             beginDate = calendar.date(byAdding: .year, value: -1, to: endDate)
         case .allTime:
-            return _trackingLogs
+            for log in _trackingLogs {
+                if log.vehicleId == vehicle.id {
+                    results.append(log)
+                }
+            }
+            return results
         }
         
         for log in _trackingLogs {
-            if log.date! > beginDate {
+            if log.date! > beginDate && log.vehicleId == vehicle.id {
                 results.append(log)
             }
         }
