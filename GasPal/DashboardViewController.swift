@@ -18,8 +18,8 @@ class DashboardViewController: UIViewController {
     var lineChartColors: [UIColor] = [UIColor.blue, UIColor.red, UIColor.yellow]
     
     var vehicles: [VehicleModel]!
-    var selectedVehicles: [VehicleModel]! // The vehicles user is including in chart
-    var selectedTimelineFilter: TrackingTimelineFilter = TrackingTimelineFilter.allTime
+    var selectedVehicleIndexes: [Int] = [Int]() // The vehicles user is including in chart
+    var selectedTimelineFilter: TrackingTimelineFilter = TrackingTimelineFilter.lastWeek
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,11 @@ class DashboardViewController: UIViewController {
         // Load vehicles to build mpg charts
         ParseClient.sharedInstance.getVehicles(success: { (vehicles: [VehicleModel]) in
             self.vehicles = vehicles
+            for i in 0...vehicles.count - 1 { self.selectedVehicleIndexes.append(i) }
             self.createChart()
+            
+            // Create checkboxes for user to select which vehicles are shown in chart
+            self.createCheckboxes()
         }) { (Error) in
             print("ERROR GETTING VEHICLES")
         }
@@ -70,7 +74,8 @@ class DashboardViewController: UIViewController {
         var dataSets = [LineChartDataSet]()
 
         var index = 0
-        for vehicle in vehicles {
+        for vehicleIndex in selectedVehicleIndexes {
+            let vehicle = vehicles[vehicleIndex]
             let dataSet = getChartDataSet(vehicle: vehicle)
             let color = lineChartColors[index % 3]
             dataSet.setColor(color)
@@ -89,6 +94,34 @@ class DashboardViewController: UIViewController {
         data.setDrawValues(false)
         mpgChartView.data = data
         mpgChartView.xAxis.valueFormatter = xAxis.valueFormatter
+    }
+    
+    func createCheckboxes() {
+        var index = 0
+        for vehicle in vehicles {
+            let vehicleButton = UIButton(frame: CGRect(x: 16, y: 360 + (index * 25), width: 60, height: 20))
+            vehicleButton.addTarget(self, action: #selector(onVehicleTap(_ :)), for: .touchUpInside)
+            vehicleButton.backgroundColor = UIColor.gray
+            let vehicleButtonTitle = NSAttributedString(string: "\(vehicle.make!) \(vehicle.model!)", attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 11),
+                NSForegroundColorAttributeName: UIColor.black
+            ])
+            vehicleButton.setAttributedTitle(vehicleButtonTitle, for: .normal)
+            vehicleButton.tag = index
+            view.addSubview(vehicleButton)
+            
+            index += 1
+        }
+    }
+    
+    func onVehicleTap(_ sender: UIButton) {
+        let vehicleIndex = sender.tag
+        if selectedVehicleIndexes.contains(vehicleIndex) {
+            selectedVehicleIndexes.remove(at: vehicleIndex)
+        } else {
+            selectedVehicleIndexes.insert(vehicleIndex, at: vehicleIndex)
+        }
+        createChart()
     }
     
     @IBAction func onMPGFilterChange(_ sender: UISegmentedControl) {
