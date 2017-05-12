@@ -68,7 +68,7 @@ class Header: UIView {
     }
     
     func initCameraIcon() {
-        let cameraIcon = UIButton(frame: CGRect(x: 225, y: 24, width: 40, height: 25))
+        let cameraIcon = UIButton(frame: CGRect(x: 270, y: 24, width: 40, height: 25))
         cameraIcon.addTarget(self, action: #selector(onCameraTap), for: .touchUpInside)
         //cameraIcon.backgroundColor = UIColor.white
         if let image = UIImage(named: "icon-camera.png") {
@@ -86,7 +86,7 @@ class Header: UIView {
     }
     
     func initAddIcon() {
-        let addIcon = UIButton(frame: CGRect(x: 270, y: 26, width: 35, height: 20))
+        let addIcon = UIButton(frame: CGRect(x: 320, y: 26, width: 35, height: 20))
         addIcon.addTarget(self, action: #selector(onAddTap), for: .touchUpInside)
         if let image = UIImage(named: "edit.png") {
             addIcon.setImage(image, for: UIControlState.normal)
@@ -104,14 +104,20 @@ class Header: UIView {
     }
     
     func initLogoutButton() {
-        let logoutButton = UIButton(frame: CGRect(x: 60, y: 26, width: 35, height: 20))
+        let logoutButton = UIButton(frame: CGRect(x: 20, y: 28, width: 35, height: 20))
         logoutButton.addTarget(self, action: #selector(onLogoutTap), for: .touchUpInside)
+        if let image = UIImage(named: "logout.png") {
+            logoutButton.setImage(image, for: UIControlState.normal)
+        }
+
+        /*
         logoutButton.backgroundColor = UIColor.white
         let logoutButtonTitle = NSAttributedString(string: "Logout", attributes: [
             NSFontAttributeName: UIFont.systemFont(ofSize: 11),
             NSForegroundColorAttributeName: UIColor.black
         ])
         logoutButton.setAttributedTitle(logoutButtonTitle, for: .normal)
+        */
         contentView.addSubview(logoutButton)
     }
     
