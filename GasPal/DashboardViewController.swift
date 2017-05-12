@@ -8,8 +8,9 @@
 
 import UIKit
 import Charts
+import MapKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate {
 
     @IBOutlet weak var headerView: Header!
     @IBOutlet weak var mpgChartView: LineChartView!
@@ -21,6 +22,13 @@ class DashboardViewController: UIViewController {
     var selectedVehicleIndexes: [Int] = [Int]() // The vehicles user is including in chart
     var selectedTimelineFilter: TrackingTimelineFilter = TrackingTimelineFilter.lastWeek
     
+    @IBOutlet weak var mapView: MKMapView!
+
+    let CLIENT_ID = "QA1L0Z0ZNA2QVEEDHFPQWK0I5F1DE3GPLSNW4BZEBGJXUCFL"
+    let CLIENT_SECRET = "W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH21ZCPUMCU"
+    
+    var results: NSArray = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DashboardViewController")
@@ -30,6 +38,17 @@ class DashboardViewController: UIViewController {
         mpgFilterSegmentedControl.apportionsSegmentWidthsByContent = true
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.lastYear.rawValue, at: 2, animated: false)
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.allTime.rawValue, at: 3, animated: false)
+        
+        // Map View
+        //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
+        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.386051, -122.083855),
+                                              MKCoordinateSpanMake(0.5, 0.5))
+        
+        mapView.delegate = self
+        
+        mapView.setRegion(sfRegion, animated: false)
+        
+        fetchLocations("Gas Station")
         
         // Load vehicles to build mpg charts
         ParseClient.sharedInstance.getVehicles(success: { (vehicles: [VehicleModel]) in
@@ -43,6 +62,123 @@ class DashboardViewController: UIViewController {
             print("ERROR GETTING VEHICLES")
         }
     }
+    
+    func onLocationChange(location: CLLocation) {
+        print("location: ", location)
+        
+//        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
+//                                              MKCoordinateSpanMake(0.1, 0.1))
+        
+        let sfRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1))
+        
+        mapView.setRegion(sfRegion, animated: false)
+        
+        print("set the location")
+
+    }
+    
+    func fetchLocations(_ query: String, near: String = "Mountain View") {
+        let baseUrlString = "https://api.foursquare.com/v2/venues/search?"
+        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&near=\(near),CA&query=\(query)"
+        
+        let url = URL(string: baseUrlString + queryString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
+        let request = URLRequest(url: url)
+        
+        let session = URLSession(
+            configuration: URLSessionConfiguration.default,
+            delegate:nil,
+            delegateQueue:OperationQueue.main
+        )
+        
+        let task : URLSessionDataTask = session.dataTask(with: request,
+                                                         completionHandler: { (dataOrNil, response, error) in
+                                                            if let data = dataOrNil {
+                                                                if let responseDictionary = try! JSONSerialization.jsonObject(
+                                                                    with: data, options:[]) as? NSDictionary {
+                                                                    NSLog("response: \(responseDictionary)")
+                                                                    self.results = responseDictionary.value(forKeyPath: "response.venues") as! NSArray
+                                                                    for element in self.results {
+                                                                        print(element)
+                                                                    }
+                                                                    
+                                                                    var gasAnnotations: [MKPointAnnotation] = []
+                                                                    
+                                                                    var count = 0;
+                                                                    while count <= 10 {
+                                                                        let venue = self.results[count] as! NSDictionary
+                                                                        let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
+                                                                        let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
+                                                                        var city: NSString?
+                                                                        var address: NSString?
+                                                                        var zipCode: NSString?
+                                                                        let name = venue.value(forKeyPath: "name") as! NSString
+                                                                        if let _address = venue.value(forKeyPath: "location.address") as? NSString {
+                                                                            address = _address
+                                                                        } else {
+                                                                            address = ""
+                                                                        }
+                                                                        if let _city = venue.value(forKeyPath: "location.city") as? NSString {
+                                                                            city = _city
+                                                                        } else {
+                                                                            city = ""
+                                                                        }
+                                                                        if let _zipCode = venue.value(forKeyPath: "location.postalCode") as? NSString {
+                                                                            zipCode = _zipCode
+                                                                        } else {
+                                                                            zipCode = ""
+                                                                        }
+                                                                    
+                                                                        let annotation = MKPointAnnotation()
+                                                                        let myLocation = CLLocation(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lng))
+                                                                        annotation.coordinate = myLocation.coordinate
+                                                                        annotation.title = name as String
+                                                                        annotation.subtitle = (address as! String) + " " + (city as! String) + " " + (zipCode as! String) as String
+                                                                        gasAnnotations.append(annotation)
+                                                                        count = count + 1
+                                                                    }
+                                                                    self.mapView.addAnnotations(gasAnnotations)
+                                                                    
+                                                                    
+                                                                    
+                                                                    /*
+
+                                                                    let venue2 = self.results[0] as! NSDictionary
+                                                                    let lat2 = venue2.value(forKeyPath: "location.lat") as! NSNumber
+                                                                    let lng2 = venue2.value(forKeyPath: "location.lng") as! NSNumber
+                                                                    let annotation2 = MKPointAnnotation()
+                                                                    let myLocation2 = CLLocation(latitude: CLLocationDegrees(lat2), longitude: CLLocationDegrees(lng2))
+                                                                    annotation2.coordinate = myLocation2.coordinate
+                                                                    self.mapView.addAnnotation(annotation2)
+                                                                    
+
+                                                                    let venue3 = self.results[0] as! NSDictionary
+                                                                    let lat3 = venue3.value(forKeyPath: "location.lat") as! NSNumber
+                                                                    let lng3 = venue3.value(forKeyPath: "location.lng") as! NSNumber
+                                                                    let annotation3 = MKPointAnnotation()
+                                                                    let myLocation3 = CLLocation(latitude: CLLocationDegrees(lat3), longitude: CLLocationDegrees(lng3))
+                                                                    annotation3.coordinate = myLocation3.coordinate
+                                                                    self.mapView.addAnnotation(annotation3)
+                                                                    
+
+                                                                    let venue4 = self.results[0] as! NSDictionary
+                                                                    let lat4 = venue4.value(forKeyPath: "location.lat") as! NSNumber
+                                                                    let lng4 = venue4.value(forKeyPath: "location.lng") as! NSNumber
+                                                                    let annotation4 = MKPointAnnotation()
+                                                                    let myLocation4 = CLLocation(latitude: CLLocationDegrees(lat4), longitude: CLLocationDegrees(lng4))
+                                                                    annotation4.coordinate = myLocation4.coordinate
+                                                                    self.mapView.addAnnotation(annotation4)
+                                                                    */
+                                                                    
+                                                                }
+                                                            }
+        });
+        task.resume()
+    }
+    
+    func onLocationChangeError(error: Error) {
+        print("location error: ", error.localizedDescription)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
