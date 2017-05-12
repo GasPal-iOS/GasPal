@@ -75,13 +75,6 @@ class Header: UIView {
             cameraIcon.setImage(image, for: UIControlState.normal)
         }
 
-        /*
-        let cameraIconTitle = NSAttributedString(string: "Camera", attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 11),
-                NSForegroundColorAttributeName: UIColor.black
-            ])
-        cameraIcon.setAttributedTitle(cameraIconTitle, for: .normal)
-        */
         contentView.addSubview(cameraIcon)
     }
     
@@ -92,14 +85,6 @@ class Header: UIView {
             addIcon.setImage(image, for: UIControlState.normal)
         }
         
-        //addIcon.backgroundColor = UIColor.white
-        /*
-        let addIconTitle = NSAttributedString(string: "Add", attributes: [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 11),
-            NSForegroundColorAttributeName: UIColor.black
-            ])
-        addIcon.setAttributedTitle(addIconTitle, for: .normal)
-        */
         contentView.addSubview(addIcon)
     }
     
@@ -110,14 +95,6 @@ class Header: UIView {
             logoutButton.setImage(image, for: UIControlState.normal)
         }
 
-        /*
-        logoutButton.backgroundColor = UIColor.white
-        let logoutButtonTitle = NSAttributedString(string: "Logout", attributes: [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 11),
-            NSForegroundColorAttributeName: UIColor.black
-        ])
-        logoutButton.setAttributedTitle(logoutButtonTitle, for: .normal)
-        */
         contentView.addSubview(logoutButton)
     }
     
