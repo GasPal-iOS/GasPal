@@ -176,13 +176,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MPG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-91-nDd">
-                                <rect key="frame" x="16" y="90" width="343" height="21"/>
+                                <rect key="frame" x="16" y="78" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B0s-wq-Dsx">
-                                <rect key="frame" x="16" y="120" width="343" height="29"/>
+                                <rect key="frame" x="16" y="111" width="343" height="29"/>
                                 <segments>
                                     <segment title="Last week"/>
                                     <segment title="Last month"/>
@@ -191,31 +191,32 @@
                                     <action selector="onMPGFilterChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="M5K-gp-1q9"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qv3-LP-7VX" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="156" width="343" height="187"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qv3-LP-7VX" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="147" width="343" height="190"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="vcJ-Cv-w7v"/>
+                                </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-gJ-hk3">
-                                <rect key="frame" x="0.0" y="351" width="375" height="267"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="267" id="FHg-hr-joP"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="353" width="375" height="265"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NXm-91-nDd" secondAttribute="trailing" id="1fQ-B9-Xa7"/>
                             <constraint firstItem="X2F-9Y-xHH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="58V-K3-qBE"/>
-                            <constraint firstItem="P4y-gJ-hk3" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8Ir-xv-BJo"/>
-                            <constraint firstItem="P4y-gJ-hk3" firstAttribute="centerX" secondItem="qv3-LP-7VX" secondAttribute="centerX" id="Bbw-og-eRX"/>
-                            <constraint firstItem="P4y-gJ-hk3" firstAttribute="top" secondItem="qv3-LP-7VX" secondAttribute="bottom" constant="8" symbolic="YES" id="GM3-ew-40x"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P4y-gJ-hk3" secondAttribute="bottom" id="HRC-j5-8ZQ"/>
+                            <constraint firstItem="qv3-LP-7VX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="J5N-ee-xmM"/>
+                            <constraint firstItem="B0s-wq-Dsx" firstAttribute="top" secondItem="NXm-91-nDd" secondAttribute="bottom" constant="12" id="N1R-Du-iGf"/>
                             <constraint firstItem="P4y-gJ-hk3" firstAttribute="leading" secondItem="X2F-9Y-xHH" secondAttribute="leading" id="SfG-Xj-861"/>
                             <constraint firstItem="X2F-9Y-xHH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZiK-GK-jgm"/>
                             <constraint firstItem="NXm-91-nDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aBF-Av-n4j"/>
+                            <constraint firstItem="qv3-LP-7VX" firstAttribute="top" secondItem="B0s-wq-Dsx" secondAttribute="bottom" constant="8" id="b1j-Gc-iLU"/>
                             <constraint firstAttribute="trailing" secondItem="X2F-9Y-xHH" secondAttribute="trailing" id="dvm-wb-7MR"/>
-                            <constraint firstItem="NXm-91-nDd" firstAttribute="top" secondItem="X2F-9Y-xHH" secondAttribute="bottom" constant="20" id="ffm-5n-789"/>
-                            <constraint firstItem="P4y-gJ-hk3" firstAttribute="top" secondItem="qv3-LP-7VX" secondAttribute="bottom" constant="8" id="lFa-v3-2Tv"/>
-                            <constraint firstItem="B0s-wq-Dsx" firstAttribute="top" secondItem="X2F-9Y-xHH" secondAttribute="bottom" constant="50" id="lX2-e5-8hM"/>
+                            <constraint firstItem="NXm-91-nDd" firstAttribute="top" secondItem="X2F-9Y-xHH" secondAttribute="bottom" constant="8" id="ffm-5n-789"/>
+                            <constraint firstItem="P4y-gJ-hk3" firstAttribute="top" secondItem="qv3-LP-7VX" secondAttribute="bottom" constant="16" id="lFa-v3-2Tv"/>
+                            <constraint firstAttribute="trailing" secondItem="qv3-LP-7VX" secondAttribute="trailing" constant="16" id="nKD-5U-sU3"/>
                             <constraint firstItem="P4y-gJ-hk3" firstAttribute="trailing" secondItem="X2F-9Y-xHH" secondAttribute="trailing" id="vBG-Fq-lTv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B0s-wq-Dsx" secondAttribute="trailing" id="woH-U6-Vet"/>
                             <constraint firstItem="B0s-wq-Dsx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xAh-OD-frz"/>
