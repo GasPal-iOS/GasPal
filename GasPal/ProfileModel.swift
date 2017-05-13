@@ -16,6 +16,11 @@ class ProfileModel: PFUser {
         set { self["driverImage"] = newValue }
     }
     
+    var dlImage: PFFile? {
+        get { return self["dlImage"] as? PFFile }
+        set { self["dlImage"] = newValue }
+    }
+    
     var dateOfBirth: Date? {
         get { return self["dateOfBirth"] as? Date }
         set { self["dateOfBirth"] = newValue }

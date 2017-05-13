@@ -13,10 +13,16 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
 //, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
-    @IBOutlet weak var profileView: ProfileView!
-    
     
     @IBOutlet weak var driverProfileImage: UIImageView!
+
+    @IBOutlet weak var dlImage: UIImageView!
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var licenseExpiryLabel: UILabel!
+    @IBOutlet weak var licenseNumberLabel: UILabel!
+    @IBOutlet weak var dobLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
     
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
@@ -65,12 +71,10 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         super.viewDidLoad()
         print("ProfileViewController")
         
-        //headerView.addIconDelegate = self
         headerView.logoutDelegate = self
      
         headerView.title = "Profile"
         headerView.doShowCameraIcon = true
-        //headerView.doShowAddIcon = true
         headerView.doShowLogoutButton = true
         
         let dateFormatter = DateFormatter()
@@ -82,22 +86,22 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         // profile model
         driverProfileImage.image = UIImage(named: "ryan.png")
         if let _firstName = loggedInUser.firstName {
-            profileView.fullNameLabel.text = _firstName
+            fullNameLabel.text = "Name: " + _firstName
             if let _lastName = loggedInUser.lastName {
-                profileView.fullNameLabel.text = loggedInUser.firstName! + " " + loggedInUser.lastName!
+                fullNameLabel.text = "Name: " + loggedInUser.firstName! + " " + loggedInUser.lastName!
             }
         }
         if let _address = loggedInUser.address {
-            profileView.addressLabel.text = _address
+            addressLabel.text = "Address: " + _address
         }
         if let _license = loggedInUser.driverLicenseNumber {
-            profileView.licenceNumberLabel.text = _license
+            licenseNumberLabel.text = "License: " + _license
         }
         if let _licExpiry = loggedInUser.licenseExpiry {
-            profileView.licenseExpiryLabel.text = dateFormatter.string(from: _licExpiry)
+            licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
         }
         if let _dob = loggedInUser.dateOfBirth {
-            profileView.dobLabel.text = dateFormatter.string(from: _dob)
+            dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
         }
         
         // set the profile image
@@ -109,6 +113,17 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
                 }
             })
         }
+        
+        // set the DL image
+        if let dlPic = loggedInUser.dlImage {
+            dlPic.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    self.dlImage.image = image
+                }
+            })
+        }
+        
         
         // tap gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -134,6 +149,9 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         var addrLine2 = "Mountain View, CA 94065"
         var dobDate: Date?
         var licenseExpiryDate: Date?
+        
+        // set the dl
+        dlImage.image = capturedImage
         
         OCRClient.extractData(image: capturedImage, success: { (extractedData: [String]) in
             
@@ -218,19 +236,21 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
             loggedInUser.driverLicenseNumber = dlStr
             loggedInUser.dateOfBirth = dateFormatter.date(from: dobStr)
             loggedInUser.licenseExpiry = dateFormatter.date(from: licenseExpiry)
+            let imageData = UIImagePNGRepresentation(self.dlImage.image!)
+            loggedInUser.dlImage = PFFile(name:"dlimage.png", data:imageData!)!
+            
             ParseClient.sharedInstance.save(profile: loggedInUser, success: { (profileModel) in
                 print("saved a profile model")
             }, failure: { (error) in
                 print("error saving profile model")
             })
             
-            
             // update UI
-            self.profileView.fullNameLabel.text = "Name: " + firstName + " " + lastName
-            self.profileView.addressLabel.text = "Address: " + addrLine1 + addrLine2
-            self.profileView.licenceNumberLabel.text = "DL: " + dlStr
-            self.profileView.licenseExpiryLabel.text = "Expires: " + licenseExpiry
-            self.profileView.dobLabel.text = "DOB: " + dobStr
+            self.fullNameLabel.text = "Name: " + firstName + " " + lastName
+            self.addressLabel.text = "Address: " + addrLine1 + addrLine2
+            self.licenseNumberLabel.text = "DL: " + dlStr
+            self.licenseExpiryLabel.text = "Expires: " + licenseExpiry
+            self.dobLabel.text = "DOB: " + dobStr
             
             self.updateViewConstraints()
             
@@ -246,12 +266,6 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         NotificationCenter.default.post(name: GasPalNotification.logout, object: nil)
     }
     
-    /*
-    func onAddIconTapped() {
-        
-    }
-    */
-
     /*
     // MARK: - Navigation
 
