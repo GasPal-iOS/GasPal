@@ -73,10 +73,20 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
             // split each line
             var lines = extractedData.split(separator: ",")
             let line = lines.popLast()
-            
+            var fuelType = "regular"
             for index in 1..<line!.count-1 {
                 let lineItem = line?[index]
-                // print (lineItem!)
+                print (lineItem!)
+                if lineItem!.range(of: "Regular") != nil {
+                    fuelType = "regular"
+                }
+                if lineItem!.range(of: "Premium") != nil {
+                    fuelType = "premium"
+                }
+                if lineItem!.range(of: "Plus") != nil {
+                    fuelType = "plus"
+                }
+                
                 // 1. extract price/gal
                 if lineItem!.range(of: "PRICE/GAL") != nil {
                     //print("PRICE/GAL")
@@ -126,6 +136,16 @@ class TrackingViewController: UIViewController, UITableViewDelegate, UITableView
                 // debug
                 // print(lineItem!)
             }
+            
+            // save the price - for this type. for now - station address specific prices are not supported
+            let gasPriceModel = GasPriceModel(fuelType: fuelType, price: pricePerGallonString)
+            
+            ParseClient.sharedInstance.save(gasModel: gasPriceModel, success: { (gasPriceModel) in
+                print("saved gas prices")
+            }, failure: { (error) in
+                print("error saving gas prices")
+            })
+            
             let tracking = TrackingModel(date: dateStr, totalAmount: totalAmountString, pricePerGallon: pricePerGallonString)
             print("open Tracking detail view...")
             self.openDetailView(model: tracking)

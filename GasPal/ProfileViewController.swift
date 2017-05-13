@@ -110,21 +110,11 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
             })
         }
         
-        /*
-        profileView.fullNameLabel.text = "Ryan Gosling"
-        profileView.addressLabel.text = "2650 Casey Av, Mountain View"
-        profileView.licenceNumberLabel.text = "D5555912"
-        profileView.licenseExpiryLabel.text = "06/15/2018"
-        profileView.dobLabel.text = "03/10/1978"
-        */
-        
         // tap gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         
         driverProfileImage.isUserInteractionEnabled = true
         driverProfileImage.addGestureRecognizer(tapGestureRecognizer)
-        
-        //view.addSubview(profileView)
         
     }
 

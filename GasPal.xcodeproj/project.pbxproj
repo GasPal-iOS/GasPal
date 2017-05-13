@@ -43,6 +43,7 @@
 		A00437EF1EB3E5F9007446B6 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437EE1EB3E5F9007446B6 /* ParseClient.swift */; };
 		A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F01EB3E60C007446B6 /* OCRClient.swift */; };
 		A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */; };
+		A00CED221EC6EC8900E8B3F0 /* GasPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */; };
 		A04DFA071EB9A90C007F600D /* fuel-gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = A04DFA061EB9A90C007F600D /* fuel-gauge.png */; };
 		A04DFA091EB9ABFC007F600D /* gas-pal.png in Resources */ = {isa = PBXBuildFile; fileRef = A04DFA081EB9ABFC007F600D /* gas-pal.png */; };
 		A08F339E1EB6B93700B785FA /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08F339D1EB6B93700B785FA /* ProfileView.xib */; };
@@ -97,6 +98,7 @@
 		A00437EE1EB3E5F9007446B6 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		A00437F01EB3E60C007446B6 /* OCRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRClient.swift; sourceTree = "<group>"; };
 		A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasFeedApiClient.swift; sourceTree = "<group>"; };
+		A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPriceModel.swift; sourceTree = "<group>"; };
 		A04DFA061EB9A90C007F600D /* fuel-gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fuel-gauge.png"; path = "Assets.xcassets/fuel-gauge.png"; sourceTree = "<group>"; };
 		A04DFA081EB9ABFC007F600D /* gas-pal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gas-pal.png"; path = "Assets.xcassets/gas-pal.png"; sourceTree = "<group>"; };
 		A08F339D1EB6B93700B785FA /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				A00437EA1EB3E028007446B6 /* TrackingModel.swift */,
 				A00437EC1EB3E036007446B6 /* ServiceModel.swift */,
 				4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */,
+				A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4A44AB1EB4265200AFFB65 /* Header.swift in Sources */,
+				A00CED221EC6EC8900E8B3F0 /* GasPriceModel.swift in Sources */,
 				60A101961EB5B2BD00A710D1 /* TrackingCell.swift in Sources */,
 				A00437E71EB3DFF0007446B6 /* ProfileModel.swift in Sources */,
 				60A1019A1EB5E1DE00A710D1 /* ServiceCell.swift in Sources */,

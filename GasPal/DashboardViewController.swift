@@ -97,9 +97,6 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
                                                                     with: data, options:[]) as? NSDictionary {
                                                                     NSLog("response: \(responseDictionary)")
                                                                     self.results = responseDictionary.value(forKeyPath: "response.venues") as! NSArray
-                                                                    for element in self.results {
-                                                                        print(element)
-                                                                    }
                                                                     
                                                                     var gasAnnotations: [MKPointAnnotation] = []
                                                                     
@@ -127,59 +124,78 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
                                                                         } else {
                                                                             zipCode = ""
                                                                         }
-                                                                    
+
                                                                         let annotation = MKPointAnnotation()
                                                                         let myLocation = CLLocation(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lng))
                                                                         annotation.coordinate = myLocation.coordinate
                                                                         annotation.title = name as String
-                                                                        annotation.subtitle = (address as! String) + " " + (city as! String) + " " + (zipCode as! String) as String
+                                                                        annotation.subtitle = (address as! String) + " " + (city as! String) + " " + (zipCode as! String)
+                                                                        
                                                                         gasAnnotations.append(annotation)
                                                                         count = count + 1
                                                                     }
                                                                     self.mapView.addAnnotations(gasAnnotations)
-                                                                    
-                                                                    
-                                                                    
-                                                                    /*
-
-                                                                    let venue2 = self.results[0] as! NSDictionary
-                                                                    let lat2 = venue2.value(forKeyPath: "location.lat") as! NSNumber
-                                                                    let lng2 = venue2.value(forKeyPath: "location.lng") as! NSNumber
-                                                                    let annotation2 = MKPointAnnotation()
-                                                                    let myLocation2 = CLLocation(latitude: CLLocationDegrees(lat2), longitude: CLLocationDegrees(lng2))
-                                                                    annotation2.coordinate = myLocation2.coordinate
-                                                                    self.mapView.addAnnotation(annotation2)
-                                                                    
-
-                                                                    let venue3 = self.results[0] as! NSDictionary
-                                                                    let lat3 = venue3.value(forKeyPath: "location.lat") as! NSNumber
-                                                                    let lng3 = venue3.value(forKeyPath: "location.lng") as! NSNumber
-                                                                    let annotation3 = MKPointAnnotation()
-                                                                    let myLocation3 = CLLocation(latitude: CLLocationDegrees(lat3), longitude: CLLocationDegrees(lng3))
-                                                                    annotation3.coordinate = myLocation3.coordinate
-                                                                    self.mapView.addAnnotation(annotation3)
-                                                                    
-
-                                                                    let venue4 = self.results[0] as! NSDictionary
-                                                                    let lat4 = venue4.value(forKeyPath: "location.lat") as! NSNumber
-                                                                    let lng4 = venue4.value(forKeyPath: "location.lng") as! NSNumber
-                                                                    let annotation4 = MKPointAnnotation()
-                                                                    let myLocation4 = CLLocation(latitude: CLLocationDegrees(lat4), longitude: CLLocationDegrees(lng4))
-                                                                    annotation4.coordinate = myLocation4.coordinate
-                                                                    self.mapView.addAnnotation(annotation4)
-                                                                    */
-                                                                    
                                                                 }
                                                             }
         });
         task.resume()
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseIdentifier = "pin"
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
+        if pin == nil {
+            pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            pin!.pinTintColor = UIColor.blue
+
+            print(annotation.title!)
+            pin!.canShowCallout = true
+            //pin!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
+            // create a new View
+            let multiLineView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 60))
+            // add all the labels you need here
+            let label1 = UILabel(frame: CGRect(x: 4, y: 0, width: 120, height: 20))
+            // get regular price
+            label1.text = "Regular: $2.99"
+
+            ParseClient.sharedInstance.getFuelPrice(fuelType: "regular", success: { (price) in
+                if let _price = price.price {
+                    label1.text = "Regular: $" + _price
+                }
+            }, failure: { (error) in
+                print(error)
+            })
+            label1.font = UIFont(name: label1.font.fontName, size: 12)
+            multiLineView.addSubview(label1)
+            let label2 = UILabel(frame: CGRect(x: 4, y: 15, width: 120, height: 20))
+            label2.text = "Plus: $3.49"
+            label2.font = UIFont(name: label2.font.fontName, size: 12)
+            multiLineView.addSubview(label2)
+            let label3 = UILabel(frame: CGRect(x: 4, y: 30, width: 120, height: 20))
+            label3.text = "Premium: $3.99"
+            label3.font = UIFont(name: label2.font.fontName, size: 12)
+            multiLineView.addSubview(label3)
+
+            multiLineView.backgroundColor = UIColor.lightGray
+            pin!.leftCalloutAccessoryView = multiLineView
+        } else {
+            pin!.annotation = annotation
+        }
+        return pin
+    }
+    
+    func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == annotationView.rightCalloutAccessoryView {
+            let app = UIApplication.shared
+            app.openURL(NSURL(string: (annotationView.annotation!.subtitle!)!)! as URL)
+        }
+    }
+    
     func onLocationChangeError(error: Error) {
         print("location error: ", error.localizedDescription)
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

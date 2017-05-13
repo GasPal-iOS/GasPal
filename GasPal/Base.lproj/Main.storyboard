@@ -195,7 +195,7 @@
                                 <rect key="frame" x="16" y="156" width="343" height="187"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-gJ-hk3">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-gJ-hk3">
                                 <rect key="frame" x="0.0" y="351" width="375" height="267"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="267" id="FHg-hr-joP"/>

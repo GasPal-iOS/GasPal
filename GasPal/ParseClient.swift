@@ -81,6 +81,18 @@ class ParseClient: NSObject {
         }
     }
     
+    func save(gasModel: GasPriceModel, success: @escaping (GasPriceModel) -> (), failure: @escaping (Error) -> ()) {
+        gasModel.pfObject.saveInBackground { (succeeded, error) in
+            if let error = error {
+                print("save; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                print("save; status=success;")
+                success(gasModel)
+            }
+        }
+    }
+    
     func save(vehicle: VehicleModel, success: @escaping (VehicleModel) -> (), failure: @escaping (Error) -> ()) {
         vehicle.pfObject.saveInBackground { (succeeded, error) in
             if let error = error {
@@ -189,6 +201,22 @@ class ParseClient: NSObject {
             }
         }
     }
+    
+    func getFuelPrice(fuelType: String, success: @escaping (GasPriceModel) -> (), failure: @escaping (Error) -> ()) {
+        let query = PFQuery(className: GasPriceModel.className).whereKey("fuelType", contains: fuelType)
+        query.findObjectsInBackground { (results, error) in
+            if let error = error {
+                print("getFuelPrice; status=failed; error=\(error.localizedDescription)")
+                failure(error)
+            } else {
+                //let vehicles = VehicleModel.toArray(objects: results)
+                let gasPM = GasPriceModel.toModel(objects: results)
+                print("getFuelPrice; status=success;")
+                success(gasPM)
+            }
+        }
+    }
+    
     
     func createTestAccount(success: @escaping (ProfileModel) -> (), failure: @escaping (Error) -> ()) {
         // Create test user
