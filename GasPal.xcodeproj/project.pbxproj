@@ -44,19 +44,8 @@
 		A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F01EB3E60C007446B6 /* OCRClient.swift */; };
 		A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */; };
 		A00CED221EC6EC8900E8B3F0 /* GasPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */; };
-		A04DFA071EB9A90C007F600D /* fuel-gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = A04DFA061EB9A90C007F600D /* fuel-gauge.png */; };
-		A04DFA091EB9ABFC007F600D /* gas-pal.png in Resources */ = {isa = PBXBuildFile; fileRef = A04DFA081EB9ABFC007F600D /* gas-pal.png */; };
 		A08F339E1EB6B93700B785FA /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08F339D1EB6B93700B785FA /* ProfileView.xib */; };
 		A08F33A01EB6BA8800B785FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F339F1EB6BA8800B785FA /* ProfileView.swift */; };
-		A08F33A21EB6BDB700B785FA /* ryan.png in Resources */ = {isa = PBXBuildFile; fileRef = A08F33A11EB6BDB700B785FA /* ryan.png */; };
-		A0EC53D41EB3F76F004258BD /* Carpool-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53D01EB3F76F004258BD /* Carpool-48.png */; };
-		A0EC53D51EB3F76F004258BD /* Delivery-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53D11EB3F76F004258BD /* Delivery-48.png */; };
-		A0EC53D61EB3F76F004258BD /* Maintenance-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53D21EB3F76F004258BD /* Maintenance-48.png */; };
-		A0EC53D71EB3F76F004258BD /* Speedometer-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53D31EB3F76F004258BD /* Speedometer-48.png */; };
-		A0EC53D91EB3F8B3004258BD /* Contact Card-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53D81EB3F8B3004258BD /* Contact Card-48.png */; };
-		A0EC53DC1EB3F933004258BD /* Dashboard-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53DA1EB3F933004258BD /* Dashboard-48.png */; };
-		A0EC53DD1EB3F933004258BD /* User-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53DB1EB3F933004258BD /* User-48.png */; };
-		A0EC53E11EB3FA3F004258BD /* Bar Chart-48.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EC53E01EB3FA3F004258BD /* Bar Chart-48.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,19 +88,8 @@
 		A00437F01EB3E60C007446B6 /* OCRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRClient.swift; sourceTree = "<group>"; };
 		A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasFeedApiClient.swift; sourceTree = "<group>"; };
 		A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPriceModel.swift; sourceTree = "<group>"; };
-		A04DFA061EB9A90C007F600D /* fuel-gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fuel-gauge.png"; path = "Assets.xcassets/fuel-gauge.png"; sourceTree = "<group>"; };
-		A04DFA081EB9ABFC007F600D /* gas-pal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gas-pal.png"; path = "Assets.xcassets/gas-pal.png"; sourceTree = "<group>"; };
 		A08F339D1EB6B93700B785FA /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		A08F339F1EB6BA8800B785FA /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		A08F33A11EB6BDB700B785FA /* ryan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ryan.png; path = Assets.xcassets/ryan.png; sourceTree = "<group>"; };
-		A0EC53D01EB3F76F004258BD /* Carpool-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Carpool-48.png"; path = "Assets.xcassets/Carpool-48.png"; sourceTree = "<group>"; };
-		A0EC53D11EB3F76F004258BD /* Delivery-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delivery-48.png"; path = "Assets.xcassets/Delivery-48.png"; sourceTree = "<group>"; };
-		A0EC53D21EB3F76F004258BD /* Maintenance-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maintenance-48.png"; path = "Assets.xcassets/Maintenance-48.png"; sourceTree = "<group>"; };
-		A0EC53D31EB3F76F004258BD /* Speedometer-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Speedometer-48.png"; path = "Assets.xcassets/Speedometer-48.png"; sourceTree = "<group>"; };
-		A0EC53D81EB3F8B3004258BD /* Contact Card-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Contact Card-48.png"; path = "Assets.xcassets/Contact Card-48.png"; sourceTree = "<group>"; };
-		A0EC53DA1EB3F933004258BD /* Dashboard-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dashboard-48.png"; path = "Assets.xcassets/Dashboard-48.png"; sourceTree = "<group>"; };
-		A0EC53DB1EB3F933004258BD /* User-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "User-48.png"; path = "Assets.xcassets/User-48.png"; sourceTree = "<group>"; };
-		A0EC53E01EB3FA3F004258BD /* Bar Chart-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bar Chart-48.png"; path = "Assets.xcassets/Bar Chart-48.png"; sourceTree = "<group>"; };
 		AA2109D5CC63A041085DB54B /* Pods-GasPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GasPal/Pods-GasPal.debug.xcconfig"; sourceTree = "<group>"; };
 		C839488FA885F022ADFF54B1 /* Pods_GasPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GasPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -187,7 +165,6 @@
 				4A4812411EC1956300C653F4 /* Services */,
 				4ACD53F01EBFAA1400FB469E /* Protocols */,
 				4ACD53E51EBD248700FB469E /* Utils */,
-				A0EC53E21EB3FA56004258BD /* Resource */,
 				A00437D71EB3DA77007446B6 /* View */,
 				A00437D61EB3DA5B007446B6 /* ViewController */,
 				A00437D51EB3DA54007446B6 /* Client */,
@@ -290,24 +267,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		A0EC53E21EB3FA56004258BD /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				A04DFA081EB9ABFC007F600D /* gas-pal.png */,
-				A04DFA061EB9A90C007F600D /* fuel-gauge.png */,
-				A08F33A11EB6BDB700B785FA /* ryan.png */,
-				A0EC53E01EB3FA3F004258BD /* Bar Chart-48.png */,
-				A0EC53D81EB3F8B3004258BD /* Contact Card-48.png */,
-				A0EC53D01EB3F76F004258BD /* Carpool-48.png */,
-				A0EC53DA1EB3F933004258BD /* Dashboard-48.png */,
-				A0EC53D11EB3F76F004258BD /* Delivery-48.png */,
-				A0EC53D21EB3F76F004258BD /* Maintenance-48.png */,
-				A0EC53D31EB3F76F004258BD /* Speedometer-48.png */,
-				A0EC53DB1EB3F933004258BD /* User-48.png */,
-			);
-			name = Resource;
-			sourceTree = "<group>";
-		};
 		CC5D7339B85EFB6EA1210D0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,25 +339,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				60A101971EB5B2BD00A710D1 /* TrackingCell.xib in Resources */,
-				A04DFA071EB9A90C007F600D /* fuel-gauge.png in Resources */,
-				A0EC53D61EB3F76F004258BD /* Maintenance-48.png in Resources */,
-				A04DFA091EB9ABFC007F600D /* gas-pal.png in Resources */,
 				4AC7FB701EA66A60005E2D2E /* LaunchScreen.storyboard in Resources */,
 				4A4A44A81EB4261200AFFB65 /* Header.xib in Resources */,
-				A0EC53DC1EB3F933004258BD /* Dashboard-48.png in Resources */,
-				A0EC53E11EB3FA3F004258BD /* Bar Chart-48.png in Resources */,
 				4AC7FB781EA66D65005E2D2E /* tessdata in Resources */,
-				A0EC53DD1EB3F933004258BD /* User-48.png in Resources */,
-				A0EC53D71EB3F76F004258BD /* Speedometer-48.png in Resources */,
 				4AC7FB6D1EA66A60005E2D2E /* Assets.xcassets in Resources */,
-				A0EC53D41EB3F76F004258BD /* Carpool-48.png in Resources */,
-				A08F33A21EB6BDB700B785FA /* ryan.png in Resources */,
 				60A1019B1EB5E1DE00A710D1 /* ServiceCell.xib in Resources */,
 				A08F339E1EB6B93700B785FA /* ProfileView.xib in Resources */,
 				4AC7FB6B1EA66A60005E2D2E /* Main.storyboard in Resources */,
 				4A4A44BC1EB6995400AFFB65 /* VehicleTableCell.xib in Resources */,
-				A0EC53D91EB3F8B3004258BD /* Contact Card-48.png in Resources */,
-				A0EC53D51EB3F76F004258BD /* Delivery-48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

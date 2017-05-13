@@ -114,7 +114,7 @@
                                     <action selector="onSignup:" destination="b6R-Bg-vLl" eventType="touchUpInside" id="wdH-XV-lzP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gas-pal.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-7Y-UMT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gas-pal" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-7Y-UMT">
                                 <rect key="frame" x="137" y="450" width="85" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -855,7 +855,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gas-pal.png" width="212" height="211"/>
+        <image name="gas-pal" width="212" height="211"/>
         <image name="icon-home" width="32" height="32"/>
         <image name="icon-profile" width="32" height="32"/>
         <image name="icon-service" width="32" height="32"/>
