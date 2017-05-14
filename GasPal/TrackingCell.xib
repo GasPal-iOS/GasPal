@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="346" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="346" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="346" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04/18/17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHv-jV-YlN">
@@ -65,16 +65,25 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audi A3 TDI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYj-FD-dkx">
+                        <rect key="frame" x="270.5" y="43" width="67.5" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="XKU-a2-kIw" firstAttribute="trailing" secondItem="WDi-Ge-ZcD" secondAttribute="trailing" id="0n8-xi-yio"/>
                     <constraint firstItem="Dnh-KL-1O7" firstAttribute="leading" secondItem="pwS-oM-ZKV" secondAttribute="trailing" constant="2" id="CTf-zi-pEi"/>
                     <constraint firstItem="0eq-cl-fiC" firstAttribute="leading" secondItem="bHl-5B-sFr" secondAttribute="trailing" constant="2" id="FEG-XU-MpD"/>
                     <constraint firstItem="pwS-oM-ZKV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="FNA-n7-1A2"/>
+                    <constraint firstItem="ZYj-FD-dkx" firstAttribute="top" secondItem="bHl-5B-sFr" secondAttribute="bottom" constant="2" id="PLG-oN-QoC"/>
                     <constraint firstItem="XKU-a2-kIw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Qc2-fN-OVS"/>
                     <constraint firstItem="bHl-5B-sFr" firstAttribute="baseline" secondItem="pwS-oM-ZKV" secondAttribute="baseline" id="Urf-D7-GMA"/>
                     <constraint firstItem="jHv-jV-YlN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YQK-l5-fqF"/>
                     <constraint firstItem="pwS-oM-ZKV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YuA-xE-q1U"/>
+                    <constraint firstItem="ZYj-FD-dkx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WDi-Ge-ZcD" secondAttribute="trailing" constant="8" id="Zjr-ka-rEC"/>
+                    <constraint firstAttribute="trailing" secondItem="ZYj-FD-dkx" secondAttribute="trailing" constant="8" id="bEz-Nm-OUD"/>
                     <constraint firstItem="0eq-cl-fiC" firstAttribute="baseline" secondItem="pwS-oM-ZKV" secondAttribute="baseline" id="dSi-40-4vT"/>
                     <constraint firstItem="6oQ-z7-p4p" firstAttribute="leading" secondItem="XKU-a2-kIw" secondAttribute="trailing" constant="2" id="dvU-hq-2pz"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jHv-jV-YlN" secondAttribute="bottom" constant="20" id="fzb-Ku-WsZ"/>
@@ -92,6 +101,7 @@
                 <outlet property="mpgLabel" destination="bHl-5B-sFr" id="Mar-AU-rXH"/>
                 <outlet property="odometerLabel" destination="pwS-oM-ZKV" id="ClO-YA-jAx"/>
                 <outlet property="totalPriceLabel" destination="WDi-Ge-ZcD" id="YhE-55-Va1"/>
+                <outlet property="vehicleNameLabel" destination="ZYj-FD-dkx" id="sVO-IM-GEv"/>
             </connections>
             <point key="canvasLocation" x="88" y="57"/>
         </tableViewCell>

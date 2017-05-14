@@ -15,6 +15,7 @@ class TrackingCell: UITableViewCell {
     @IBOutlet weak var gallonsLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var mpgLabel: UILabel!
+    @IBOutlet weak var vehicleNameLabel: UILabel!
     
     var tracking: TrackingModel! {
         didSet {
@@ -36,6 +37,9 @@ class TrackingCell: UITableViewCell {
             }
             if let mpg = tracking.mpg {
                 mpgLabel.text = String.init(format: "%.1f", mpg)
+            }
+            if let vehicle = tracking.vehicle {
+                vehicleNameLabel.text = vehicle.getVehicleInfo()
             }
         }
     }

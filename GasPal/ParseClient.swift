@@ -139,7 +139,23 @@ class ParseClient: NSObject {
             } else {
                 let trackings = TrackingModel.toArray(objects: results)
                 print("getTrackings; status=success; userId=\(userId); total=\(trackings.count)")
-                success(trackings)
+                self.getVehicles(success: { (vehicles) in
+                    var vehiclesById = [String: VehicleModel]()
+                    for vehicle in vehicles {
+                        if let id = vehicle.id {
+                            vehiclesById[id] = vehicle
+                        }
+                    }
+                    for tracking in trackings {
+                        if let vehicleId = tracking.vehicleId, let vehicle = vehiclesById[vehicleId] {
+                            tracking.vehicle = vehicle
+                        }
+                    }
+                    
+                    success(trackings)
+                }, failure: { (error) in
+                    success(trackings)
+                })
             }
         }
     }

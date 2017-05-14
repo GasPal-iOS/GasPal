@@ -54,6 +54,13 @@ class VehicleModel: NSObject {
         set { pfObject["vin"] = newValue }
     }
     
+    func getVehicleInfo() -> String {
+        let year = self.year?.description ?? ""
+        let make = self.make ?? ""
+        let model = self.model ?? ""
+        return "\(year) \(make) \(model)"
+    }
+    
     func calculateTotalMileage() -> Int {
         let trackingLogs = TrackingModel.getAllByVehicle(vehicle: self)
         

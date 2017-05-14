@@ -64,6 +64,8 @@ class TrackingModel: NSObject {
         set { pfObject["vehicleId"] = newValue }
     }
     
+    var vehicle: VehicleModel?
+    
     var userId: String? {
         get { return pfObject["userId"] as? String }
         set { pfObject["userId"] = newValue }

@@ -95,6 +95,7 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
             let vehicleRow = self.vehiclePicker.selectedRow(inComponent: 0)
             let vehicle = vehicles[vehicleRow]
             tracking?.vehicleId = vehicle.id
+            tracking?.vehicle = vehicle
         }
         
         tracking?.gallons = Double(gallonsTextField.text!)
