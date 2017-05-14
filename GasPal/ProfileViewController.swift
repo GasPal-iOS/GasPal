@@ -85,24 +85,61 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         
         // profile model
         driverProfileImage.image = UIImage(named: "ryan.png")
+        var nameString = "Jack"
         if let _firstName = loggedInUser.firstName {
-            fullNameLabel.text = "Name: " + _firstName
+            nameString = "Name: " + _firstName
             if let _lastName = loggedInUser.lastName {
-                fullNameLabel.text = "Name: " + loggedInUser.firstName! + " " + loggedInUser.lastName!
+                nameString = "Name " + loggedInUser.firstName! + " " + loggedInUser.lastName!
             }
         }
+        
+        var nameMutableString = NSMutableAttributedString()
+        nameMutableString = NSMutableAttributedString(string: nameString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        nameMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:4))
+        fullNameLabel.attributedText = nameMutableString
+        
+        var addressString = "201"
         if let _address = loggedInUser.address {
-            addressLabel.text = "Address: " + _address
+            // addressLabel.text = "Address: " + _address
+            addressString = "Address " + _address
         }
+        
+        var addressMutableString = NSMutableAttributedString()
+        addressMutableString = NSMutableAttributedString(string: addressString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        addressMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:7))
+        addressLabel.attributedText = addressMutableString
+        
+        var licString = "LIC123456"
         if let _license = loggedInUser.driverLicenseNumber {
-            licenseNumberLabel.text = "License: " + _license
+            licString = "License " + _license
         }
+        
+        var licMutableString = NSMutableAttributedString()
+        licMutableString = NSMutableAttributedString(string: licString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        licMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:6))
+        licenseNumberLabel.attributedText = licMutableString
+        
+        
+        var licExpiryString = "12/1/2020"
         if let _licExpiry = loggedInUser.licenseExpiry {
-            licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
+            //licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
+            licExpiryString = "License Expires " + dateFormatter.string(from: _licExpiry)
         }
+        var licExpMutableString = NSMutableAttributedString()
+        licExpMutableString = NSMutableAttributedString(string: licExpiryString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        licExpMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:15))
+        licenseExpiryLabel.attributedText = licExpMutableString
+        
+        
+        var dobStr = "12/1/1980"
         if let _dob = loggedInUser.dateOfBirth {
-            dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
+            //dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
+            dobStr = "DOB " + dateFormatter.string(from: _dob)
         }
+        var dobMutableString = NSMutableAttributedString()
+        dobMutableString = NSMutableAttributedString(string: dobStr as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        dobMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:3))
+        dobLabel.attributedText = dobMutableString
         
         // set the profile image
         if let userPicture = loggedInUser.driverImage {
