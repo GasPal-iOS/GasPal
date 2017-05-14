@@ -16,10 +16,7 @@ class VehicleTableCell: UITableViewCell {
     
     var vehicle: VehicleModel! {
         didSet {
-            let year = vehicle.year?.description ?? ""
-            let make = vehicle.make ?? ""
-            let model = vehicle.model ?? ""
-            vehicleInfoLabel.text = "\(year) \(make) \(model)"
+            vehicleInfoLabel.text = vehicle.getVehicleInfo()
             let totalMileage = vehicle.calculateTotalMileage()
             mileageTotalLabel.text = totalMileage.description
             vinLabel.text = vehicle.vin

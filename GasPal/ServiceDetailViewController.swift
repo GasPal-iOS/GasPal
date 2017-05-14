@@ -80,6 +80,7 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
             let vehicleRow = self.vehiclePicker.selectedRow(inComponent: 0)
             let vehicle = vehicles[vehicleRow]
             service?.vehicleId = vehicle.id
+            service?.vehicle = vehicle
         }
         
         service?.stationName = stationTextField.text!

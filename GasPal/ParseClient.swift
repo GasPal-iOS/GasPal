@@ -184,7 +184,23 @@ class ParseClient: NSObject {
             } else {
                 let services = ServiceModel.toArray(objects: results)
                 print("getServices; status=success; userId=\(userId); total=\(services.count)")
-                success(services)
+                self.getVehicles(success: { (vehicles) in
+                    var vehiclesById = [String: VehicleModel]()
+                    for vehicle in vehicles {
+                        if let id = vehicle.id {
+                            vehiclesById[id] = vehicle
+                        }
+                    }
+                    for service in services {
+                        if let vehicleId = service.vehicleId, let vehicle = vehiclesById[vehicleId] {
+                            service.vehicle = vehicle
+                        }
+                    }
+                    
+                    success(services)
+                }, failure: { (error) in
+                    success(services)
+                })
             }
         }
     }

@@ -26,7 +26,9 @@ class ServiceCell: UITableViewCell {
                 totalPriceLabel.text = String.init(format: "$%.2f", totalPrice)
             }
             serviceDescriptionLabel.text = service.serviceDescription
-            vehicleName.text = ""
+            if let vehicle = service.vehicle {
+                vehicleName.text = vehicle.getVehicleInfo()
+            }
         }
     }
     
