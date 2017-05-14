@@ -13,18 +13,20 @@ class ServiceCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var serviceDescriptionLabel: UILabel!
+    @IBOutlet weak var vehicleName: UILabel!
     
     var service: ServiceModel! {
         didSet {
             if let date = service.serviceDate {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "MMM dd, YYYY"
+                formatter.dateFormat = "MM/dd/YY"
                 dateLabel.text = formatter.string(from: date)
             }
             if let totalPrice = service.price {
                 totalPriceLabel.text = String.init(format: "$%.2f", totalPrice)
             }
             serviceDescriptionLabel.text = service.serviceDescription
+            vehicleName.text = ""
         }
     }
     
