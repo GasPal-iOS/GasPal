@@ -47,7 +47,7 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
             self.createChart()
             
             // Create checkboxes for user to select which vehicles are shown in chart
-            self.createCheckboxes()
+//            self.createCheckboxes()
         }) { (Error) in
             print("ERROR GETTING VEHICLES")
         }
