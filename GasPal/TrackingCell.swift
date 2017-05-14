@@ -20,7 +20,7 @@ class TrackingCell: UITableViewCell {
         didSet {
             if let date = tracking.date {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "MMM dd, YYYY"
+                formatter.dateFormat = "MM/dd/YY"
                 dateLabel.text = formatter.string(from: date)
             }
             if let odometer = tracking.odometerEnd {
