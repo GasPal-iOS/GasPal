@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum FourSquareCategoryId: String {
+    case gasStation = "4bf58dd8d48988d113951735"
+    case food = "4d4b7105d754a06374d81259"
+    case bar = "4bf58dd8d48988d116941735"
+}
+
 class FourSquareClient: NSObject {
     
     private let CLIENT_ID = "QA1L0Z0ZNA2QVEEDHFPQWK0I5F1DE3GPLSNW4BZEBGJXUCFL"
@@ -17,13 +23,19 @@ class FourSquareClient: NSObject {
     
     static let sharedInstance = FourSquareClient()
     
-    func fetchLocations(_ query: String, near: String = "Mountain View", success: @escaping ([NSDictionary]) -> (), error: @escaping (Error) -> ()) {
-        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&near=\(near),CA&query=\(query)"
+    static var overrideId: FourSquareCategoryId?
+    
+    func fetchLocations(_ categoryId: FourSquareCategoryId, near: String = "Mountain View", success: @escaping ([NSDictionary]) -> (), error: @escaping (Error) -> ()) {
+        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&near=\(near),CA&categoryId=\(categoryId.rawValue)"
         fetchLocations(queryString: queryString, success: success, error: error)
     }
     
-    func fetchLocations(_ query: String, ll: String, limit: Int, radius: Double, success: @escaping ([NSDictionary]) -> (), error: @escaping (Error) -> ()) {
-        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&ll=\(ll)&query=\(query)&llAcc=\(radius)&limit=\(limit)"
+    func fetchLocations(_ categoryId: FourSquareCategoryId, ll: String, limit: Int, radius: Double, success: @escaping ([NSDictionary]) -> (), error: @escaping (Error) -> ()) {
+        var searchId = categoryId.rawValue
+        if let overrideId = FourSquareClient.overrideId {
+            searchId = overrideId.rawValue
+        }
+        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&ll=\(ll)&categoryId=\(searchId)&llAcc=\(radius)&limit=\(limit)"
         fetchLocations(queryString: queryString, success: success, error: error)
     }
     

@@ -13,6 +13,7 @@ import CoreLocation
     func onLocationChange(location: CLLocation)
     func onLocationChangeError(error: Error)
     @objc optional func onDidEnterGeofence(identifier: Int, location: CLLocation)
+    @objc optional func onMonitoringFailed(error: Error)
 }
 
 class LocationService: NSObject, CLLocationManagerDelegate {
@@ -35,7 +36,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         }
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200 // The minimum distance (measured in meters) a device must move horizontally before an update
+        locationManager.distanceFilter = 100 // The minimum distance (measured in meters) a device must move horizontally before an update
         locationManager.delegate = self
         
         locationManager.startUpdatingLocation()
@@ -87,6 +88,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         
         var geofenceIncrementalId = 0
         for location in locations {
+            print("a location", location)
             let geofence = CLCircularRegion(center: location.coordinate, radius: 100, identifier: geofenceIncrementalId.description)
             geofence.notifyOnEntry = true
             locationManager.startMonitoring(for: geofence)
@@ -106,6 +108,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         print("Monitoring failed for region with identifier: \(region!.identifier)")
+        for delegate in delegates {
+            delegate.onMonitoringFailed?(error: error)
+        }
     }
 
 }

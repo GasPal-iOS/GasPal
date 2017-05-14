@@ -70,14 +70,15 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
     func fetchLocations() {
         let location = LocationService.sharedInstance.currentLocation!
         let ll = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-        FourSquareClient.sharedInstance.fetchLocations("Gas station", ll: ll, limit: 10, radius: 500.0, success: { (results: [NSDictionary]) in
+        FourSquareClient.sharedInstance.fetchLocations(FourSquareCategoryId.gasStation, ll: ll, limit: 20, radius: 200.0, success: { (results: [NSDictionary]) in
             self.results = results
             
             var gasAnnotations: [MKPointAnnotation] = []
             
             var count = 0;
-            while count < 10 {
+            while count < 20 {
                 let venue = self.results[count]
+                print(venue["name"])
                 let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
                 let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
                 var city: NSString?
@@ -266,6 +267,20 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         createChart()
     }
     
+    @IBAction func searchByRestaurants(_ sender: Any) {
+        FourSquareClient.overrideId = FourSquareCategoryId.food
+        fetchLocations()
+    }
+    
+    @IBAction func searchByBars(_ sender: Any) {
+        FourSquareClient.overrideId = FourSquareCategoryId.bar
+        fetchLocations()
+    }
+    
+    @IBAction func searchByGasStations(_ sender: Any) {
+        FourSquareClient.overrideId = FourSquareCategoryId.gasStation
+        fetchLocations()
+    }
 
     /*
     // MARK: - Navigation
