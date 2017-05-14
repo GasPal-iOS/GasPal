@@ -33,7 +33,7 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
 
             if let date = tracking.date {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "MMM dd, YYYY"
+                formatter.dateFormat = "MM/dd/YY"
                 dateTextField.text = formatter.string(from: date)
             }
             if let odometer = tracking.odometerEnd {
@@ -82,11 +82,11 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onCancel(_ sender: UIButton) {
+    @IBAction func onCancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func onSave(_ sender: UIButton) {
+    @IBAction func onSaveButton(_ sender: UIBarButtonItem) {
         if !validateInputs() {
             return
         }
@@ -110,6 +110,8 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
         }) { (error) in
             print("failed saving service; error=\(error.localizedDescription)")
         }
+    }
+    @IBAction func onSave(_ sender: UIButton) {
     }
     
     func validateInputs() -> Bool {
