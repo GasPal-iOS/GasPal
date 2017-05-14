@@ -22,8 +22,8 @@ class FourSquareClient: NSObject {
         fetchLocations(queryString: queryString, success: success, error: error)
     }
     
-    func fetchLocations(_ query: String, ll: String, limit: Int, llAcc: Double, success: @escaping ([NSDictionary]) -> (), error: @escaping (Error) -> ()) {
-        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&ll=\(ll)&query=\(query)&llAcc=\(llAcc)&limit=\(limit)"
+    func fetchLocations(_ query: String, ll: String, limit: Int, radius: Double, success: @escaping ([NSDictionary]) -> (), error: @escaping (Error) -> ()) {
+        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&ll=\(ll)&query=\(query)&llAcc=\(radius)&limit=\(limit)"
         fetchLocations(queryString: queryString, success: success, error: error)
     }
     
@@ -42,7 +42,6 @@ class FourSquareClient: NSObject {
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options:[]) as? NSDictionary {
                     let results = responseDictionary.value(forKeyPath: "response.venues") as! [NSDictionary]
-                    
                     success(results)
                 }
             }

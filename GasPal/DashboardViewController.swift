@@ -36,17 +36,10 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.lastYear.rawValue, at: 2, animated: false)
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.allTime.rawValue, at: 3, animated: false)
         
-        // Map View
-        //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
-        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.386051, -122.083855),
-                                              MKCoordinateSpanMake(0.5, 0.5))
-        
         mapView.delegate = self
         
-        mapView.setRegion(sfRegion, animated: false)
-        
-        fetchLocations("Gas Station")
-        
+        LocationService.sharedInstance.delegates.append(self)
+                
         // Load vehicles to build mpg charts
         ParseClient.sharedInstance.getVehicles(success: { (vehicles: [VehicleModel]) in
             self.vehicles = vehicles
@@ -71,17 +64,19 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         mapView.setRegion(sfRegion, animated: false)
         
         print("set the location")
-
+        fetchLocations()
     }
     
-    func fetchLocations(_ query: String, near: String = "Mountain View") {
-        FourSquareClient.sharedInstance.fetchLocations(query, near: near, success: { (results: [NSDictionary]) in
+    func fetchLocations() {
+        let location = LocationService.sharedInstance.currentLocation!
+        let ll = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        FourSquareClient.sharedInstance.fetchLocations("Gas station", ll: ll, limit: 10, radius: 500.0, success: { (results: [NSDictionary]) in
             self.results = results
             
             var gasAnnotations: [MKPointAnnotation] = []
             
             var count = 0;
-            while count <= 10 {
+            while count < 10 {
                 let venue = self.results[count]
                 let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
                 let lng = venue.value(forKeyPath: "location.lng") as! NSNumber

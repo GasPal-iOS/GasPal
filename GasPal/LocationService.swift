@@ -12,7 +12,7 @@ import CoreLocation
 @objc protocol LocationServiceDelegate: class {
     func onLocationChange(location: CLLocation)
     func onLocationChangeError(error: Error)
-    @objc optional func onDidEnterGeofence(location: CLLocation)
+    @objc optional func onDidEnterGeofence(identifier: Int, location: CLLocation)
 }
 
 class LocationService: NSObject, CLLocationManagerDelegate {
@@ -22,7 +22,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
     var currentLocationsBeingGeofenced: [CLLocation] = []
-    weak var delegate: LocationServiceDelegate?
+    var currentGeofences: [CLRegion] = []
+    var delegates: [LocationServiceDelegate] = []
 
     override init()  {
         super.init()
@@ -63,27 +64,28 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         updateLocationDidFailWithError(error: error)
     }
     
+    
     private func updateLocation(currentLocation: CLLocation){
-        
-        guard let delegate = self.delegate else {
-            return
+        // Clear out old geofences
+        for geofence in currentGeofences {
+            locationManager.stopMonitoring(for: geofence)
         }
         
-        delegate.onLocationChange(location: currentLocation)
+        for delegate in delegates {
+            delegate.onLocationChange(location: currentLocation)
+        }
     }
     
     private func updateLocationDidFailWithError(error: Error) {
-        
-        guard let delegate = self.delegate else {
-            return
+        for delegate in delegates {
+            delegate.onLocationChangeError(error: error)
         }
-        
-        delegate.onLocationChangeError(error: error)
     }
     
-    private var geofenceIncrementalId = 0
     func createGeofences(locations: [CLLocation]) {
         currentLocationsBeingGeofenced = locations
+        
+        var geofenceIncrementalId = 0
         for location in locations {
             let geofence = CLCircularRegion(center: location.coordinate, radius: 100, identifier: geofenceIncrementalId.description)
             geofence.notifyOnEntry = true
@@ -94,12 +96,10 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
-            guard let delegate = self.delegate else {
-                return
-            }
-            
             if let geofenceId = Int(region.identifier) {
-                delegate.onDidEnterGeofence?(location: currentLocationsBeingGeofenced[geofenceId])
+                for delegate in delegates {
+                    delegate.onDidEnterGeofence?(identifier: geofenceId, location: currentLocationsBeingGeofenced[geofenceId])
+                }
             }
         }
     }
