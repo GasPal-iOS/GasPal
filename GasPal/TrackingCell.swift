@@ -25,8 +25,7 @@ class TrackingCell: UITableViewCell {
             }
             if let odometer = tracking.odometerEnd {
                 let formatter = NumberFormatter()
-                formatter.usesGroupingSeparator = true
-                formatter.groupingSeparator = ","
+                formatter.numberStyle = .decimal
                 odometerLabel.text = formatter.string(for: odometer)
             }
             if let gallons = tracking.gallons {
