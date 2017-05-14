@@ -68,10 +68,10 @@ class Header: UIView {
     }
     
     func initCameraIcon() {
-        let cameraIcon = UIButton(frame: CGRect(x: 270, y: 24, width: 40, height: 25))
+        let cameraIcon = UIButton(frame: CGRect(x: 270, y: 20, width: 32, height: 32))
         cameraIcon.addTarget(self, action: #selector(onCameraTap), for: .touchUpInside)
         //cameraIcon.backgroundColor = UIColor.white
-        if let image = UIImage(named: "icon-camera.png") {
+        if let image = UIImage(named: "icon-camera") {
             cameraIcon.setImage(image, for: UIControlState.normal)
         }
 
@@ -79,9 +79,9 @@ class Header: UIView {
     }
     
     func initAddIcon() {
-        let addIcon = UIButton(frame: CGRect(x: 320, y: 26, width: 35, height: 20))
+        let addIcon = UIButton(frame: CGRect(x: 320, y: 24, width: 24, height: 24))
         addIcon.addTarget(self, action: #selector(onAddTap), for: .touchUpInside)
-        if let image = UIImage(named: "edit.png") {
+        if let image = UIImage(named: "icon-add") {
             addIcon.setImage(image, for: UIControlState.normal)
         }
         
@@ -89,9 +89,9 @@ class Header: UIView {
     }
     
     func initLogoutButton() {
-        let logoutButton = UIButton(frame: CGRect(x: 20, y: 28, width: 35, height: 20))
+        let logoutButton = UIButton(frame: CGRect(x: 20, y: 26, width: 20, height: 20))
         logoutButton.addTarget(self, action: #selector(onLogoutTap), for: .touchUpInside)
-        if let image = UIImage(named: "logout.png") {
+        if let image = UIImage(named: "logout") {
             logoutButton.setImage(image, for: UIControlState.normal)
         }
 
