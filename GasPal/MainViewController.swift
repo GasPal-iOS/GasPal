@@ -103,10 +103,31 @@ UINavigationControllerDelegate, LocationServiceDelegate {
     
     func onLocationChange(location: CLLocation) {
         print("location: ", location)
+        let ll = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        FourSquareClient.sharedInstance.fetchLocations("Gas stations", ll: ll, limit: 10, llAcc: 500.0, success: { (results: [NSDictionary]) in
+            // Geofence nearby gas stations to send user a push notification when they come within range
+            var geofenceLocations = [CLLocation]()
+            for station in results {
+                let location = station["location"] as? NSDictionary
+                let latitude = location?["lat"] as? CLLocationDegrees
+                let longitude = location?["lng"] as? CLLocationDegrees
+                if let latitude = latitude, let longitude = longitude {
+                    let cllocation = CLLocation(latitude: latitude, longitude: longitude)
+                    geofenceLocations.append(cllocation)
+                }
+            }
+            LocationService.sharedInstance.createGeofences(locations: geofenceLocations)
+        }) { (error: Error) in
+            
+        }
     }
     
     func onLocationChangeError(error: Error) {
         print("location error: ", error.localizedDescription)
+    }
+    
+    func onDidEnterGeofence(location: CLLocation) {
+        
     }
 
     /*

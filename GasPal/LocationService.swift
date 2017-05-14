@@ -9,9 +9,10 @@
 import UIKit
 import CoreLocation
 
-protocol LocationServiceDelegate: class {
+@objc protocol LocationServiceDelegate: class {
     func onLocationChange(location: CLLocation)
     func onLocationChangeError(error: Error)
+    @objc optional func onDidEnterGeofence(location: CLLocation)
 }
 
 class LocationService: NSObject, CLLocationManagerDelegate {
@@ -20,6 +21,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
+    var currentLocationsBeingGeofenced: [CLLocation] = []
     weak var delegate: LocationServiceDelegate?
 
     override init()  {
@@ -77,6 +79,33 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         }
         
         delegate.onLocationChangeError(error: error)
+    }
+    
+    private var geofenceIncrementalId = 0
+    func createGeofences(locations: [CLLocation]) {
+        currentLocationsBeingGeofenced = locations
+        for location in locations {
+            let geofence = CLCircularRegion(center: location.coordinate, radius: 100, identifier: geofenceIncrementalId.description)
+            geofence.notifyOnEntry = true
+            locationManager.startMonitoring(for: geofence)
+            geofenceIncrementalId = geofenceIncrementalId + 1
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            guard let delegate = self.delegate else {
+                return
+            }
+            
+            if let geofenceId = Int(region.identifier) {
+                delegate.onDidEnterGeofence?(location: currentLocationsBeingGeofenced[geofenceId])
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print("Monitoring failed for region with identifier: \(region!.identifier)")
     }
 
 }

@@ -42,7 +42,7 @@
 		A00437ED1EB3E036007446B6 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437EC1EB3E036007446B6 /* ServiceModel.swift */; };
 		A00437EF1EB3E5F9007446B6 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437EE1EB3E5F9007446B6 /* ParseClient.swift */; };
 		A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F01EB3E60C007446B6 /* OCRClient.swift */; };
-		A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */; };
+		A00437F31EB3E61A007446B6 /* FourSquareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00437F21EB3E61A007446B6 /* FourSquareClient.swift */; };
 		A00CED221EC6EC8900E8B3F0 /* GasPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */; };
 		A08F339E1EB6B93700B785FA /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08F339D1EB6B93700B785FA /* ProfileView.xib */; };
 		A08F33A01EB6BA8800B785FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F339F1EB6BA8800B785FA /* ProfileView.swift */; };
@@ -86,7 +86,7 @@
 		A00437EC1EB3E036007446B6 /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		A00437EE1EB3E5F9007446B6 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		A00437F01EB3E60C007446B6 /* OCRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRClient.swift; sourceTree = "<group>"; };
-		A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasFeedApiClient.swift; sourceTree = "<group>"; };
+		A00437F21EB3E61A007446B6 /* FourSquareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourSquareClient.swift; sourceTree = "<group>"; };
 		A00CED211EC6EC8900E8B3F0 /* GasPriceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPriceModel.swift; sourceTree = "<group>"; };
 		A08F339D1EB6B93700B785FA /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		A08F339F1EB6BA8800B785FA /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			children = (
 				A00437EE1EB3E5F9007446B6 /* ParseClient.swift */,
 				A00437F01EB3E60C007446B6 /* OCRClient.swift */,
-				A00437F21EB3E61A007446B6 /* GasFeedApiClient.swift */,
+				A00437F21EB3E61A007446B6 /* FourSquareClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -417,7 +417,7 @@
 				A00437EB1EB3E028007446B6 /* TrackingModel.swift in Sources */,
 				4A4A44BB1EB6995400AFFB65 /* VehicleTableCell.swift in Sources */,
 				4ACD53EA1EBEAE8D00FB469E /* VehicleDetailViewController.swift in Sources */,
-				A00437F31EB3E61A007446B6 /* GasFeedApiClient.swift in Sources */,
+				A00437F31EB3E61A007446B6 /* FourSquareClient.swift in Sources */,
 				A00437F11EB3E60C007446B6 /* OCRClient.swift in Sources */,
 				A00437DD1EB3DBA1007446B6 /* TrackingViewController.swift in Sources */,
 				60A551581EBE554E008FC472 /* TrackingDetailViewController.swift in Sources */,
