@@ -62,6 +62,8 @@ class Header: UIView {
         let nib = UINib(nibName: "Header", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
+        contentView.layer.borderWidth = 0.3
+        contentView.layer.borderColor = UIColor.gray.cgColor
         addSubview(contentView)
         
         headerTitleLabel.text = title
