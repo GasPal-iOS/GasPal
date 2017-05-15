@@ -31,7 +31,7 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         if let service = service {
             if let date = service.serviceDate {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "MMM dd, YYYY"
+                formatter.dateFormat = "MM/dd/YY"
                 dateTextField.text = formatter.string(from: date)
             }
             if let price = service.price {
