@@ -98,7 +98,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         nameMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:4))
         fullNameLabel.attributedText = nameMutableString
         
-        var addressString = "201"
+        var addressString = "Address 201"
         if let _address = loggedInUser.address {
             // addressLabel.text = "Address: " + _address
             addressString = "Address " + _address
@@ -120,7 +120,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         licenseNumberLabel.attributedText = licMutableString
         
         
-        var licExpiryString = "12/1/2020"
+        var licExpiryString = "License Expires 12/01/2020"
         if let _licExpiry = loggedInUser.licenseExpiry {
             //licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
             licExpiryString = "License Expires " + dateFormatter.string(from: _licExpiry)
@@ -131,7 +131,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         licenseExpiryLabel.attributedText = licExpMutableString
         
         
-        var dobStr = "12/1/1980"
+        var dobStr = "DOB: 12/1/1980"
         if let _dob = loggedInUser.dateOfBirth {
             //dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
             dobStr = "DOB " + dateFormatter.string(from: _dob)
