@@ -24,7 +24,7 @@ class VehicleViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         print("VehicleViewController")
         
-        headerView.title = "Vehicle"
+        headerView.title = "Vehicles"
         headerView.doShowCameraIcon = true
         headerView.doShowAddIcon = true
         headerView.addIconDelegate = self
