@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 import MapKit
+import Parse
 
 class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServiceDelegate {
 
@@ -268,6 +269,7 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
     }
     
     @IBAction func searchByRestaurants(_ sender: Any) {
+        PFCloud.callFunction(inBackground: "receiptReminder", withParameters: ["text": "Snap a pic of your receipt!"])
         FourSquareClient.overrideId = FourSquareCategoryId.food
         fetchLocations()
     }

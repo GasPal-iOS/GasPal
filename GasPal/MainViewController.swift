@@ -51,6 +51,9 @@ UINavigationControllerDelegate, LocationServiceDelegate {
             
         }
         
+        // Save current user to current installation
+        ParseClient.sharedInstance.linkUserToInstallation()
+        
         // Initialize user's location
         LocationService.sharedInstance.delegates.append(self)
         LocationService.sharedInstance.initialize()

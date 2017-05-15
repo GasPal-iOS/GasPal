@@ -57,6 +57,7 @@
 		4A4A44B41EB57F7D00AFFB65 /* GasPalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasPalNotification.swift; sourceTree = "<group>"; };
 		4A4A44B91EB6995400AFFB65 /* VehicleTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTableCell.swift; sourceTree = "<group>"; };
 		4A4A44BA1EB6995400AFFB65 /* VehicleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleTableCell.xib; sourceTree = "<group>"; };
+		4A755E971EC91E96006E05AE /* GasPal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GasPal.entitlements; sourceTree = "<group>"; };
 		4AC7FB621EA66A60005E2D2E /* GasPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC7FB651EA66A60005E2D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC7FB671EA66A60005E2D2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 		4AC7FB641EA66A60005E2D2E /* GasPal */ = {
 			isa = PBXGroup;
 			children = (
+				4A755E971EC91E96006E05AE /* GasPal.entitlements */,
 				4A4812411EC1956300C653F4 /* Services */,
 				4ACD53F01EBFAA1400FB469E /* Protocols */,
 				4ACD53E51EBD248700FB469E /* Utils */,
@@ -312,6 +314,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = KBLDMTDV5G;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -557,6 +564,7 @@
 			baseConfigurationReference = AA2109D5CC63A041085DB54B /* Pods-GasPal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GasPal/GasPal.entitlements;
 				DEVELOPMENT_TEAM = KBLDMTDV5G;
 				INFOPLIST_FILE = GasPal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -572,6 +580,7 @@
 			baseConfigurationReference = 33873FA7235D252D02DB39F8 /* Pods-GasPal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GasPal/GasPal.entitlements;
 				DEVELOPMENT_TEAM = KBLDMTDV5G;
 				INFOPLIST_FILE = GasPal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

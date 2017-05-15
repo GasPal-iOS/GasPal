@@ -12,6 +12,7 @@ import Parse
 class ParseClient: NSObject {
     
     static let sharedInstance = ParseClient()
+    var currentUser: PFUser?
     var currentProfile: ProfileModel?
     
     override init() {
@@ -39,6 +40,7 @@ class ParseClient: NSObject {
                 failure(error)
             } else {
                 print("signUp; status=success; user=\(user.username!)")
+                self.currentUser = user
                 self.currentProfile = user
                 success(user)
             }
@@ -52,6 +54,7 @@ class ParseClient: NSObject {
                 failure(error)
             } else {
                 print("login; status=success; user=\(user!.username!)")
+                self.currentUser = user
                 self.currentProfile = user as? ProfileModel
                 success(self.currentProfile!)
             }
@@ -323,6 +326,14 @@ class ParseClient: NSObject {
         }) { (error) in
             print("createTestAccount=failure; \(error.localizedDescription)")
             failure(error)
+        }
+    }
+    
+    func linkUserToInstallation() {
+        if let user = currentUser {
+            let installation = PFInstallation.current()
+            installation?.setObject(user, forKey: "user")
+            installation?.saveInBackground()
         }
     }
 }
