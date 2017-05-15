@@ -48,11 +48,11 @@ class VehicleDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onCancelTap(_ sender: Any) {
+    @IBAction func onCancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func onSaveTap(_ sender: Any) {
+    @IBAction func onSaveButton(_ sender: UIBarButtonItem) {
         let valid = validateInputs()
         
         if !valid {
