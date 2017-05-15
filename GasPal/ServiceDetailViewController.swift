@@ -67,11 +67,11 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onCancel(_ sender: UIButton) {
+    @IBAction func onCancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func onSave(_ sender: UIButton) {
+    @IBAction func onSaveButton(_ sender: UIBarButtonItem) {
         if !validateInputs() {
             return
         }
