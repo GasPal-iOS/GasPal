@@ -123,9 +123,6 @@ UINavigationControllerDelegate, LocationServiceDelegate {
                 }
             }
             LocationService.sharedInstance.createGeofences(locations: geofenceLocations)
-            let alert = UIAlertController(title: "Alert", message: "Location change", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
         }) { (error: Error) in
             
         }

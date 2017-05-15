@@ -267,22 +267,6 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         }
         createChart()
     }
-    
-    @IBAction func searchByRestaurants(_ sender: Any) {
-        PFCloud.callFunction(inBackground: "receiptReminder", withParameters: ["text": "Snap a pic of your receipt!"])
-        FourSquareClient.overrideId = FourSquareCategoryId.food
-        fetchLocations()
-    }
-    
-    @IBAction func searchByBars(_ sender: Any) {
-        FourSquareClient.overrideId = FourSquareCategoryId.bar
-        fetchLocations()
-    }
-    
-    @IBAction func searchByGasStations(_ sender: Any) {
-        FourSquareClient.overrideId = FourSquareCategoryId.gasStation
-        fetchLocations()
-    }
 
     /*
     // MARK: - Navigation
