@@ -72,7 +72,9 @@ class Header: UIView {
         cameraIcon.addTarget(self, action: #selector(onCameraTap), for: .touchUpInside)
         //cameraIcon.backgroundColor = UIColor.white
         if let image = UIImage(named: "icon-camera") {
-            cameraIcon.setImage(image, for: UIControlState.normal)
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            cameraIcon.setImage(tintedImage, for: UIControlState.normal)
+            cameraIcon.tintColor = self.tintColor
         }
 
         contentView.addSubview(cameraIcon)
@@ -82,7 +84,9 @@ class Header: UIView {
         let addIcon = UIButton(frame: CGRect(x: 320, y: 24, width: 24, height: 24))
         addIcon.addTarget(self, action: #selector(onAddTap), for: .touchUpInside)
         if let image = UIImage(named: "icon-add") {
-            addIcon.setImage(image, for: UIControlState.normal)
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            addIcon.setImage(tintedImage, for: UIControlState.normal)
+            addIcon.tintColor = self.tintColor
         }
         
         contentView.addSubview(addIcon)
@@ -92,7 +96,9 @@ class Header: UIView {
         let logoutButton = UIButton(frame: CGRect(x: 20, y: 26, width: 20, height: 20))
         logoutButton.addTarget(self, action: #selector(onLogoutTap), for: .touchUpInside)
         if let image = UIImage(named: "logout") {
-            logoutButton.setImage(image, for: UIControlState.normal)
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            logoutButton.setImage(tintedImage, for: UIControlState.normal)
+            logoutButton.tintColor = self.tintColor
         }
 
         contentView.addSubview(logoutButton)
