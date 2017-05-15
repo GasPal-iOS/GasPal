@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Tab bar appearance
-        UITabBar.appearance().backgroundColor = UIColor.white
-        UITabBar.appearance().tintColor = UIColor.blue
+//        UITabBar.appearance().backgroundColor = UIColor.white
+//        UITabBar.appearance().tintColor = UIColor.blue
         
         // Initialize Tesseract
         OCRClient.initializeTesseract()
