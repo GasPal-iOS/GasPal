@@ -18,7 +18,9 @@ class VehicleTableCell: UITableViewCell {
         didSet {
             vehicleInfoLabel.text = vehicle.getVehicleInfo()
             let totalMileage = vehicle.calculateTotalMileage()
-            mileageTotalLabel.text = totalMileage.description
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            mileageTotalLabel.text = formatter.string(for: totalMileage)
             vinLabel.text = vehicle.vin
         }
     }

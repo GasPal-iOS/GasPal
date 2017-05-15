@@ -1,67 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehicleTableCell" customModule="GasPal" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VehicleTableCell" rowHeight="98" id="KGk-i7-Jjw" customClass="VehicleTableCell" customModule="GasPal" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VehicleTableCell" rowHeight="80" id="KGk-i7-Jjw" customClass="VehicleTableCell" customModule="GasPal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mileage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3c-NL-ULN">
-                        <rect key="frame" x="8" y="37" width="60" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3c-NL-ULN">
+                        <rect key="frame" x="282" y="24.5" width="30" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElF-r8-hoy">
-                        <rect key="frame" x="8" y="66" width="28" height="21"/>
+                        <rect key="frame" x="8" y="45" width="20.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1FMDK06W89GA52368" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1M-7E-WDA">
+                        <rect key="frame" x="32.5" y="44.5" width="136" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2011 Audi A3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaw-Rk-s3K">
+                        <rect key="frame" x="8" y="20" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VINValue" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1M-7E-WDA">
-                        <rect key="frame" x="242" y="66" width="70" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaw-Rk-s3K">
-                        <rect key="frame" x="8" y="8" width="304" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MileageValue" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-CL-DhJ">
-                        <rect key="frame" x="211" y="37" width="101" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33,500" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-CL-DhJ">
+                        <rect key="frame" x="223" y="20" width="55" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="Uaw-Rk-s3K" secondAttribute="trailing" id="2kV-1T-Lvt"/>
-                    <constraint firstItem="Uaw-Rk-s3K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="3i8-bs-fwd"/>
-                    <constraint firstItem="m3c-NL-ULN" firstAttribute="top" secondItem="Uaw-Rk-s3K" secondAttribute="bottom" constant="8" id="5cO-vP-BKz"/>
-                    <constraint firstItem="ElF-r8-hoy" firstAttribute="top" secondItem="m3c-NL-ULN" secondAttribute="bottom" constant="8" id="8g7-Dg-kR4"/>
-                    <constraint firstItem="O1M-7E-WDA" firstAttribute="top" secondItem="Crd-CL-DhJ" secondAttribute="bottom" constant="8" id="Jtc-hP-bsd"/>
-                    <constraint firstAttribute="trailing" secondItem="O1M-7E-WDA" secondAttribute="trailing" constant="8" id="QBu-6m-F3Z"/>
-                    <constraint firstAttribute="trailing" secondItem="Crd-CL-DhJ" secondAttribute="trailing" constant="8" id="YKh-BY-3zA"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ElF-r8-hoy" secondAttribute="bottom" constant="10" id="Zgp-6l-TkP"/>
-                    <constraint firstItem="m3c-NL-ULN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aTK-UH-yH8"/>
-                    <constraint firstItem="ElF-r8-hoy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lxD-zZ-nLn"/>
-                    <constraint firstItem="Uaw-Rk-s3K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mYi-b0-wrk"/>
-                    <constraint firstItem="Crd-CL-DhJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="vIv-VO-pKN"/>
+                    <constraint firstItem="O1M-7E-WDA" firstAttribute="bottom" secondItem="ElF-r8-hoy" secondAttribute="bottom" id="5Bq-Hg-byY"/>
+                    <constraint firstItem="ElF-r8-hoy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BNJ-Pb-yFb"/>
+                    <constraint firstItem="ElF-r8-hoy" firstAttribute="top" secondItem="Uaw-Rk-s3K" secondAttribute="bottom" constant="4" id="CHP-Vq-6Ut"/>
+                    <constraint firstItem="Uaw-Rk-s3K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Cdv-Cu-ar1"/>
+                    <constraint firstItem="Crd-CL-DhJ" firstAttribute="baseline" secondItem="Uaw-Rk-s3K" secondAttribute="baseline" id="KPg-vs-MJO"/>
+                    <constraint firstItem="Uaw-Rk-s3K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="TGc-K3-sss"/>
+                    <constraint firstItem="O1M-7E-WDA" firstAttribute="leading" secondItem="ElF-r8-hoy" secondAttribute="trailing" constant="4" id="jgA-UN-HKZ"/>
+                    <constraint firstAttribute="bottom" secondItem="ElF-r8-hoy" secondAttribute="bottom" constant="20" id="pZX-C7-ZiD"/>
+                    <constraint firstItem="m3c-NL-ULN" firstAttribute="baseline" secondItem="Uaw-Rk-s3K" secondAttribute="baseline" id="sD2-Ta-uBn"/>
+                    <constraint firstAttribute="trailing" secondItem="m3c-NL-ULN" secondAttribute="trailing" constant="8" id="smr-uL-pMo"/>
+                    <constraint firstItem="m3c-NL-ULN" firstAttribute="leading" secondItem="Crd-CL-DhJ" secondAttribute="trailing" constant="4" id="uSj-f6-Mib"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -69,7 +67,7 @@
                 <outlet property="vehicleInfoLabel" destination="Uaw-Rk-s3K" id="bPp-2u-4Wd"/>
                 <outlet property="vinLabel" destination="O1M-7E-WDA" id="ygz-NH-G5o"/>
             </connections>
-            <point key="canvasLocation" x="130" y="81"/>
+            <point key="canvasLocation" x="130" y="72"/>
         </tableViewCell>
     </objects>
 </document>
