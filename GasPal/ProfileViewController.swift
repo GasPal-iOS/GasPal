@@ -53,6 +53,8 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         } else {
             driverProfileImage.image = nil
         }
+
+        setRounded()
         
         // save it
         let loggedInUser = ParseClient.sharedInstance.currentProfile!
@@ -88,7 +90,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         var nameString = "Jack"
         if let _firstName = loggedInUser.firstName {
             nameString = "Name: " + _firstName
-            if let _lastName = loggedInUser.lastName {
+            if loggedInUser.lastName != nil {
                 nameString = "Name " + loggedInUser.firstName! + " " + loggedInUser.lastName!
             }
         }
@@ -147,6 +149,7 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
                 let image = UIImage(data: imageData!)
                 if image != nil {
                     self.driverProfileImage.image = image
+                    self.setRounded()
                 }
             })
         }
@@ -173,6 +176,14 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setRounded() {
+        driverProfileImage.layer.borderWidth = 0.3
+        driverProfileImage.layer.masksToBounds = false
+        driverProfileImage.layer.borderColor = UIColor.gray.cgColor
+        driverProfileImage.layer.cornerRadius = driverProfileImage.frame.height/2
+        driverProfileImage.clipsToBounds = true
     }
     
     func onImageCaptured(capturedImage: UIImage) {

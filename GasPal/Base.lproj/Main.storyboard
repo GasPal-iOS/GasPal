@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b6R-Bg-vLl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b6R-Bg-vLl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -253,11 +253,12 @@
                                     <constraint firstAttribute="height" constant="70" id="uej-sW-PFZ"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pu4-eh-A3L">
-                                <rect key="frame" x="0.0" y="78" width="142" height="125"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pu4-eh-A3L">
+                                <rect key="frame" x="0.0" y="78" width="125" height="125"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="N3t-DP-OsD"/>
+                                    <constraint firstAttribute="height" constant="125" id="Ddg-kP-Zic"/>
+                                    <constraint firstAttribute="width" constant="125" id="pcq-2F-OgP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: Diwakar Kumawat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlS-YD-ymO">
@@ -305,6 +306,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nHs-zu-EwF" firstAttribute="top" secondItem="lNa-t3-Xxz" secondAttribute="bottom" constant="9" id="0bQ-TC-Dbh"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="top" secondItem="jjw-Fa-2LA" secondAttribute="bottom" constant="8" symbolic="YES" id="0fe-GC-3Fl"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="leading" secondItem="jjw-Fa-2LA" secondAttribute="leading" id="0nV-vx-VmB"/>
                             <constraint firstItem="H0d-sO-Ak9" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leadingMargin" constant="36" id="2f8-vv-Nw4"/>
                             <constraint firstItem="lNa-t3-Xxz" firstAttribute="top" secondItem="jlS-YD-ymO" secondAttribute="bottom" constant="4" id="40T-2w-2qu"/>
                             <constraint firstItem="vlF-5x-w2k" firstAttribute="top" secondItem="3s0-aT-U8e" secondAttribute="bottom" constant="8" symbolic="YES" id="7tv-8x-33J"/>
@@ -313,16 +316,13 @@
                             <constraint firstItem="xRq-MI-xZp" firstAttribute="top" secondItem="H0d-sO-Ak9" secondAttribute="bottom" constant="101" id="Hn6-bp-Olg"/>
                             <constraint firstItem="jjw-Fa-2LA" firstAttribute="leading" secondItem="22b-qs-yZa" secondAttribute="leading" id="Jdc-nF-opL"/>
                             <constraint firstItem="H0d-sO-Ak9" firstAttribute="centerX" secondItem="jjw-Fa-2LA" secondAttribute="centerX" id="Kyx-pe-BVr"/>
-                            <constraint firstItem="pu4-eh-A3L" firstAttribute="top" secondItem="jjw-Fa-2LA" secondAttribute="bottom" constant="8" symbolic="YES" id="OLH-7f-fgf"/>
                             <constraint firstItem="3s0-aT-U8e" firstAttribute="leading" secondItem="nHs-zu-EwF" secondAttribute="leading" id="PlK-yY-Ycs"/>
-                            <constraint firstItem="jlS-YD-ymO" firstAttribute="top" secondItem="pu4-eh-A3L" secondAttribute="top" id="aD3-73-yLZ"/>
                             <constraint firstItem="vlF-5x-w2k" firstAttribute="leading" secondItem="3s0-aT-U8e" secondAttribute="leading" id="b6B-Eg-PMi"/>
-                            <constraint firstItem="xRq-MI-xZp" firstAttribute="top" secondItem="pu4-eh-A3L" secondAttribute="bottom" constant="415" id="gFG-7B-lrg"/>
                             <constraint firstAttribute="trailing" secondItem="jjw-Fa-2LA" secondAttribute="trailing" id="i4D-jD-OnY"/>
                             <constraint firstItem="3s0-aT-U8e" firstAttribute="top" secondItem="nHs-zu-EwF" secondAttribute="bottom" constant="4" id="isl-ce-Iab"/>
-                            <constraint firstItem="vlF-5x-w2k" firstAttribute="leading" secondItem="pu4-eh-A3L" secondAttribute="trailing" constant="13" id="lMH-Ta-V4O"/>
-                            <constraint firstItem="pu4-eh-A3L" firstAttribute="leading" secondItem="jjw-Fa-2LA" secondAttribute="leading" id="pts-1c-bcn"/>
+                            <constraint firstItem="vlF-5x-w2k" firstAttribute="leading" secondItem="pu4-eh-A3L" secondAttribute="trailing" constant="30" id="rTF-H5-a9k"/>
                             <constraint firstItem="lNa-t3-Xxz" firstAttribute="leading" secondItem="jlS-YD-ymO" secondAttribute="leading" id="tfp-eX-EIy"/>
+                            <constraint firstItem="pu4-eh-A3L" firstAttribute="top" secondItem="jlS-YD-ymO" secondAttribute="top" id="wWv-ZS-dae"/>
                             <constraint firstItem="nHs-zu-EwF" firstAttribute="leading" secondItem="lNa-t3-Xxz" secondAttribute="leading" id="yF1-tV-vM5"/>
                         </constraints>
                     </view>
