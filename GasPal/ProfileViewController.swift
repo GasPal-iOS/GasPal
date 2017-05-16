@@ -68,6 +68,86 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         
     }
     
+    //func greet(firstName: String, lastName: String, address: String, dl: String, dob: String, exp: String, licensePic: PFFile, profilePic: PFFile) {
+    func greet(profileModel: ProfileModel) {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        // profile model
+        driverProfileImage.image = UIImage(named: "ryan.png")
+        if let _firstName = profileModel.firstName {
+            fullNameLabel.text = _firstName
+            if let _lastName = profileModel.lastName {
+                fullNameLabel.text = _firstName + " " + _lastName
+            }
+        }
+        
+        var addrString = "123 Main St. Mountain View, CA"
+        if let _address = profileModel.address {
+            //addressLabel.text =  _address
+            addrString = _address
+        }
+        var licAddressString = NSMutableAttributedString()
+        licAddressString = NSMutableAttributedString(string: addrString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 12.0)!])
+        licAddressString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:0))
+        addressLabel.attributedText = licAddressString
+        
+        
+        var licString = "LIC123456"
+        if let _license = profileModel.driverLicenseNumber {
+            licString = "dl " + _license
+        }
+        
+        var licMutableString = NSMutableAttributedString()
+        licMutableString = NSMutableAttributedString(string: licString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        licMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:2))
+        licenseNumberLabel.attributedText = licMutableString
+        
+        var licExpiryString = "exp 12/01/2020"
+        if let _licExpiry = profileModel.licenseExpiry {
+            //licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
+            licExpiryString = "exp " + dateFormatter.string(from: _licExpiry)
+        }
+        
+        var licExpMutableString = NSMutableAttributedString()
+        licExpMutableString = NSMutableAttributedString(string: licExpiryString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        licExpMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:3))
+        licenseExpiryLabel.attributedText = licExpMutableString
+        
+        var dobStr = "dob 12/1/1980"
+        if let _dob = profileModel.dateOfBirth {
+            //dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
+            dobStr = "dob " + dateFormatter.string(from: _dob)
+        }
+        
+        var dobMutableString = NSMutableAttributedString()
+        dobMutableString = NSMutableAttributedString(string: dobStr as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
+        dobMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:3))
+        dobLabel.attributedText = dobMutableString
+
+        if let userPicture = profileModel.driverImage {
+            userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    self.driverProfileImage.image = image
+                    self.setRounded()
+                }
+            })
+        }
+        
+        // set the DL image
+        dlImage.image = UIImage(named: "drivers-license.png")
+        if let dlPic = profileModel.dlImage {
+            dlPic.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                let image = UIImage(data: imageData!)
+                if image != nil {
+                    self.dlImage.image = image
+                }
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewController")
@@ -83,92 +163,14 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         
         // Get the logged in User
         let loggedInUser = ParseClient.sharedInstance.currentProfile!
-        
-        // profile model
-        driverProfileImage.image = UIImage(named: "ryan.png")
-        if let _firstName = loggedInUser.firstName {
-            fullNameLabel.text =  _firstName
-            if let _lastName = loggedInUser.lastName {
-                fullNameLabel.text = loggedInUser.firstName! + " " + loggedInUser.lastName!
-            }
-        }
-        
-        if let _address = loggedInUser.address {
-            addressLabel.text =  _address
-        }
-        
-        
-        
-//        if let _license = loggedInUser.driverLicenseNumber {
-//            licenseNumberLabel.text =  _license
-//        }
-        
-        var licString = "LIC123456"
-        if let _license = loggedInUser.driverLicenseNumber {
-            licString = "dl " + _license
-        }
-        
-        var licMutableString = NSMutableAttributedString()
-        licMutableString = NSMutableAttributedString(string: licString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        licMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:0))
-        licenseNumberLabel.attributedText = licMutableString
-        
-//        if let _licExpiry = loggedInUser.licenseExpiry {
-//            licenseExpiryLabel.text = dateFormatter.string(from: _licExpiry)
-//        }
-        
-        var licExpiryString = "exp 12/01/2020"
-        if let _licExpiry = loggedInUser.licenseExpiry {
-            //licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
-            licExpiryString = "exp " + dateFormatter.string(from: _licExpiry)
-        }
-        var licExpMutableString = NSMutableAttributedString()
-        licExpMutableString = NSMutableAttributedString(string: licExpiryString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        licExpMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:3))
-        licenseExpiryLabel.attributedText = licExpMutableString
-        
-//        if let _dob = loggedInUser.dateOfBirth {
-//            dobLabel.text = dateFormatter.string(from: _dob)
-//        }
-        
-        var dobStr = "dob 12/1/1980"
-        if let _dob = loggedInUser.dateOfBirth {
-            //dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
-            dobStr = "dob " + dateFormatter.string(from: _dob)
-        }
-        var dobMutableString = NSMutableAttributedString()
-        dobMutableString = NSMutableAttributedString(string: dobStr as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        dobMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:3))
-        dobLabel.attributedText = dobMutableString
-        
-        // set the profile image
-        if let userPicture = loggedInUser.driverImage {
-            userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
-                let image = UIImage(data: imageData!)
-                if image != nil {
-                    self.driverProfileImage.image = image
-                    self.setRounded()
-                }
-            })
-        }
-        
-        // set the DL image
-        if let dlPic = loggedInUser.dlImage {
-            dlPic.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
-                let image = UIImage(data: imageData!)
-                if image != nil {
-                    self.dlImage.image = image
-                }
-            })
-        }
-        
+
+        greet(profileModel: loggedInUser)
         
         // tap gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         
         driverProfileImage.isUserInteractionEnabled = true
         driverProfileImage.addGestureRecognizer(tapGestureRecognizer)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -292,11 +294,14 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
             })
             
             // update UI
-            self.fullNameLabel.text = "Name: " + firstName + " " + lastName
-            self.addressLabel.text = "Address: " + addrLine1 + addrLine2
-            self.licenseNumberLabel.text = "DL: " + dlStr
-            self.licenseExpiryLabel.text = "Expires: " + licenseExpiry
-            self.dobLabel.text = "DOB: " + dobStr
+            /*
+            self.fullNameLabel.text = firstName + " " + lastName
+            self.addressLabel.text = addrLine1 + addrLine2
+            self.licenseNumberLabel.text = "dl " + dlStr
+            self.licenseExpiryLabel.text = "exp " + licenseExpiry
+            self.dobLabel.text = "dob " + dobStr
+            */
+            self.greet(profileModel: loggedInUser)
             
             self.updateViewConstraints()
             
