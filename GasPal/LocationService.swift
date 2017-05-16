@@ -35,6 +35,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             locationManager.requestAlwaysAuthorization()
         }
         
+        locationManager.allowsBackgroundLocationUpdates = true
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 100 // The minimum distance (measured in meters) a device must move horizontally before an update
         locationManager.delegate = self
@@ -88,15 +90,17 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         
         var geofenceIncrementalId = 0
         for location in locations {
-            print("a location", location)
-            let geofence = CLCircularRegion(center: location.coordinate, radius: 100, identifier: geofenceIncrementalId.description)
+            let geofence = CLCircularRegion(center: location.coordinate, radius: 1000, identifier: geofenceIncrementalId.description)
             geofence.notifyOnEntry = true
             locationManager.startMonitoring(for: geofence)
             geofenceIncrementalId = geofenceIncrementalId + 1
         }
+        
+        print("created geofences")
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print("did enter region?")
         if region is CLCircularRegion {
             if let geofenceId = Int(region.identifier) {
                 for delegate in delegates {

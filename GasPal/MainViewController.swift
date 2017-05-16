@@ -106,14 +106,12 @@ UINavigationControllerDelegate, LocationServiceDelegate {
     }
     
     func onLocationChange(location: CLLocation) {
-        print("location: ", location)
         let ll = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
         FourSquareClient.sharedInstance.fetchLocations(.gasStation, ll: ll, limit: 20, radius: 200.0, success: { (results: [NSDictionary]) in
             self.gasStationsNearby = results
             // Geofence nearby gas stations to send user a push notification when they come within range
             var geofenceLocations = [CLLocation]()
             for station in results {
-                print(station["name"])
                 let location = station["location"] as? NSDictionary
                 let latitude = location?["lat"] as? CLLocationDegrees
                 let longitude = location?["lng"] as? CLLocationDegrees
@@ -133,11 +131,11 @@ UINavigationControllerDelegate, LocationServiceDelegate {
     }
     
     func onDidEnterGeofence(identifier: Int, location: CLLocation) {
+        print("did enter geofence")
         let gasStation = gasStationsNearby[identifier]
         if let gasStationName = gasStation["name"] as? String {
-            let alert = UIAlertController(title: "Alert", message: "You entered the geofence for \(gasStationName)", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let pushText = "Filling up at \(gasStationName)? Don't forget to take a picture of your receipt!"
+            ParseClient.sharedInstance.sendReceiptReminderPush(pushText: pushText)
         }
     }
     

@@ -55,23 +55,21 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
     }
     
     func onLocationChange(location: CLLocation) {
-        print("location: ", location)
         
 //        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
 //                                              MKCoordinateSpanMake(0.1, 0.1))
         
         let sfRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1))
         
-        mapView.setRegion(sfRegion, animated: false)
+        mapView.setRegion(sfRegion, animated: true)
         
-        print("set the location")
         fetchLocations()
     }
     
     func fetchLocations() {
         let location = LocationService.sharedInstance.currentLocation!
         let ll = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-        FourSquareClient.sharedInstance.fetchLocations(FourSquareCategoryId.gasStation, ll: ll, limit: 20, radius: 200.0, success: { (results: [NSDictionary]) in
+        FourSquareClient.sharedInstance.fetchLocations(.gasStation, ll: ll, limit: 20, radius: 200.0, success: { (results: [NSDictionary]) in
             self.results = results
             
             var gasAnnotations: [MKPointAnnotation] = []
@@ -79,7 +77,6 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
             var count = 0;
             while count < 20 {
                 let venue = self.results[count]
-                print(venue["name"])
                 let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
                 let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
                 var city: NSString?
@@ -124,7 +121,6 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
             pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             pin!.pinTintColor = UIColor.blue
 
-            print(annotation.title!)
             pin!.canShowCallout = true
             //pin!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             

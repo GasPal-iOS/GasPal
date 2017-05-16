@@ -246,7 +246,6 @@ class ParseClient: NSObject {
             } else {
                 //let vehicles = VehicleModel.toArray(objects: results)
                 let gasPM = GasPriceModel.toModel(objects: results)
-                print("getFuelPrice; status=success;")
                 success(gasPM)
             }
         }
@@ -335,5 +334,10 @@ class ParseClient: NSObject {
             installation?.setObject(user, forKey: "user")
             installation?.saveInBackground()
         }
+    }
+    
+    func sendReceiptReminderPush(pushText: String) {
+        print("sending push")
+        PFCloud.callFunction(inBackground: "receiptReminder", withParameters: ["text": pushText])
     }
 }
