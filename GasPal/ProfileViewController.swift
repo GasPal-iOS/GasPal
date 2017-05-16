@@ -146,6 +146,8 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
                 }
             })
         }
+        
+        setRounded()
     }
     
     override func viewDidLoad() {
@@ -293,14 +295,6 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
                 print("error saving profile model")
             })
             
-            // update UI
-            /*
-            self.fullNameLabel.text = firstName + " " + lastName
-            self.addressLabel.text = addrLine1 + addrLine2
-            self.licenseNumberLabel.text = "dl " + dlStr
-            self.licenseExpiryLabel.text = "exp " + licenseExpiry
-            self.dobLabel.text = "dob " + dobStr
-            */
             self.greet(profileModel: loggedInUser)
             
             self.updateViewConstraints()
