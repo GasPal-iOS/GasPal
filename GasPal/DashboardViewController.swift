@@ -119,7 +119,7 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         var pin = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
         if pin == nil {
             pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            pin!.pinTintColor = UIColor.blue
+            pin!.pinTintColor = UIColor.init(red: 0.2, green: 0.6, blue: 1.0, alpha: 1.0)
 
             pin!.canShowCallout = true
             //pin!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
