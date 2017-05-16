@@ -75,7 +75,7 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
             var gasAnnotations: [MKPointAnnotation] = []
             
             var count = 0;
-            while count < 20 {
+            while count < results.count {
                 let venue = self.results[count]
                 let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
                 let lng = venue.value(forKeyPath: "location.lng") as! NSNumber

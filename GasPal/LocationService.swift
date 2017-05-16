@@ -90,7 +90,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         
         var geofenceIncrementalId = 0
         for location in locations {
-            let geofence = CLCircularRegion(center: location.coordinate, radius: 1000, identifier: geofenceIncrementalId.description)
+            let geofence = CLCircularRegion(center: location.coordinate, radius: 100, identifier: geofenceIncrementalId.description)
             geofence.notifyOnEntry = true
             locationManager.startMonitoring(for: geofence)
             geofenceIncrementalId = geofenceIncrementalId + 1
