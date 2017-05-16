@@ -17,7 +17,7 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
     @IBOutlet weak var mpgChartView: LineChartView!
     @IBOutlet weak var mpgFilterSegmentedControl: UISegmentedControl!
     
-    var lineChartColors: [UIColor] = [UIColor.blue, UIColor.red, UIColor.yellow]
+    var lineChartColors: [UIColor] = [UIColor.init(red: 1.0, green: 0.369, blue: 0.369, alpha: 1.0), UIColor.init(red: 0.2, green: 0.6, blue: 1.0, alpha: 1.0), UIColor.init(red: 1.0, green: 0.716, blue: 0.007, alpha: 1.0)]
     
     var vehicles: [VehicleModel]!
     var selectedVehicleIndexes: [Int] = [Int]() // The vehicles user is including in chart
