@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LogoutDelegate {
-//, AddIconDelegate {
     
     @IBOutlet weak var headerView: Header!
     
@@ -87,60 +86,59 @@ class ProfileViewController: UIViewController, ImageCaptureDelegate, UIImagePick
         
         // profile model
         driverProfileImage.image = UIImage(named: "ryan.png")
-        var nameString = "Jack"
         if let _firstName = loggedInUser.firstName {
-            nameString = "Name: " + _firstName
-            if loggedInUser.lastName != nil {
-                nameString = "Name " + loggedInUser.firstName! + " " + loggedInUser.lastName!
+            fullNameLabel.text =  _firstName
+            if let _lastName = loggedInUser.lastName {
+                fullNameLabel.text = loggedInUser.firstName! + " " + loggedInUser.lastName!
             }
         }
         
-        var nameMutableString = NSMutableAttributedString()
-        nameMutableString = NSMutableAttributedString(string: nameString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        nameMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:4))
-        fullNameLabel.attributedText = nameMutableString
-        
-        var addressString = "Address 201"
         if let _address = loggedInUser.address {
-            // addressLabel.text = "Address: " + _address
-            addressString = "Address " + _address
+            addressLabel.text =  _address
         }
         
-        var addressMutableString = NSMutableAttributedString()
-        addressMutableString = NSMutableAttributedString(string: addressString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        addressMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:7))
-        addressLabel.attributedText = addressMutableString
+        
+        
+//        if let _license = loggedInUser.driverLicenseNumber {
+//            licenseNumberLabel.text =  _license
+//        }
         
         var licString = "LIC123456"
         if let _license = loggedInUser.driverLicenseNumber {
-            licString = "License " + _license
+            licString = "dl " + _license
         }
         
         var licMutableString = NSMutableAttributedString()
         licMutableString = NSMutableAttributedString(string: licString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        licMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:6))
+        licMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:0))
         licenseNumberLabel.attributedText = licMutableString
         
+//        if let _licExpiry = loggedInUser.licenseExpiry {
+//            licenseExpiryLabel.text = dateFormatter.string(from: _licExpiry)
+//        }
         
-        var licExpiryString = "License Expires 12/01/2020"
+        var licExpiryString = "exp 12/01/2020"
         if let _licExpiry = loggedInUser.licenseExpiry {
             //licenseExpiryLabel.text = "License Expires: " + dateFormatter.string(from: _licExpiry)
-            licExpiryString = "License Expires " + dateFormatter.string(from: _licExpiry)
+            licExpiryString = "exp " + dateFormatter.string(from: _licExpiry)
         }
         var licExpMutableString = NSMutableAttributedString()
         licExpMutableString = NSMutableAttributedString(string: licExpiryString as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        licExpMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:15))
+        licExpMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:3))
         licenseExpiryLabel.attributedText = licExpMutableString
         
+//        if let _dob = loggedInUser.dateOfBirth {
+//            dobLabel.text = dateFormatter.string(from: _dob)
+//        }
         
-        var dobStr = "DOB: 12/1/1980"
+        var dobStr = "dob 12/1/1980"
         if let _dob = loggedInUser.dateOfBirth {
             //dobLabel.text = "DOB: " + dateFormatter.string(from: _dob)
-            dobStr = "DOB " + dateFormatter.string(from: _dob)
+            dobStr = "dob " + dateFormatter.string(from: _dob)
         }
         var dobMutableString = NSMutableAttributedString()
         dobMutableString = NSMutableAttributedString(string: dobStr as String, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!])
-        dobMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: NSRange(location:0, length:3))
+        dobMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location:0, length:3))
         dobLabel.attributedText = dobMutableString
         
         // set the profile image
