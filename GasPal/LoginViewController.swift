@@ -10,14 +10,32 @@ import UIKit
 import Parse
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var toggleLoginButton: UIButton!
+    
     @IBOutlet weak var emailTextbox: UITextField!
     
     @IBOutlet weak var passwordTextbox: UITextField!
     
     @IBOutlet weak var statusLabel: UILabel!
+    
+    var isSigningUp: Bool = false
 
+    // This says "onSignup" but it actually just toggles the toggleLoginButton text now
     @IBAction func onSignup(_ sender: Any) {
+        isSigningUp = !isSigningUp
+        if isSigningUp {
+            loginButton.setTitle("Sign up", for: .normal)
+            toggleLoginButton.setTitle("Login", for: .normal)
+        } else {
+            loginButton.setTitle("Login", for: .normal)
+            toggleLoginButton.setTitle("Sign up", for: .normal)
+        }
+    }
+    
+    func signUp() {
         let user = PFUser()
         user.username = emailTextbox.text
         user.password = passwordTextbox.text
@@ -44,33 +62,17 @@ class LoginViewController: UIViewController {
                 self.statusLabel.text = "User already exists"
             }
         }
-        
-        /*
-        user.signUpInBackground { (success: Bool, error: Error?) in
-            if success == true {
-                print("success signing up")
-                self.statusLabel.text = ""
-                self.performSegue(withIdentifier: "segueToMain", sender: nil)
-            }
-            
-            if error != nil {
-                print("error signing up")
-                print(error!)
-                
-                self.emailTextbox.text = ""
-                self.passwordTextbox.text = ""
-                self.statusLabel.text = "Error signing up"
-                let nsError = error! as NSError
-                if 202 == nsError.code {
-                    self.statusLabel.text = "User already exists"
-                }
-            }
-        }
-        */
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        
+        if isSigningUp {
+            signUp()
+        } else {
+            login()
+        }
+    }
+    
+    func login() {
         ParseClient.sharedInstance.login(email: emailTextbox.text!, password: passwordTextbox.text!, success: { (profile) in
             print("login=success; userId=\(profile.objectId!)")
             self.statusLabel.text = ""
@@ -97,6 +99,8 @@ class LoginViewController: UIViewController {
         emailTextbox.text = defaults.string(forKey: "username") ?? "gaspaltest+1493707634@gmail.com"
         passwordTextbox.text = "test12"
         self.statusLabel.text = ""
+        loginButton.layer.cornerRadius = 5
+        loginButton.titleLabel?.numberOfLines = 0
     }
 
     override func didReceiveMemoryWarning() {
