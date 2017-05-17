@@ -40,10 +40,13 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         mapView.delegate = self
         
         LocationService.sharedInstance.delegates.append(self)
-                
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Load vehicles to build mpg charts
         ParseClient.sharedInstance.getVehicles(success: { (vehicles: [VehicleModel]) in
             self.vehicles = vehicles
+            self.selectedVehicleIndexes = [Int]()
             for i in 0...vehicles.count - 1 { self.selectedVehicleIndexes.append(i) }
             self.createChart()
             
