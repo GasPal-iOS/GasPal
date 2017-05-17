@@ -31,7 +31,7 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         if let service = service {
             if let date = service.serviceDate {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "MM/dd/YY"
+                formatter.dateFormat = "MM/dd/yy"
                 dateTextField.text = formatter.string(from: date)
             }
             if let price = service.price {
@@ -83,6 +83,11 @@ class ServiceDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
             service?.vehicle = vehicle
         }
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        if let date = formatter.date(from: dateTextField.text!) {
+            service?.serviceDate = date
+        }
         service?.stationName = stationTextField.text!
         service?.serviceDescription = serviceDescriptionTextField.text!
         service?.price = Double(priceTextField.text!)

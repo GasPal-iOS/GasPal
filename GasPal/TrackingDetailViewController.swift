@@ -33,7 +33,7 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
 
             if let date = tracking.date {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "MM/dd/YY"
+                formatter.dateFormat = "MM/dd/yy"
                 dateTextField.text = formatter.string(from: date)
             }
             if let odometer = tracking.odometerEnd {
@@ -98,6 +98,11 @@ class TrackingDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
             tracking?.vehicle = vehicle
         }
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        if let date = formatter.date(from: dateTextField.text!) {
+            tracking?.date = date
+        }
         tracking?.gallons = Double(gallonsTextField.text!)
         tracking?.odometerStart = Int(odometerStartTextField.text!)
         tracking?.odometerEnd = Int(odometerEndTextField.text!)
