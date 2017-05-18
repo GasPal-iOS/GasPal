@@ -35,7 +35,7 @@ class FourSquareClient: NSObject {
         if let overrideId = FourSquareClient.overrideId {
             searchId = overrideId.rawValue
         }
-        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&ll=\(ll)&categoryId=\(searchId)&llAcc=\(radius)&limit=\(limit)"
+        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&ll=37.386051,-122.083855&categoryId=\(searchId)&llAcc=\(radius)&limit=\(limit)"
         fetchLocations(queryString: queryString, success: success, error: error)
     }
     

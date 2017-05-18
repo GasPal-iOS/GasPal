@@ -38,6 +38,8 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
         mpgFilterSegmentedControl.insertSegment(withTitle: TrackingTimelineFilter.allTime.rawValue, at: 3, animated: false)
         
         mapView.delegate = self
+        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.386051, -122.083855), MKCoordinateSpanMake(0.1, 0.1))
+        mapView.setRegion(sfRegion, animated: true)
         
         LocationService.sharedInstance.delegates.append(self)
     }
@@ -66,7 +68,7 @@ class DashboardViewController: UIViewController, MKMapViewDelegate, LocationServ
 //        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
 //                                              MKCoordinateSpanMake(0.1, 0.1))
         
-        let sfRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1))
+        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.386051, -122.083855), MKCoordinateSpanMake(0.1, 0.1))
         
         mapView.setRegion(sfRegion, animated: true)
         

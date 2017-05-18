@@ -77,6 +77,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         for delegate in delegates {
             delegate.onLocationChange(location: currentLocation)
         }
+        print("current location", currentLocation)
     }
     
     private func updateLocationDidFailWithError(error: Error) {
